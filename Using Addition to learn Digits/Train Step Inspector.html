@@ -1,0 +1,321 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Train Step Inspector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a lab bench. Control strip on top, then three stations in the order train_step runs: data -> probabilities -> weights. */
+:root{
+  --bg:#f5f6f4; --panel:#ffffff; --ink:#1d2321; --muted:#5d6762; --line:#dfe3e0;
+  --neural:#2f6fc0; --neural-soft:#e3edf9;
+  --rule:#c8552c; --rule-soft:#f8e7df;
+  --label:#a8710f; --label-soft:#f7ecd6;
+  --hidden:#9a3f62; --hidden-soft:#f5e3ea;
+  --update:#1b8264; --update-soft:#dcf1ea;
+  --pos:#1b8264; --neg:#c8552c;
+  --font-display:"Instrument Sans",system-ui,sans-serif;
+  --font-body:"Instrument Sans",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121614; --panel:#1a1f1d; --ink:#e7ece9; --muted:#9aa5a0; --line:#2c3431;
+  --neural:#6fa4e6; --neural-soft:#1c2a3b; --rule:#e8835d; --rule-soft:#3a2219;
+  --label:#e2ad4a; --label-soft:#352813; --hidden:#d9809f; --hidden-soft:#3a1f2a;
+  --update:#4cc49d; --update-soft:#14302a; --pos:#4cc49d; --neg:#e8835d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --panel:#1a1f1d; --ink:#e7ece9; --muted:#9aa5a0; --line:#2c3431;
+  --neural:#6fa4e6; --neural-soft:#1c2a3b; --rule:#e8835d; --rule-soft:#3a2219;
+  --label:#e2ad4a; --label-soft:#352813; --hidden:#d9809f; --hidden-soft:#3a1f2a;
+  --update:#4cc49d; --update-soft:#14302a; --pos:#4cc49d; --neg:#e8835d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.55;padding-block:24px 48px;padding-inline:16px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--font-display);font-weight:600;font-size:28px;margin:0;letter-spacing:-0.01em;text-wrap:balance}
+h2{font-size:17px;font-weight:600;margin:0;text-wrap:balance}
+.lede{margin:4px 0 0;color:var(--muted);max-width:68ch}
+code,.mono{font-family:var(--font-mono);font-size:12.5px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;font-size:14px;font-weight:500;padding:7px 14px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--muted)}
+button:focus-visible{outline:2px solid var(--neural);outline-offset:2px}
+button.primary{background:var(--update);border-color:var(--update);color:var(--panel)}
+.stats{display:flex;flex-wrap:wrap;gap:6px 18px;font-variant-numeric:tabular-nums}
+.stat{display:flex;flex-direction:column;line-height:1.2}
+.stat b{font-family:var(--font-mono);font-size:17px;font-weight:500}
+.stat span{font-size:11.5px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+.station{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.station header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.tag{font-family:var(--font-mono);font-size:11.5px;padding:2px 8px;border-radius:999px}
+.t-neural{background:var(--neural-soft);color:var(--neural)}
+.t-rule{background:var(--rule-soft);color:var(--rule)}
+.t-label{background:var(--label-soft);color:var(--label)}
+.t-update{background:var(--update-soft);color:var(--update)}
+.t-hidden{background:var(--hidden-soft);color:var(--hidden)}
+.note{color:var(--muted);font-size:14px;margin:0;max-width:72ch}
+.row{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+.pair{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.img{display:flex;flex-direction:column;align-items:center;gap:4px}
+canvas.px{image-rendering:pixelated;border-radius:6px;border:1px solid var(--line);background:var(--panel)}
+.op{font-family:var(--font-mono);font-size:20px;color:var(--muted)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;flex:1;min-width:240px}
+.field{border-radius:8px;padding:8px 10px;font-size:13px;line-height:1.35}
+.field b{display:block;font-family:var(--font-mono);font-size:16px;font-weight:500}
+.f-label{background:var(--label-soft);color:var(--label)}
+.f-hidden{background:var(--hidden-soft);color:var(--hidden);border:1px dashed var(--hidden)}
+.f-data{background:var(--neural-soft);color:var(--neural)}
+.batch{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-family:var(--font-mono);font-size:12px;min-width:30px;text-align:center;padding:3px 0;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer}
+.chip.on{border-color:var(--label);background:var(--label-soft);color:var(--label);font-weight:500}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.chart{min-width:0}
+.chart h3{font-size:13px;font-weight:600;margin:0 0 6px;color:var(--ink)}
+svg{display:block;max-width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted)}
+.sw{display:inline-block;width:12px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.wgrid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px}
+.wcell{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+.wcell canvas{width:100%;max-width:72px;aspect-ratio:1}
+.wcell span{font-family:var(--font-mono);font-size:11.5px;color:var(--muted)}
+.code{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;overflow-x:auto;white-space:pre;font-family:var(--font-mono);font-size:12.5px;line-height:1.6}
+.hl{color:var(--update);font-weight:500}
+.hn{color:var(--neural)} .hr{color:var(--rule)} .hlb{color:var(--label)}
+.digits{display:flex;flex-direction:column;gap:6px}
+.drow{display:grid;grid-template-columns:64px minmax(0,auto) minmax(120px,1fr) 56px;gap:12px;align-items:center;padding-block:4px;border-bottom:1px solid var(--line)}
+.drow:last-child{border-bottom:0}
+.dname{font-family:var(--font-mono);font-size:13px;font-weight:500}
+.samples{display:flex;gap:6px}
+.samp{display:flex;flex-direction:column;align-items:center;gap:2px}
+.samp canvas{width:34px;height:34px}
+.samp span{font-family:var(--font-mono);font-size:11.5px;font-weight:500;line-height:1}
+.ok{color:var(--update)} .bad{color:var(--neg)}
+.dacc{font-family:var(--font-mono);font-size:14px;font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+.spark{width:100%;height:34px}
+.conf-wrap{overflow-x:auto}
+.conf{display:grid;grid-template-columns:22px repeat(10,minmax(24px,1fr));gap:2px;min-width:290px;font-family:var(--font-mono);font-size:11px;font-variant-numeric:tabular-nums}
+.conf div{display:flex;align-items:center;justify-content:center;height:24px;border-radius:3px}
+.conf .hd{color:var(--muted)}
+@media (max-width:620px){.wgrid{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .drow{grid-template-columns:52px minmax(0,1fr) 52px}.drow .spark{grid-column:1 / -1;grid-row:2}
+  .samp canvas{width:28px;height:28px}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <div>
+    <h1>Train Step Inspector</h1>
+    <p class="lede">The exact <code>train_step</code> from the walkthrough, running in your browser on 300 real handwritten digits. Each click is one step: 32 pairs, one sum label each, one weight update. Watch the weights turn into digit shapes even though no image's digit is ever revealed to training.</p>
+  </div>
+
+  <div class="bar">
+    <div class="btns">
+      <button id="b1" class="primary">Run 1 step</button>
+      <button id="b10">Run 10 steps</button>
+      <button id="bplay">Play</button>
+      <button id="breset">Reset</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="sStep">0</b><span>steps = W updates</span></div>
+      <div class="stat"><b id="sSeen">0</b><span>pairs seen</span></div>
+      <div class="stat"><b id="sLoss">–</b><span>loss (this step)</span></div>
+      <div class="stat"><b id="sAcc">–</b><span>hidden digit acc.</span></div>
+    </div>
+  </div>
+
+  <section class="station">
+    <header><h2>1 · The training data in this step</h2><span class="tag t-neural">32 pairs per step</span></header>
+    <p class="note">A step draws 32 random pairs. Each pair is two images plus one number: their sum. Click any sum below to inspect that pair; everything on this page follows your selection.</p>
+    <div class="batch" id="batch"></div>
+    <div class="row">
+      <div class="pair">
+        <div class="img"><canvas class="px" id="imA" width="8" height="8" style="width:88px;height:88px"></canvas><span class="mono">xA (64 pixels)</span></div>
+        <span class="op">+</span>
+        <div class="img"><canvas class="px" id="imB" width="8" height="8" style="width:88px;height:88px"></canvas><span class="mono">xB (64 pixels)</span></div>
+      </div>
+      <div class="fields">
+        <div class="field f-data"><b>2 × 64 pixels</b>input to the guesser</div>
+        <div class="field f-label"><b id="fLabel">label = –</b>the only label training uses</div>
+        <div class="field f-hidden"><b id="fHidden">digits = ?, ?</b>exist but hidden: grading only</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="station">
+    <header><h2>2 · Guess, rule, loss, targets</h2><span class="tag t-neural">moves 1–4: nothing changes yet</span></header>
+    <p class="note">The guesser reads each image and spreads its bets across 10 digits. The rule turns the two guesses into chances for each sum and the loss scores the labeled sum. Then the rule works out what each guess <em>should</em> have been to explain that label: the dashed outlines.</p>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--neural)"></i>current guess (pA, pB)</span>
+      <span><i class="sw" style="border:1.5px dashed var(--update)"></i>target from the rule</span>
+      <span><i class="sw" style="background:var(--rule)"></i>P(sum) from the rule</span>
+      <span><i class="sw" style="background:var(--label)"></i>the labeled sum</span>
+    </div>
+    <div class="grid3">
+      <div class="chart"><h3>Image A: pA vs target</h3><svg id="cA" viewBox="0 0 300 150" role="img" aria-label="Image A guess versus target"></svg></div>
+      <div class="chart"><h3>Image B: pB vs target</h3><svg id="cB" viewBox="0 0 300 150" role="img" aria-label="Image B guess versus target"></svg></div>
+      <div class="chart"><h3>P(sum) = apply_rule(pA, pB)</h3><svg id="cS" viewBox="0 0 300 150" role="img" aria-label="Sum probabilities"></svg></div>
+    </div>
+    <p class="note mono" id="lossLine"></p>
+  </section>
+
+  <section class="station">
+    <header><h2>3 · The weights</h2><span class="tag t-update">move 5: the only change</span></header>
+    <p class="note">W is 64 pixels × 10 digits. Each tile is one digit's column of W laid back out as an 8×8 image: <span style="color:var(--pos)">green pixels</span> push the guesser toward that digit, <span style="color:var(--neg)">orange</span> push away. At step 0 it's noise. Run a few dozen steps and the tiles become digit templates.</p>
+    <h3 style="font-size:13px;margin:0">W after this step</h3>
+    <div class="wgrid" id="wGrid"></div>
+    <h3 style="font-size:13px;margin:0">ΔW: what this step changed (all 32 pairs combined)</h3>
+    <div class="wgrid" id="dGrid"></div>
+    <div class="code"><span class="hn">pA, pB = guess(model, xA), guess(model, xB)</span>            # 1. guess
+<span class="hr">p_out = apply_rule(pA, pB)</span>                            # 2. apply the rule
+<span class="hlb">loss = loss_fn(p_out, label)</span>                          # 3. score against the label
+<span class="hr">targetA, targetB = what_would_explain(pA, pB, label)</span>  # 4. work out the targets
+errA, errB = (pA - targetA) / n, (pB - targetB) / n   # how far off each guess is
+<span class="hl">model["W"] -= lr * (xA.T @ errA + xB.T @ errB)</span>        # 5. update weights  <- ΔW above
+<span class="hl">model["b"] -= lr * (errA.sum(axis=0) + errB.sum(axis=0))</span></div>
+  </section>
+
+  <section class="station">
+    <header><h2>4 · How well it reads each digit</h2><span class="tag t-hidden">grading only: test images, real digit labels</span></header>
+    <p class="note">These 150 test images are never used for training. After every step the guesser reads each one alone, and its answer is checked against the real digit. Each row is one true digit: six of its test images with the guesser's current answer under each, then that digit's accuracy over the whole run.</p>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--update)"></i>read correctly</span>
+      <span><i class="sw" style="background:var(--neg)"></i>read as a different digit</span>
+    </div>
+    <div class="digits" id="digitRows"></div>
+    <div class="row" style="align-items:flex-start">
+      <div class="chart" style="flex:1;min-width:260px">
+        <h3>Overall hidden digit accuracy</h3>
+        <svg id="cOverall" viewBox="0 0 320 150" role="img" aria-label="Overall accuracy over steps"></svg>
+      </div>
+      <div class="chart" style="flex:1;min-width:260px">
+        <h3>Confusion: true digit (rows) × what it read (columns)</h3>
+        <div class="conf-wrap"><div class="conf" id="conf"></div></div>
+        <p class="note" style="font-size:12.5px;margin-top:6px">The diagonal is correct reads. Anything off the diagonal shows which digits it mixes up, e.g. 3s read as 8s.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const AL="#%()*+,-./0123456789:;=?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz", TR="#Zqi#m8##rI8(yZL(k*L##I##=b##R###)i##7U##h/##fN#%yh8#x(_#h@_#*yC#@d##hz/(v-/(r./#r,L#v,C#SS##5b##@b##mT#(r*C)_(L(L(L#_(L#m,8#By###b##*s##Bt##ct#(rt8)zx8##i###a##(hr#BQr#oTU%zz/%dd###t##(r##(i##BU##Tt##p,##w*8%v%L%v)_#gq8#Bv#(z8#,o_#*br##(_##*_##,N##hzU(yO##T_##xv#*uB8*i,U*_*_*_*r(vTC#Tw##Sa#)vI#*_+8*L(L*8*L%U*U#kB8#Bv##Kw#(xw#(Zt##Bt##*z/##BC#=h8#Tv##,_##.t##Bs##T_##h8##qC##TL##5_##%i##,L##R#b#d*i(zh8(fx###t##(U##5a##^v#(zT8)u,L*t.L(vhC#zz/#@b##5s##cd#(_T#(C.C(8+L#U+8#aI##B_#%zC##[t##%v##(x###g###T8#;h#(ya##Kz_#eT8#rR##8d##^zL#Sd8#B8##T###,U##T8#(w@#,_T#,bqL(gx8#+_##,L#%w##*z8#([L##*U##+_##Tx8%zzs%yfL#*u##Tb#%v##)u/#*zv#%vT8#RAL#*zL#*_##g8#%t##(r8#(zz8%x*_#fI_#)z/#BC##o8#(tv#*vv8+yzL(ha##BL##B8##^U#*ys#(vt##,v##(^/#U-L#uRL#ze##hV#(iI/*r-8(xw##B###(_###X##fb##RfL#t:/(w8#%fx###+8##*L(bA##Tb##*_##-C##I###RM##hg8#d1_#R@_#,b##Rq_#xf8(r##*z_##Px###R##de##^b##hs#(kv##/d##=v##TzU#78##R###v##%*L#,AP#,9*#*8(8(U%U#_#_#@=_#*zL#Rc##vT/#wT8#@f8##*L##*L#NT/#^v##T8#)ao#*Cp#%fT/##,L##*L#/,C#Pd##Sx#%xh/#:v##+v##(q/##.C#@h/#Kb##@q8#I^###S##Tz_#xv/#*_##6C##R###*s##B_##h##%x##%x:#%zyU#TNu#*zu#,_##B8##o##)t/#,d_#.zx8(Sv##,_##%i##(r##,WL#h5L+vTC*fh###Z###b##,L##S/##b###t##(wf8(x=_#f@_#,x/#At#(zu#*xv#(@r##._##K/##Tb##Bz8#7_##hf#%v-/(x,8(u,L#r.L#Y^/#5v##Tx/%s:#*L(#*dgL)v(L#8*C#:.##Td##Ik#%s.#%iB/#bpC#3=L##*L#8A8#Rb##*L##./##J###R(##dfU#hL_#K=_#*y8#%z8#*z8#Ty#*zx##*x##*x##(zL##hL#Rt#(v@#)U*/(8(L*8(L)C(L#a*L#Rh/#^_#(vd#%_c##(i##.C##R##(vR8#^b##BfL#fhC#/J##(e##TzL#@d##-C##B/##-L##Kr##Tr##Kr##Kr##Br##Bu##.v###_##*L##,D/#T*L(w.C(zh##(w##%t##ff_#xf_#xa#(yv###f###R##ov##]_##ht#(dq###h#)zz_)Rv8#-_##T/##e###,L##K@8#tS#*re/+xzL)zv##-8##.###No##zG/(v(8)_(L*L,8(L@#%bt##KC##A_#(zv#*_B#*_*C*_*L(_*L%yhC#Bv##A8##g##%w##(v##)zt#(vB/#xK_#@z8##m##,v##^v#*vs##;u##(u##%u###f##,/##T###m###l###tP8#hdi#T#k#,z_#^_#(Pf##(q##,s##(s###e##:^##hw##*_G#B8v#f=t*zzU)ep/##e##)s##,_##hv#%kS###f##,u##%T8#/,L(kAC#zx##[L##zv##Cd###d##(t##TU#*zz8%[M##hb##vp###K##+u##Bm###B8(_.8#^w##^v/*xP8,v##*zU#*dt###t##5r##hC##,C##h##(w##*w##*zv#)vT8#Th_#+y8#@z8(x^8#8]##Tz_#Tk##-L##B8##T###(p8#*zL#Bz8(zx#(zx##,x##*zL#(qC##T##+z#(zq##L^###h###^###h8##T8#*zr#T]_#l-C#DK8#,zU#)v##*_##-C##(t##78##R%_(r,U*_B8,zx#(gt##)s##Yb#-L5#-8b#%f_##7k##b,/#_-/#Rv##Ia#(u.#(xh/%hh8##*L##*L(s+L#@x##@t##x^#%t3##fm##^L##tR##t*L#@xL#+a##fT8)_,L(vx##Bt##-S##@Q##.t##hz#*dT###S##Tz_(xt/#,L##7/##d###A_##zr##Yr##)i##,L##.8##Tf##Td##Ph8#fIL#W[##TU#(q##*R8#(YL##hC##3x##oSL#/,L##,C(zz8%=g/##t##,L##,_##T8##f###l###xx8%zPs#f(u#,zr#5U##[o##_-8(L*C(L(L)_*8#oA##@k##.C##hx#(xg#*_@#(U.#%i.##PS##,t##)t##,r##h8#*w+C,vT_%zzL#(x##*t##]b#(xJ#(s,L*r+8*r-8*r.#(rh##hb#(fq8(t:#(_%#(xz8(c*L##+L#LS#%zk##(x##7z/#eB##Dd##)j#(TL#Bzv#(:c##hzL(yP8(_##)z8#(f_##%r#%dr##hL##@w##xf###P##=xL)zw8#@L##7/##I###.8##BL##h*/(xBL*yzL#hw##,t##._##^/#*zC#,fL#*RL##.8##K###y:N#Tzv#R_##ES##(,8#g*8(i+8(i7#%df##SU##As##gQ##v78#fS/#Tj##gt#(vn##Kv##Id##wx##dv##._##7_##YV##bb##TL##S8#(z_#%ji##(r##*r##,_##hmU#Rfs##[L#(z_#AzL(qz8*zz8#5z8#,z##%h##gw#)vE#(a##,z##(fC##,U##BL##h8##h8#)xi#*8s###d##%t##*i##hd8#PhL##f##(y##,x##Tw#(xx#(Wx###y###f##+C]#T3i#v.a(wh_%zv##@U##,8##.8##Tu#,wx#(:v##*v###h8##5_#b@i#^y8#%v##,t##Tr#(zr#,zyC)gx8#*_##%i##.a##*n###B###78##T##?f##Tx8#,yv#Kf##zh#(v,C(r+L*r-C(vT8#zz##Kl##Sx/#d28#sP#(zg8(u,/(L@##=c##^L##@x/#fRL*rB8#ht##,z/#5+8#@@C#5x##-/##.8##-U##,r##(l###R##]hN#5hz#Tv#*xR/,_##+wL##Rw###B8##h##Tu##ht#*yv#,Uv#()s##.U##h###yfL#zyL#^r#(wt##,r##ht###h#*8BL,uTC#hv##^r#(mr##(r/#@z_#hd/#K###T###f###Kt#)zy#*yx##=u##%v###q##Qy##Tt##eR##xe#(j##*zd##:TL##*L#NT8#qm##B_##ff#(_-C*_,L*_*L)_,L(v^/#Ra##TC#(vk#%ic##/e###c##(v##Tzr#KNC#Bu##xT#*t,8+r*L+i*_)t,L#vT8#Aw##R8##qf#(x)C(W(L*L,8*L6##be##JL##*k##Kb##x##%v8#(yw#(z^C#hRL#,zL#Ab##ve##vT/#^z8##.8##.8#NT##Id###@i#+ds#d=_(zzC#zh8#1.###:###C###H###q##+z##Tz#(vw###f###v###T##eL#(x@C#Bx##,t##@f##d.8#tS##pL##?z8##-L##78#:h8#zv8#5_##.8##@###T_##xf#%sK/#uKC#TzL##,_#:K8#Tl##5_##TL##h8#(zx#(wBL#v,U#h.L#5z/%zs#*mm#*9t##,_##T###v##(vP/%zz_#,L##T8##m##%t%##xzC#x=_#f@L#,x/#,k##yI#*j.8(_K##zx##A@8#BT##,v##e###qy##hw##hv##(TL##BL#:h8#Tw##R_#(aI#,8I#*Wh##fR8##(L#W(_#IxU#(r##,L##I###Q###fe#(zRU#T:_#*zL#Phr#P@_##R#(PzC%ht##.8##T###b###@b##d@##r@##[q/#*I8#8(_%l3_#?z8#K_##Tt##Tt##^_##h_##^L##TU##Bt##At#(zv#+vt##5i##7C##T(L#ThC#7u##,L##78##e?#)sv#+bvC+zyC(TL##-_##Ab##.u##.v##-t##Ks##Tr##T_##Kk##*s##._##gE#(vo/+xzU*yw##*r##*r##hL##xr#%tt##0t##(r##*i##TmC#gqu#@x/%xSL*i5/(hz###k##*i##.8##7###5_##hL##x##(v##)v8#(yf8#n+r#5xL#^x#(Yh8##]##)t##*t###h8#1T8#yb##Jo_#o:/(z8#%ft###Q###,##=d##S_##I###x###u##(yb#(xhC)v7L#gTL#Bx/#hd#,bB#*8J/#*v###@8##*L##*U#Zg###T_#,N_#X5_#xzL%yR/##@###P###O##g8#(z_#*br#(Er##*_##-L##qZ/#fpC#*x##=S###,8(P[#(zzC##k##*_##,L##=f##hD##P###b8#%zv#%b+8#1B##@m##5m#(mR8)_A##Su##,n##@58#@,L#*y/#,8##.:##Yt#%ks#*dx/+zy##,_##,L#%hv#%dTU##BL#%z##(y###h8#@v#(x8##Bb##xz#)rB8(yy##Bx##fT8#wh8#Td##I]L#yh8#_R##(v/#TzL#7C##B###R###ToU#[^8#tR##Lt#%fxC(ho/#B8##R##(zL#*xs#,Ws#%;r##+_##6_#(zz_(xR_(qz/,aB8%#f##.t##(w###-U#LAL(zx##@b#(w1L#yh8#Tr##Bt##Sf##ff##Ta#(h_#*dt##Sz8#Ts##7L##T8##v##%t###*d##TT8#s+L(_,L(L-8(i,##vR##5k##*L##B_##T###gf/#hpU#^(_#KS_#(q8#,U#*zv#*x^#*s78(s,L#u78#hh##.m##*w#(hp#(U[##:w/#zz_#Rm8#+_##,L#(hz8)vTC#8h##(v##*t###f##:y#(zu##*_##-C##Z2#(tR/,cqU,zw8%Qr##*_##*i##7U##h(8(u7L,rTL+zx##Pt##+_###B8#(z8(hq#%NT###S###T###TC##T/#(m##,_##S##(t(/,dqU,yh8%/f##(v##S/##7C##7L##7_##7t##(f##Iqb#Bzz#od8(xhL*z_#(Pv###P##/I##vf##gb##SL#*bR#,LB8(fpL##)L##*L##7##Rk##*w##RC##s##(_##(xd/#r*U#Y@8#,t##,y8%d@L)t@/#Sk##TU##er##et##-r##*qC#^hL#N7L#*hi%hx#)ct##(_##*C##T_#*vd#,UQ##8f###d##(s##Av8#Tzx##A8##TL#*z8#hh#(b^###f###R###@8#Tzi+xE#*z_#*xt##8d###v##*s##h8##Sz/#cT###[##hz_%fa##-8##R###d###hx#*zf#,_##+a##%qC##*u##Gv##ht##5zx#TPv#Z)i#t.8#8R##(r##-U##B8##,i##T_##v##*t:#*zz8#x@L#Tq8#,m##5d##7zL#By8#Tw#(z_#%qL##hL##*8##6_##q8#)s(#+_B/*vh_#@w/#,_##.8##*e##[@#*_P#)Er##%d###,L#=%_#*zL#R###T8##KU##^r##%s###v##IzN#Bzz#z/##T_##,i##RxL*zw8#Bi##T8#%t###*x8#fS_%i,C*vd##Iv##,T8#.S8#,v##,i##B_##^###qM##zz/#v,U#]B_#,z8#7L##TC##w##(s##*zy/*vBL#vK8#@x##Kj#(xo#(bt##-v##*^8#8,L*tK8#Tx##+_##-i##B8##KV##hf8#d9i#I(_#*z8#*v##Bh8#4.8##S##*t#(y8#(yL##*g8#+x#%zO#(r##*y8#,xt##8f##%e##-t#%qk#(bf##%v##(t###f###78#(h/#hM##^x8#WTU##p##,_##(t###]##%T8#Iv#%fd#+zzU,v##(zL##5i##*r##,_##z8##Tt#*vv#%/s##)r##,U##B:8#g^C#hb##5C##Bt##.h##+z###7/##.8#:K8#6w#%fz#*yd#*v##*z_##2v###T##*x##z_##^t#)b[#(_T#%qy/#(?C##%_#:%_#^z_#)d##TN#(s##)b##(xb#%sA##Q7##*x##*t##B[##If##^v##xb#%_3##O5##*m##@L##h^8(s,L(_*L(L*L(_,L%k[##IU##Tm#)t78(tB8#Tz8##*L##*L%V,C#go##._##hY#%x-/(r*L(_*L(r+L#YB8#,x##K8##m##(r##(_/#(fx8#s*U#b,_#@g/#-P##[T#%t[#*uq_(zv/#@L##,8##,###^b#*bo#*Ug#(xz8#2@L##,L#cB8#Rv##@x#(zh#)MS##=y8(zyC#R_##.8##B###)_##78##d%C(r,L)sJ#*zu##=r##(_##?P##.z/#Tx##^t##Tr##^r##Tr##5L##ha#*bm#(r[##Tq8##,L##,L%NBL#zv##HN##nz#(rT#(zv##gt##_R##um##RC##hx##E[###d##=z_(zb##R###d###t##%h_#*xt##:r##BL##f##)_##)xR8#zz8#%t##,_##T/##v,_*vh8(hx##%t##(s##,b##,v##Bu#*zs##.t##.u##.u##,w##,U##B=8#mK/(sZ#+LxU-gx#*zL##-L##Bzx#G:v##*_#(K8#BzL#=t##,U##B/##7i##ht#(zr#*zi#*z_##hL##B8##6L#*zx/(xO#*r##%z8##Bi##%w##Rt#(zC#(zC#,z_#)[i##*r##,_##BC##hx_)zx8#ht#(uf##0d##Bs##@z8##7_#:TC#zw##BL##fs/*_f#(Ob#(z##%yC#(wk##3b##.s##,v##-t##,s##7_##K_##K_##-v##@x##m[##/Z##=zU#zt##@L##./##B###TzL*xP8*m##*z_#*dt###t##*r##h8##T_#(vj##9_##,M##Tz8#(5C#1f##@L##BL#(x#L*s,r*xq8#Px##*s##,_##B8##TP/(yz8*iK8#zzC#(@L##,L#dhL#Tm##@v#(lB#*a7#(zm##Tt##XT/#d@_#6zC#SL##go##Q.8#Bg/#Bs#(v[/#rBL#hx##;k##Tx##Af##._##7L##Yi##bs##Bi##@_#(cR#*87#*Nh##R?/##,8#V,##@t##hL#(xt##Ov###n###o##*t##Tut#Rhx%hx#+bf##(m##7v##*TL##+_#=^L#zd##4L##qz#(vBL(wT8#Aq8##./#=T/#@x##@v##dhL(t*_#T[/#(x##,T##.5##7u##T8#)zr#*ys#(Ir##._##TC8#ThL#Tv##A_##Tv##Th##6z/#Ku##x[##xh##@v##K_#)xr#%RL##Bt##(h/##.L#x^L#Bv##Rl##u##%r##*xv##O5L##,L##T/#gM##5l##[B##PA##Bt##Bi##lP##d,8#@z_#@u##x6/(i,8(_*8(8,/(L5/#am##BL##?b##hy#(zx#(zv#(zv#(zv#(zx##@f##%j##,u##hf#(tu#,vz_)zv/#2r##%i##hx#(vq##yzC#4TL##*U##,L#IK8#Tx##SY#(yy#*_S#(mh8#TxL##*L#o^L#Rd##*i##-L##S*_#u-U*rT#+vz#(yu##*s###f###zL#-zL#qqL(bTL##T8##T###f##)n##BR/#BA##,v##Au#(t,8%o:_#)^r#Szr#F@_#%f8#AL##TL##,v##3v##R8##@m#(k.8*L-C*8.8*C.#(_-##bI##Bi##Kr#(xt#+as##+i##-C##J,L#hqL#Tb##^i##qv##(v##4xC*zxL,^U##K/##d###[###q_##dv/#Ax##BU##fr##vt##h_##5t##dh##/B##%T#(zzL(Et##)_##,L##Kt#(xv#*_d##(t##,_##B=L#Tz8#B_##)i##.U##g##%xW#(zq#(x.L#hTL#,x##*U##TL##f###v##(zd#%x@U#S=i#)gL%zx/*xP8(t###x###h8##5_#(TL#%z###(h_#x(L(tK8(zi##?s###j###_##(_##hzr#:3r#%@_#Kz_#;v/#+_##B/##o###Rb#(bR##)b##+t###B/*L,L*LB8#^u##Ic#*lR#+LQ#(fw##(,###,##M,##Jx##zc##fo###d##,s##Tx##NT8(m^#%hl##Bi##hu##:v###w##TzL#hu##-_##@###@b##Bt##Bt##hr##hi##hL##TU##@k###f##Bz#*wJ#+CR###[###d###m###v##TV##ye##vh##TzL#+KU##.L##TL#Ky##-L##Tt#(vf#(vB8*t.L(w,_#hzL#4c##Av##eKL(t6C#^z8##,8##,8(aB##@w##^k##;h/#(v###u###[###.8#NKL#ox/#Bk#6x[#,dw#(pt##TL##hi##ft##Bt##SU#*tR#*_T#(zz8#(@L##(_#b*_#@yC#Sz/*vAL##B8##t###t###R##sS##^b##^w#(u./#U.8##B###f##%t##5xL#hdm##A8##q8#Tz8(dB8##B8##B8##K8##B8#+b#(qh#+vh#*km##St##,z##-z8#,x###O##)u##.A8#dB#(v^8#fp8##P###d##(x##7x##fe#*koC*zzL#Pt##(r##(i##JV##zh8%w,L#t,8#t,C#tI##xn##T_##@d##qh/(t(L*i(L)L(L%i*C#fT/#Bb###SL#APU%qf8(zz8#G,L##,8##G###U##5zL#[P8%u##,m8#(zzC#:AL#(S8#7t##Bn##P*L#d5L#Bk##Kr#(id#*_@##Sz##,_##-r##.r##Bt##Bv###h##,Ta#,zz#hf_(zxL(v###hL##,i##*s#*ft##h_#(Rz8,yM#-8##,L##*_##%hL##At#(q_##._##.r##.i##7i##.r##-_##,U##,_###KL#@zL,zhL(LBL##BL##BL##TL##TL%Tm8(dTL#)q8#,j##%x###78#;hC%ff##7U#%fm#)r-/*r+8*j*L)i*L#oTC#@v##@d##zt##zz#(zx#(zx#(zv##hv##Rb##[/##hU##Sr##%r##%r##=r##zx_#SRi#,###T###l###t###uz8#y:_#P*_#,v/#ht#*ud#(Ue##)t##BU#%x##(xP8#]zr#hf8(vO#*_##*xv##ER###f##5i#(n###Rj##c8##_8##Tx##:,C##(_#P?_#Sy8#5x/#d=L(k*8%vI##B_##R_##er##5t##BC##T8##f###v##(x/#(zx#%yz8#Bm##6###f###t##(_##*fx/(xF_#m(_#@y##h8#(vt##8k##Ar##+q8##,L(N^8%hc##@v#(kT8(cl/#q/#(xL#(_Y#(t7##Am#", TE="#*r##BC##n*L(t.L*xh8#hx8#*r##,U##hu#+vh#*Lf###u##*r##7U##^Ys#hx8##d##(z##,x##hx#%dw###v##(t##(b##T8##yA_#Tv##Bi##hs##xt#(zu##^U##Jz/(xh##Mx##*x###KU##.L#@TC#Tv##Jb##aA###R##,t###R##L*_(a*_#AqC#,s##,v##-v##,u##Tt##zr##Ts##*v##+i##Sb##s/#(_##(_H8(xe_#^:i#*yL#Rf#(t:#(dC#(yd##L5###6##DX##h_##(t##B_##h:8*tBL,xz/,zx##:v###t##3x8#ff_#r*_(x^/#,v##,x##,v##+a#%hu#,vo#*#d###v##,_##B8#%v18%zzr#Ra##oR#(r,/(i(L(L(L(r6L%wq##Jk##ht#(vo#(ae###m##(t##,_##TqL#zx8#,i##h[#)z,8*k*L)_*_(r-L#mh8#Bt#%z8#(z_#*z_##BC##T/##o##(yq8%qd##TL##os##Pv###d###m##(t##TvC#Thv#6###R###b##%i###UG/(fy_#f5i#@x##5v##dR##LR/#+z_#Is##(_##,8##6###Bz8#[^C%sB##1[/#BzU#,d##.C##A/#%[v#(Nh##*v##KU##(x###K8##^8%qd##Ay#%qv#(zk#(zU##f_##qt##^x##3zL#3L##Ks#)xt#(wr#%z_##7d8#A,i#,Y##(_##,v##Bv##vm#)vp8+zx##%t##(a##@x##x:#(u8#(zv###BC##,C##T##K_###b##%x##,x#%hw#)bu###v##%x##(v###Si#BLi%wAL(zh8#:.###@###Q###R##fU#*be#*ah##zz/#3=C##*L%b*_#Tx8#Tt#+xf#,Ld##*x8(zyL%TU##T/##[###Bk##hT/(x+C*v*U*t,_*_BC#xx##Ka##5x8#RTL%s7/(8R/#,zU#,b##,C##B/##At##dR#%_,8(L(L)8(L(L)L#mK/#Bt##Tz8#T:##v##*vN#(fq8##,_#%,U#Tz8#*v##BB##RR##.t##7i#(vR##f@L#*qi#@v#(x^8*_,8(xx8#Tv##mBC#[RU#@e##+C##B1##dS#*rg8-yzL,zu##*i##-U#(zs#(n8#)zW#(xo##/.L##*_(wPr(hzL#hz_)yf8%z8##Sr##(u##(t##Qt##zU##J_#(vr#(N_##-M##7z8##,L#(^/#Bb###k##(x##+v##,v##ht##ft##(v###n##T_##St##,x_#hyL#^i##-L##B###d###Tr#(xv#*_B8,L,_,L*_*_,U%vh8#Tb##,u#%wz##kI##Ak##-u##YK##PB8#.u##-U#(q_#7z8#,q###T###T###.8##,_##,L##,i##,_##._##,_##,L##+U##*_##S_#)uQ#,L5#(8,###=###b##*a8#Tzu#^ft(vhC)av##=i##Ta#*zb##e###l###,i##,t##7t##Bi##B_##TU##KL##,L##f###h##(z8#,zC#(BU##,r##4u8#Tzt##h8#(z_#*q_#(^C#Rx#*zi#(Sv###h_#*r##[8#%r##(b8#(zz8#s+L#R@L#*x##?k#*x[#*i./%vz##hz/#e*L#R=_#5zL#._##.t##Tr##h_#*z_##h_##7r##-t##@y#%qb#,t##,w##(z8##7L##BL##B8##AC##^/##x###f##(xN#%yRL#x@_#Kx##^L#*bm#*aP##Tt##fu#(s@C(t,_#Ty/##T/#@z#,zh#(LT###T8##T8##TL##^L#@b#(vR#%8@##(e##)q8##*_#X=_#Ky/#(x##6z8#Tz8)zz#(Qz8#,z##,z##)o##T_##vb##sX##8b###r##(_##KmL#Ifx#,s##B_##h###v##(yv##zRL#e,r#6z_#5zt#@Pr##-C#4h_#hv/#1i##,L##.C##%t##+u##Bh#%dS#*zzC%:q###x###d###k##,_##R##(r%8-L,U.zz8(Pw##(s##^k#%zL##Tt##Tt##pf#(rK#*mh##hu##4n##vT#*LR#*Nz#%zT##%*8#@=L#+zC#Aj#(xQ#(t,#*i*8(U*L#_,8#OI##+k##fzL*zc#,t##(q###.L##.L#(TL#(z8#%gU#)dw###[##*j##*z###5L%85L#hw##*r##BL##f(_)vTU*zz/#8n##(t##,_##3d##oS#*il##1r##)f/##*L#o?_#?q8%hU#)er##*i##-L##S###m##(tRi(zw##@z8#RhL##.L#*qL#.y8#)t##,i##.L##.C##BC##T###hd##zo_#qLu#S=v#,z_#A_##wo##jTC#d^L#BzL#85L#u@_#Ko8#T8##gd##J[##*h8##+U##*i#=Tr#@d##,_##Tx##l,8)U+C*_*L(rAL#hz##,u##+_##B###e%#(sv#,czL,zw/%R_##,_#(dN#(yfC*r##(x###TL##+r##,i#(p8##*t##TL#%v#L*i5i*yzC#Px##*t##,_##*p/#hz8*w^8(yx##@w##*z8#.z8#,x/##g8#%z/#,y##Bz##hx#)vx###h###S#(z##)q8##.L##BC##K###f##(ze8(zzL#St#*tR#)rA##Rm##7t##mB8#t,L#Tw##R_##eA#)fB#*Rv##eR###,C##+_#Rx/#Ad#(sz#*_h#%zz8#(^/##B/(dq##Tb##^x#*bS#*%d##+u###-8##*L#/@L#zv##(f##BC##t##(aN#*zh8(v#_#[2_#*z8#Bd##h[8(v*8(_(L(L*8#i,8#dT##At##dP#(zd#%i##(k##%zL##%s##=t##gL##By##fT8##B/##R##Rx##So8#-8##Q##%x##(x_##kx8#Bx#%fj#(_G#(_.#%hv##(l##AU##e##*i*8,vTU*zz/##f##(s##(Ts#Bfr#:)_#%SL#Bz8#Pf###b##%r##hm#*wq#(xq8#AzL##.L##BC%dz##Tk##hU#*bd#,cd#(zz###,C##)_#_(_#hzL#)s##7r##z98*vB_*yq8#Rw##*t##+r#(zx#(zY#(x###h8##K_##+t##@s#%zL##A###f##(u##(s##)s9#(sh/#o5_#@x8#./##.8##G###hv##o*L#g9i#RAL#,l##^RC#gq/#rd#%Px_#^d/#B/##R###b###(s##.L##T,L(m-U+xhL,yz8##x##(v##xf##zb##f###B8##,U##+i##TU##h###Bs#(vt#(Lr##+L##.8##P###gO/#Kz/#Ju#)zT#*pg##eu##BU##fs##tt##Tr##(w##,^8#,.C#(B8#)u#(zL##hv8#(SL#T_#(wv#)iT##uh/#TzL#(,L(mS_#hx8#fU##hr##hr##z_##z_##z_##zt##qv##._##RR##rK/%_,C(U,8%_+8#a@8#,z##Sx#*v^L(#p##(x##%x###KL#PKL#Bx8#,8##K###d###wL#)xhC#t)_#e5L#,z8#@8##yk##dT##@z###./##-C#3T8#Ie##5v##hY#(v##*v##*z_#(um##fq##@x##,8##R###b###_###cd8#zd_#R2s#,yL#T8#(zt#+iS#*_,8*L+L(i,L#vh8#Tv#%qx8*xP#+r##+r##*u###hL##TU#(z###^v##=f###R##%f##7zL#,b##-8##R###-8##B8##f#8(t._+th8*zw#%fr##.L##@z/#PS###f8)zzC(R_##./##B###@###@v#*w8#*_##*kC#(of###.8##BL#@d##Ai#(zt#*_h/(xt##T_##[m##[^##@b##@t#)vv##)w##St##Ty8#(7U#:hi#@m/#Bxe#f^j%u6C#8R##RyC#Tx/#7L##T8##Bv##Ku##Bt##Tr##hi##Ki##Kt##5t##Ay##fh/##T##RzU(zx8#=j##7L##@###@8##gv#%i7#(L+8*L)L(_(L#o@8#5x##*zL#zY#(x8#*zt#*ad###f###f##,j##(o/#TS8#D@###b##,L#*x##(qa##)f8#-i##TV##p###qk##zT/#o,L#SKL#-y##@z/)v^8(k-8#^x##Kw##t78#v-8#Bx/#[i##zx#(vB#*_*L*_)L*_@L*zx##gL##Br##v[#(r.8)r,C(r,L(tB8#fg##@i##Tl#)t^#%v^8#=h8##.L##.L#8T##^b#%fa#*bd#)bo##@R8##*L##(_#/*U#zy/#@k##fq##tq8#mzC#3@L#0,U#p@L#=hL#-_##BQ#%z@/*r,8(_,8#r-/#OT##,v##@w#*tf##(t##(t##%v###6L##,_#Bx8#Td#*k[#)vx##RS###./##,C(dA8#Se#%^s#+vt#(;s##7t##+q8#8,U#x^_#hx8#^v#)u^/*Ex##,s##(t###^###h##hv##7v##@h##%f##*x#(8KL,_+_(xTL#Bw##5U##[###u##(v/#*zx#(s@L#fR_#,y8#P8##zo#(U,8(L*C*L*L(L+C(bI##Kk#(zi#%ft##)t##.U##K8#%w##(xR8(zx8#=fi%hf_#r##(xU#(yn##NR##To##5a##TzL#hz_#(q/#-_##.t##(h##(g##^W##KL##Rt##5Y###R###Q###d##+wN#Bzz#+s##TN8(vB_*i]/,zw#%=t##*_##,L###d##+i##B8##f(L)s-L*xh8(fx###v##@###o##%t##*_##*dc/(zf_#h@_#@x#", YTR="560049020031400374266439565709937644620596102714574006163432356711748988728760040525742088215214342058152373502006991879626859679124142963563927584387723870607344141596872157576143178663625335295968090649741987241471523817534988892398283580149941830278726659739371190938932184400958155113012625586638", YTE="421833165482020226773184519970705884553170811271126815681312674489053432769904548128993605784799456674528291036966057475837170526800999039333602532446";
+function decode(s){const out=[];for(const c of s){const v=AL.indexOf(c);out.push(Math.floor(v/9)/8,(v%9)/8);}const imgs=[];for(let i=0;i<out.length;i+=64)imgs.push(out.slice(i,i+64));return imgs;}
+const Xtr=decode(TR), Xte=decode(TE), ytr=[...YTR].map(Number), yte=[...YTE].map(Number);
+const N=Xtr.length, B=32, LR=0.5;
+
+let seed=1;
+function rand(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}
+function randn(){let u=0,v=0;while(!u)u=rand();while(!v)v=rand();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+
+let W,b,step,seen,last;
+function reset(){seed=1;W=Array.from({length:64},()=>Array.from({length:10},()=>0.01*randn()));b=new Array(10).fill(0);step=0;seen=0;last=null;sel=0;
+  const pairs=Array.from({length:B},()=>[Math.floor(rand()*N),Math.floor(rand()*N)]);last=inspect(pairs,null);}
+
+function guess(x){const s=new Array(10);for(let d=0;d<10;d++){let z=b[d];for(let p=0;p<64;p++)z+=x[p]*W[p][d];s[d]=z;}const m=Math.max(...s);const e=s.map(v=>Math.exp(v-m));const t=e.reduce((a,c)=>a+c,0);return e.map(v=>v/t);}
+function applyRule(pA,pB){const o=new Array(19).fill(0);for(let a=0;a<10;a++)for(let c=0;c<10;c++)o[a+c]+=pA[a]*pB[c];return o;}
+function explain(pA,pB,s){const tA=new Array(10).fill(0),tB=new Array(10).fill(0);let tot=0;for(let a=0;a<10;a++){const c=s-a;if(c<0||c>9)continue;const v=pA[a]*pB[c];tA[a]+=v;tB[c]+=v;tot+=v;}tot+=1e-12;return[tA.map(v=>v/tot),tB.map(v=>v/tot)];}
+
+function inspect(pairs,dW){return{pairs,rows:pairs.map(([i,j])=>{const pA=guess(Xtr[i]),pB=guess(Xtr[j]),s=ytr[i]+ytr[j];const pS=applyRule(pA,pB);const[tA,tB]=explain(pA,pB,s);return{i,j,s,pA,pB,pS,tA,tB,loss:-Math.log(pS[s]+1e-9)};}),dW};}
+
+function trainStep(){
+  const pairs=Array.from({length:B},()=>[Math.floor(rand()*N),Math.floor(rand()*N)]);
+  const snap=inspect(pairs,null);
+  const dW=Array.from({length:64},()=>new Array(10).fill(0)),db=new Array(10).fill(0);
+  for(const r of snap.rows){const xA=Xtr[r.i],xB=Xtr[r.j];
+    for(let d=0;d<10;d++){const eA=(r.pA[d]-r.tA[d])/B,eB=(r.pB[d]-r.tB[d])/B;
+      for(let p=0;p<64;p++)dW[p][d]-=LR*(xA[p]*eA+xB[p]*eB);db[d]-=LR*(eA+eB);}}
+  for(let p=0;p<64;p++)for(let d=0;d<10;d++)W[p][d]+=dW[p][d];for(let d=0;d<10;d++)b[d]+=db[d];
+  snap.dW=dW;snap.loss=snap.rows.reduce((a,r)=>a+r.loss,0)/B;step++;seen+=B;return snap;}
+
+function evaluate(){const preds=Xte.map(x=>{const p=guess(x);return p.indexOf(Math.max(...p));});
+  const hit=new Array(10).fill(0),tot=new Array(10).fill(0);let ok=0;
+  preds.forEach((p,k)=>{tot[yte[k]]++;if(p===yte[k]){hit[yte[k]]++;ok++;}});
+  return{preds,per:hit.map((h,d)=>h/tot[d]),overall:ok/Xte.length};}
+function testAcc(){return evaluate().overall;}
+const SAMPLES=Array.from({length:10},(_,d)=>{const ix=[];for(let k=0;k<yte.length&&ix.length<6;k++)if(yte[k]===d)ix.push(k);return ix;});
+
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function hexRgb(h){h=h.replace('#','');if(h.length===3)h=[...h].map(c=>c+c).join('');const n=parseInt(h,16);return[n>>16&255,n>>8&255,n&255];}
+function drawImg(cv,x){const ctx=cv.getContext('2d'),im=ctx.createImageData(8,8),ink=hexRgb(css('--ink')),bg=hexRgb(css('--panel'));for(let p=0;p<64;p++){const v=x[p];for(let k=0;k<3;k++)im.data[p*4+k]=Math.round(bg[k]+(ink[k]-bg[k])*v);im.data[p*4+3]=255;}ctx.putImageData(im,0,0);}
+function drawW(cv,col,scale){const ctx=cv.getContext('2d'),im=ctx.createImageData(8,8),pos=hexRgb(css('--pos')),neg=hexRgb(css('--neg')),bg=hexRgb(css('--panel'));for(let p=0;p<64;p++){const v=Math.max(-1,Math.min(1,col[p]/(scale||1)));const c=v>=0?pos:neg,a=Math.abs(v);for(let k=0;k<3;k++)im.data[p*4+k]=Math.round(bg[k]+(c[k]-bg[k])*a);im.data[p*4+3]=255;}ctx.putImageData(im,0,0);}
+
+function buildGrid(id){const g=document.getElementById(id);g.innerHTML='';const cs=[];for(let d=0;d<10;d++){const w=document.createElement('div');w.className='wcell';const c=document.createElement('canvas');c.width=8;c.height=8;c.className='px';const s=document.createElement('span');s.textContent='digit '+d;w.append(c,s);g.append(w);cs.push(c);}return cs;}
+const wC=buildGrid('wGrid'),dC=buildGrid('dGrid');
+
+function bars(svg,vals,tgt,hi,colorVar){const n=vals.length,L=26,R=8,T=10,H=110,w=(300-L-R)/n;const ink=css('--muted');let s=`<line x1="${L}" y1="${T+H}" x2="${300-R}" y2="${T+H}" stroke="${css('--line')}"/>`;
+  [0,0.5,1].forEach(v=>{const y=T+H-v*H;s+=`<text x="${L-4}" y="${y+3}" font-size="9" text-anchor="end" fill="${ink}" font-family="JetBrains Mono,monospace">${v*100}%</text><line x1="${L}" y1="${y}" x2="${300-R}" y2="${y}" stroke="${css('--line')}" stroke-dasharray="${v?'2 3':''}"/>`;});
+  for(let k=0;k<n;k++){const x=L+k*w+w*0.15,bw=w*0.7,h=vals[k]*H;const col=(hi===k)?css('--label'):css(colorVar);s+=`<rect x="${x}" y="${T+H-h}" width="${bw}" height="${Math.max(h,0.5)}" rx="1.5" fill="${col}"/>`;
+    if(tgt){const th=tgt[k]*H;if(th>0.5)s+=`<rect x="${x-1}" y="${T+H-th}" width="${bw+2}" height="${th}" rx="1.5" fill="none" stroke="${css('--update')}" stroke-width="1.5" stroke-dasharray="3 2"/>`;}
+    if(n<=10||k%3===0||k===hi)s+=`<text x="${x+bw/2}" y="${T+H+13}" font-size="10" text-anchor="middle" fill="${k===hi?css('--label'):ink}" font-weight="${k===hi?600:400}" font-family="JetBrains Mono,monospace">${k}</text>`;}
+  svg.innerHTML=s;}
+
+let sel=0,acc=null;
+function render(){
+  const r=last.rows[sel];
+  document.getElementById('sStep').textContent=step;document.getElementById('sSeen').textContent=seen.toLocaleString();
+  document.getElementById('sLoss').textContent=last.loss!=null?last.loss.toFixed(3):'–';
+  document.getElementById('sAcc').textContent=(acc*100).toFixed(1)+'%';
+  const bt=document.getElementById('batch');bt.innerHTML='';last.rows.forEach((q,k)=>{const c=document.createElement('button');c.className='chip'+(k===sel?' on':'');c.textContent=q.s;c.setAttribute('aria-label','pair '+(k+1)+', sum '+q.s);c.onclick=()=>{sel=k;render();};bt.append(c);});
+  drawImg(document.getElementById('imA'),Xtr[r.i]);drawImg(document.getElementById('imB'),Xtr[r.j]);
+  document.getElementById('fLabel').textContent='label = '+r.s;
+  document.getElementById('fHidden').textContent='digits = '+ytr[r.i]+', '+ytr[r.j];
+  bars(document.getElementById('cA'),r.pA,r.tA,null,'--neural');
+  bars(document.getElementById('cB'),r.pB,r.tB,null,'--neural');
+  bars(document.getElementById('cS'),r.pS,null,r.s,'--rule');
+  const pct=(r.pS[r.s]*100).toFixed(1);
+  document.getElementById('lossLine').textContent=step===0&&!last.dW
+    ? `Before any training. This pair: P(sum = ${r.s}) = ${pct}%, so loss = −log(${(r.pS[r.s]).toFixed(3)}) = ${r.loss.toFixed(2)}. Press "Run 1 step" to apply the update.`
+    : `Step ${step}, pair ${sel+1} of 32 (values shown are from before this step's update). P(sum = ${r.s}) = ${pct}%  →  loss = ${r.loss.toFixed(2)}.  Batch loss = ${last.loss.toFixed(3)}.`;
+  let mw=0;for(let p=0;p<64;p++)for(let d=0;d<10;d++)mw=Math.max(mw,Math.abs(W[p][d]));
+  for(let d=0;d<10;d++)drawW(wC[d],W.map(row=>row[d]),mw);
+  if(last.dW){let md=0;for(let p=0;p<64;p++)for(let d=0;d<10;d++)md=Math.max(md,Math.abs(last.dW[p][d]));for(let d=0;d<10;d++)drawW(dC[d],last.dW.map(row=>row[d]),md);}
+  else for(let d=0;d<10;d++)drawW(dC[d],new Array(64).fill(0),1);
+  renderDigits();
+}
+let ev=null,hist=[];
+function record(){ev=evaluate();acc=ev.overall;hist.push({s:step,per:ev.per,o:ev.overall});}
+
+const digitRows=[];
+(function buildDigitRows(){const host=document.getElementById('digitRows');
+  for(let d=0;d<10;d++){const row=document.createElement('div');row.className='drow';
+    const name=document.createElement('div');name.className='dname';name.textContent='digit '+d;
+    const samples=document.createElement('div');samples.className='samples';const cells=[];
+    SAMPLES[d].forEach(k=>{const w=document.createElement('div');w.className='samp';const c=document.createElement('canvas');c.width=8;c.height=8;c.className='px';const s=document.createElement('span');w.append(c,s);samples.append(w);cells.push({k,c,s});});
+    const sp=document.createElementNS('http://www.w3.org/2000/svg','svg');sp.setAttribute('class','spark');sp.setAttribute('viewBox','0 0 200 34');sp.setAttribute('preserveAspectRatio','none');sp.setAttribute('role','img');sp.setAttribute('aria-label','digit '+d+' accuracy over steps');
+    const acc=document.createElement('div');acc.className='dacc';
+    row.append(name,samples,sp,acc);host.append(row);digitRows.push({cells,sp,acc});}})();
+
+function pathFor(get,w,h,pad){const n=hist.length,maxS=Math.max(20,hist[n-1].s),every=Math.max(1,Math.ceil(n/240));let d='';
+  for(let k=0;k<n;k+=every){const q=hist[k];d+=(d?'L':'M')+(pad+(q.s/maxS)*(w-pad-4)).toFixed(1)+' '+(4+(1-get(q))*(h-8)).toFixed(1);}
+  const q=hist[n-1];d+='L'+(pad+(q.s/maxS)*(w-pad-4)).toFixed(1)+' '+(4+(1-get(q))*(h-8)).toFixed(1);return{d,maxS};}
+
+function renderDigits(){
+  const ink=css('--ink'),line=css('--line'),upd=css('--update'),muted=css('--muted');
+  digitRows.forEach((r,d)=>{
+    r.cells.forEach(({k,c,s})=>{drawImg(c,Xte[k]);const p=ev.preds[k];s.textContent=p;s.className=p===d?'ok':'bad';});
+    const {d:pd}=pathFor(q=>q.per[d],200,34,2);
+    r.sp.innerHTML=`<line x1="2" y1="4" x2="198" y2="4" stroke="${line}" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/><line x1="2" y1="30" x2="198" y2="30" stroke="${line}" vector-effect="non-scaling-stroke"/><path d="${pd}" fill="none" stroke="${upd}" stroke-width="1.75" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>`;
+    r.acc.textContent=Math.round(ev.per[d]*100)+'%';r.acc.style.color=ev.per[d]>=0.9?upd:(ev.per[d]>=0.5?ink:css('--neg'));});
+  const W2=320,H2=150,L=34,{d:po,maxS}=pathFor(q=>q.o,W2,H2-18,L);
+  let s='';[0,0.5,1].forEach(v=>{const y=4+(1-v)*(H2-18-8);s+=`<line x1="${L}" y1="${y}" x2="${W2-4}" y2="${y}" stroke="${line}" ${v?'stroke-dasharray="2 3"':''}/><text x="${L-5}" y="${y+3}" font-size="10" text-anchor="end" fill="${muted}" font-family="JetBrains Mono,monospace">${v*100}%</text>`;});
+  s+=`<text x="${L}" y="${H2-2}" font-size="10" fill="${muted}" font-family="JetBrains Mono,monospace">step 0</text><text x="${W2-4}" y="${H2-2}" font-size="10" text-anchor="end" fill="${muted}" font-family="JetBrains Mono,monospace">step ${maxS}</text>`;
+  s+=`<path d="${po}" fill="none" stroke="${upd}" stroke-width="2" stroke-linejoin="round"/>`;
+  const q=hist[hist.length-1],cx=L+(q.s/maxS)*(W2-L-4),cy=4+(1-q.o)*(H2-18-8);
+  s+=`<circle cx="${cx}" cy="${cy}" r="3.5" fill="${upd}"/><text x="${Math.min(cx,W2-40)}" y="${Math.max(cy-8,12)}" font-size="11" font-weight="600" text-anchor="middle" fill="${ink}" font-family="JetBrains Mono,monospace">${(q.o*100).toFixed(1)}%</text>`;
+  document.getElementById('cOverall').innerHTML=s;
+  const M=Array.from({length:10},()=>new Array(10).fill(0));ev.preds.forEach((p,k)=>M[yte[k]][p]++);
+  const pos=hexRgb(css('--update')),neg=hexRgb(css('--neg'));
+  let h='<div></div>';for(let c=0;c<10;c++)h+=`<div class="hd">${c}</div>`;
+  for(let r=0;r<10;r++){h+=`<div class="hd">${r}</div>`;for(let c=0;c<10;c++){const v=M[r][c],a=Math.min(1,v/15),col=r===c?pos:neg;
+    h+=`<div style="background:rgba(${col[0]},${col[1]},${col[2]},${(v?0.12+0.78*a:0).toFixed(2)});color:${v?(a>0.55?css('--panel'):ink):'transparent'}" title="true ${r}, read as ${c}: ${v}">${v||''}</div>`;}}
+  document.getElementById('conf').innerHTML=h;}
+
+function run(k){for(let t=0;t<k;t++){last=trainStep();record();}sel=Math.min(sel,B-1);render();}
+let timer=null;
+document.getElementById('b1').onclick=()=>run(1);
+document.getElementById('b10').onclick=()=>run(10);
+document.getElementById('bplay').onclick=e=>{if(timer){clearInterval(timer);timer=null;e.target.textContent='Play';}else{timer=setInterval(()=>run(1),180);e.target.textContent='Pause';}};
+document.getElementById('breset').onclick=()=>{if(timer){clearInterval(timer);timer=null;document.getElementById('bplay').textContent='Play';}reset();hist=[];record();render();};
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',render);
+new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+reset();hist=[];record();render();
+</script>
+
+</body></html>
