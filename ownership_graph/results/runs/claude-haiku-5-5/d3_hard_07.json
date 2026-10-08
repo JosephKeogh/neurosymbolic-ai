@@ -1,0 +1,303 @@
+{
+  "scenario": "d3_hard_07",
+  "model": "claude-haiku-5-5",
+  "target": "Tidal Stone Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Harbor Stone Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Tidal Stone Inc",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+        },
+        {
+          "owner": "Willow Vale Partners LP",
+          "owner_type": "company",
+          "owned": "Tidal Stone Inc",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+        },
+        {
+          "owner": "Esme Orsini",
+          "owner_type": "person",
+          "owned": "Tidal Stone Inc",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+        },
+        {
+          "owner": "Silas Tanaka",
+          "owner_type": "person",
+          "owned": "Willow Vale Partners LP",
+          "percent": "60",
+          "doc_id": "doc2",
+          "quote": "Silas Tanaka owns three-fifths of Willow Vale Partners LP."
+        },
+        {
+          "owner": "Harbor Stone Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Willow Vale Partners LP",
+          "percent": "35",
+          "doc_id": "doc2",
+          "quote": "A 35% interest in Willow Vale Partners LP is held by Harbor Stone Holdings Ltd."
+        },
+        {
+          "owner": "Eli Quist",
+          "owner_type": "person",
+          "owned": "Harbor Stone Holdings Ltd",
+          "percent": "30",
+          "doc_id": "doc3",
+          "quote": "Harbor Stone Holdings Ltd is 30%-owned by Eli Quist."
+        },
+        {
+          "owner": "Xavi Whitlow",
+          "owner_type": "person",
+          "owned": "Harbor Stone Holdings Ltd",
+          "percent": "100/3",
+          "doc_id": "doc3",
+          "quote": "Xavi Whitlow holds 40,000 of the 120,000 outstanding shares of Harbor Stone Holdings Ltd."
+        },
+        {
+          "owner": "Ivy Park",
+          "owner_type": "person",
+          "owned": "Harbor Stone Holdings Ltd",
+          "percent": "35",
+          "doc_id": "doc3",
+          "quote": "Ivy Park holds 2,100 of the 6,000 outstanding shares of Harbor Stone Holdings Ltd."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Esme Orsini",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Esme Orsini",
+              "owned": "Tidal Stone Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Silas Tanaka",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "60% x 40% = 24%",
+          "hops": [
+            {
+              "owner": "Silas Tanaka",
+              "owned": "Willow Vale Partners LP",
+              "percent": "60",
+              "doc_id": "doc2",
+              "quote": "Silas Tanaka owns three-fifths of Willow Vale Partners LP."
+            },
+            {
+              "owner": "Willow Vale Partners LP",
+              "owned": "Tidal Stone Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Eli Quist",
+      "percent": "66/5",
+      "display": "13.2%",
+      "paths": [
+        {
+          "display": "30% x 30% = 9%",
+          "hops": [
+            {
+              "owner": "Eli Quist",
+              "owned": "Harbor Stone Holdings Ltd",
+              "percent": "30",
+              "doc_id": "doc3",
+              "quote": "Harbor Stone Holdings Ltd is 30%-owned by Eli Quist."
+            },
+            {
+              "owner": "Harbor Stone Holdings Ltd",
+              "owned": "Tidal Stone Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        },
+        {
+          "display": "30% x 35% x 40% = 4.2%",
+          "hops": [
+            {
+              "owner": "Eli Quist",
+              "owned": "Harbor Stone Holdings Ltd",
+              "percent": "30",
+              "doc_id": "doc3",
+              "quote": "Harbor Stone Holdings Ltd is 30%-owned by Eli Quist."
+            },
+            {
+              "owner": "Harbor Stone Holdings Ltd",
+              "owned": "Willow Vale Partners LP",
+              "percent": "35",
+              "doc_id": "doc2",
+              "quote": "A 35% interest in Willow Vale Partners LP is held by Harbor Stone Holdings Ltd."
+            },
+            {
+              "owner": "Willow Vale Partners LP",
+              "owned": "Tidal Stone Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Xavi Whitlow",
+      "percent": "44/3",
+      "display": "14 2/3%",
+      "paths": [
+        {
+          "display": "33 1/3% x 30% = 10%",
+          "hops": [
+            {
+              "owner": "Xavi Whitlow",
+              "owned": "Harbor Stone Holdings Ltd",
+              "percent": "100/3",
+              "doc_id": "doc3",
+              "quote": "Xavi Whitlow holds 40,000 of the 120,000 outstanding shares of Harbor Stone Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Stone Holdings Ltd",
+              "owned": "Tidal Stone Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        },
+        {
+          "display": "33 1/3% x 35% x 40% = 4 2/3%",
+          "hops": [
+            {
+              "owner": "Xavi Whitlow",
+              "owned": "Harbor Stone Holdings Ltd",
+              "percent": "100/3",
+              "doc_id": "doc3",
+              "quote": "Xavi Whitlow holds 40,000 of the 120,000 outstanding shares of Harbor Stone Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Stone Holdings Ltd",
+              "owned": "Willow Vale Partners LP",
+              "percent": "35",
+              "doc_id": "doc2",
+              "quote": "A 35% interest in Willow Vale Partners LP is held by Harbor Stone Holdings Ltd."
+            },
+            {
+              "owner": "Willow Vale Partners LP",
+              "owned": "Tidal Stone Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Ivy Park",
+      "percent": "77/5",
+      "display": "15.4%",
+      "paths": [
+        {
+          "display": "35% x 30% = 10.5%",
+          "hops": [
+            {
+              "owner": "Ivy Park",
+              "owned": "Harbor Stone Holdings Ltd",
+              "percent": "35",
+              "doc_id": "doc3",
+              "quote": "Ivy Park holds 2,100 of the 6,000 outstanding shares of Harbor Stone Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Stone Holdings Ltd",
+              "owned": "Tidal Stone Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        },
+        {
+          "display": "35% x 35% x 40% = 4.9%",
+          "hops": [
+            {
+              "owner": "Ivy Park",
+              "owned": "Harbor Stone Holdings Ltd",
+              "percent": "35",
+              "doc_id": "doc3",
+              "quote": "Ivy Park holds 2,100 of the 6,000 outstanding shares of Harbor Stone Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Stone Holdings Ltd",
+              "owned": "Willow Vale Partners LP",
+              "percent": "35",
+              "doc_id": "doc2",
+              "quote": "A 35% interest in Willow Vale Partners LP is held by Harbor Stone Holdings Ltd."
+            },
+            {
+              "owner": "Willow Vale Partners LP",
+              "owned": "Tidal Stone Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Esme Orsini",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Esme Orsini",
+              "owned": "Tidal Stone Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Tidal Stone Inc, Harbor Stone Holdings Ltd holds 30% and Willow Vale Partners LP holds 40%; the remaining interest is held by Esme Orsini."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

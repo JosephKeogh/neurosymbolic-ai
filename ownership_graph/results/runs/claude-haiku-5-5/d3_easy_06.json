@@ -1,0 +1,163 @@
+{
+  "scenario": "d3_easy_06",
+  "model": "claude-haiku-5-5",
+  "target": "Ember Peak Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Joel Quist",
+          "owner_type": "person",
+          "owned": "Ember Peak Corp",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Joel Quist is the holder of 25% of the outstanding shares of Ember Peak Corp."
+        },
+        {
+          "owner": "Meridian Moor Partners LP",
+          "owner_type": "company",
+          "owned": "Ember Peak Corp",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Meridian Moor Partners LP owns 35% of Ember Peak Corp."
+        },
+        {
+          "owner": "Alma Whitlow",
+          "owner_type": "person",
+          "owned": "Falcon Reach Holdings LP",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Alma Whitlow is the holder of 33 1/3% of the outstanding shares of Falcon Reach Holdings LP."
+        },
+        {
+          "owner": "Zane Jansen",
+          "owner_type": "person",
+          "owned": "Falcon Reach Holdings LP",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Zane Jansen holds a 35% stake in Falcon Reach Holdings LP."
+        },
+        {
+          "owner": "Falcon Reach Holdings LP",
+          "owner_type": "company",
+          "owned": "Meridian Moor Partners LP",
+          "percent": "35",
+          "doc_id": "doc2",
+          "quote": "Falcon Reach Holdings LP holds a 35% stake in Meridian Moor Partners LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Joel Quist",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Joel Quist",
+              "owned": "Ember Peak Corp",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Joel Quist is the holder of 25% of the outstanding shares of Ember Peak Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Alma Whitlow",
+      "percent": "49/12",
+      "display": "4 1/12%",
+      "paths": [
+        {
+          "display": "33 1/3% x 35% x 35% = 4 1/12%",
+          "hops": [
+            {
+              "owner": "Alma Whitlow",
+              "owned": "Falcon Reach Holdings LP",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Alma Whitlow is the holder of 33 1/3% of the outstanding shares of Falcon Reach Holdings LP."
+            },
+            {
+              "owner": "Falcon Reach Holdings LP",
+              "owned": "Meridian Moor Partners LP",
+              "percent": "35",
+              "doc_id": "doc2",
+              "quote": "Falcon Reach Holdings LP holds a 35% stake in Meridian Moor Partners LP."
+            },
+            {
+              "owner": "Meridian Moor Partners LP",
+              "owned": "Ember Peak Corp",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Meridian Moor Partners LP owns 35% of Ember Peak Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Zane Jansen",
+      "percent": "343/80",
+      "display": "4.2875%",
+      "paths": [
+        {
+          "display": "35% x 35% x 35% = 4.2875%",
+          "hops": [
+            {
+              "owner": "Zane Jansen",
+              "owned": "Falcon Reach Holdings LP",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Zane Jansen holds a 35% stake in Falcon Reach Holdings LP."
+            },
+            {
+              "owner": "Falcon Reach Holdings LP",
+              "owned": "Meridian Moor Partners LP",
+              "percent": "35",
+              "doc_id": "doc2",
+              "quote": "Falcon Reach Holdings LP holds a 35% stake in Meridian Moor Partners LP."
+            },
+            {
+              "owner": "Meridian Moor Partners LP",
+              "owned": "Ember Peak Corp",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Meridian Moor Partners LP owns 35% of Ember Peak Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Joel Quist",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Joel Quist",
+              "owned": "Ember Peak Corp",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Joel Quist is the holder of 25% of the outstanding shares of Ember Peak Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

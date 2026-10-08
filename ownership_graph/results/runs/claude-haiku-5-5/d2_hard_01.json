@@ -1,0 +1,168 @@
+{
+  "scenario": "d2_hard_01",
+  "model": "claude-haiku-5-5",
+  "target": "Saffron Vale Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Vince Yilmaz",
+          "owner_type": "person",
+          "owned": "Saffron Vale Ltd",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "A 15% interest in Saffron Vale Ltd is held by Vince Yilmaz."
+        },
+        {
+          "owner": "Eli Whitlow",
+          "owner_type": "person",
+          "owned": "Saffron Vale Ltd",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Eli Whitlow owns one-quarter of Saffron Vale Ltd."
+        },
+        {
+          "owner": "Obsidian Field Holdings LP",
+          "owner_type": "company",
+          "owned": "Saffron Vale Ltd",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "A 35% interest in Saffron Vale Ltd is held by Obsidian Field Holdings LP."
+        },
+        {
+          "owner": "Joel Ibarra",
+          "owner_type": "person",
+          "owned": "Obsidian Field Holdings LP",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Joel Ibarra holds 4,800 of the 12,000 outstanding shares of Obsidian Field Holdings LP."
+        },
+        {
+          "owner": "Vince Rook",
+          "owner_type": "person",
+          "owned": "Obsidian Field Holdings LP",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Vince Rook holds 24,000 of the 120,000 outstanding shares of Obsidian Field Holdings LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Vince Yilmaz",
+      "percent": "15",
+      "display": "15%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Vince Yilmaz",
+              "owned": "Saffron Vale Ltd",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "A 15% interest in Saffron Vale Ltd is held by Vince Yilmaz."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Eli Whitlow",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Eli Whitlow",
+              "owned": "Saffron Vale Ltd",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Eli Whitlow owns one-quarter of Saffron Vale Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Joel Ibarra",
+      "percent": "14",
+      "display": "14%",
+      "paths": [
+        {
+          "display": "40% x 35% = 14%",
+          "hops": [
+            {
+              "owner": "Joel Ibarra",
+              "owned": "Obsidian Field Holdings LP",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Joel Ibarra holds 4,800 of the 12,000 outstanding shares of Obsidian Field Holdings LP."
+            },
+            {
+              "owner": "Obsidian Field Holdings LP",
+              "owned": "Saffron Vale Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "A 35% interest in Saffron Vale Ltd is held by Obsidian Field Holdings LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Vince Rook",
+      "percent": "7",
+      "display": "7%",
+      "paths": [
+        {
+          "display": "20% x 35% = 7%",
+          "hops": [
+            {
+              "owner": "Vince Rook",
+              "owned": "Obsidian Field Holdings LP",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Vince Rook holds 24,000 of the 120,000 outstanding shares of Obsidian Field Holdings LP."
+            },
+            {
+              "owner": "Obsidian Field Holdings LP",
+              "owned": "Saffron Vale Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "A 35% interest in Saffron Vale Ltd is held by Obsidian Field Holdings LP."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Eli Whitlow",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Eli Whitlow",
+              "owned": "Saffron Vale Ltd",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Eli Whitlow owns one-quarter of Saffron Vale Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,10 @@
+{
+  "scenario": "d3_easy_00",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Pia Gallo",
+      "percent": "27.9"
+    }
+  ]
+}

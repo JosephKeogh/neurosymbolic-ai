@@ -1,0 +1,111 @@
+{
+  "scenario": "d1_hard_03",
+  "model": "claude-haiku-5-5",
+  "target": "Silver Field Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Finn Ibarra",
+          "owner_type": "person",
+          "owned": "Silver Field Ltd",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Silver Field Ltd, Finn Ibarra holds 40%; the remaining interest is held by Tova Duarte."
+        },
+        {
+          "owner": "Tova Duarte",
+          "owner_type": "person",
+          "owned": "Silver Field Ltd",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Silver Field Ltd, Finn Ibarra holds 40%; the remaining interest is held by Tova Duarte."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Finn Ibarra",
+      "percent": "40",
+      "display": "40%",
+      "paths": [
+        {
+          "display": "40% = 40%",
+          "hops": [
+            {
+              "owner": "Finn Ibarra",
+              "owned": "Silver Field Ltd",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Silver Field Ltd, Finn Ibarra holds 40%; the remaining interest is held by Tova Duarte."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Tova Duarte",
+      "percent": "60",
+      "display": "60%",
+      "paths": [
+        {
+          "display": "60% = 60%",
+          "hops": [
+            {
+              "owner": "Tova Duarte",
+              "owned": "Silver Field Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Silver Field Ltd, Finn Ibarra holds 40%; the remaining interest is held by Tova Duarte."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Finn Ibarra",
+      "percent": "40",
+      "display": "40%",
+      "paths": [
+        {
+          "display": "40% = 40%",
+          "hops": [
+            {
+              "owner": "Finn Ibarra",
+              "owned": "Silver Field Ltd",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Silver Field Ltd, Finn Ibarra holds 40%; the remaining interest is held by Tova Duarte."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Tova Duarte",
+      "percent": "60",
+      "display": "60%",
+      "paths": [
+        {
+          "display": "60% = 60%",
+          "hops": [
+            {
+              "owner": "Tova Duarte",
+              "owned": "Silver Field Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Silver Field Ltd, Finn Ibarra holds 40%; the remaining interest is held by Tova Duarte."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

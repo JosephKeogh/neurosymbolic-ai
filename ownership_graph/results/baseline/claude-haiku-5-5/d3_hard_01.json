@@ -1,0 +1,10 @@
+{
+  "scenario": "d3_hard_01",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Kira Mendel",
+      "percent": "25"
+    }
+  ]
+}

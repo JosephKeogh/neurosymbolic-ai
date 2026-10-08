@@ -1,0 +1,258 @@
+{
+  "scenario": "d3_easy_01",
+  "model": "claude-haiku-5-5",
+  "target": "Tidal Ridge LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Willow Moor Capital LLC",
+          "owner_type": "company",
+          "owned": "Tidal Ridge LLC",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Willow Moor Capital LLC is the holder of 40% of the outstanding shares of Tidal Ridge LLC."
+        },
+        {
+          "owner": "Dana Kovac",
+          "owner_type": "person",
+          "owned": "Tidal Ridge LLC",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Dana Kovac holds a 30% stake in Tidal Ridge LLC."
+        },
+        {
+          "owner": "Tidal Meadow Holdings LP",
+          "owner_type": "company",
+          "owned": "Tidal Ridge LLC",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Tidal Meadow Holdings LP holds a 30% stake in Tidal Ridge LLC."
+        },
+        {
+          "owner": "Finn Novak",
+          "owner_type": "person",
+          "owned": "Willow Moor Capital LLC",
+          "percent": "125/2",
+          "doc_id": "doc1",
+          "quote": "Finn Novak holds a 62.5% stake in Willow Moor Capital LLC."
+        },
+        {
+          "owner": "Cleo Duarte",
+          "owner_type": "person",
+          "owned": "Willow Moor Capital LLC",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Cleo Duarte holds a 35% stake in Willow Moor Capital LLC."
+        },
+        {
+          "owner": "Amber Glen Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Tidal Meadow Holdings LP",
+          "percent": "70",
+          "doc_id": "doc2",
+          "quote": "Amber Glen Ventures Ltd is the holder of 70% of the outstanding shares of Tidal Meadow Holdings LP."
+        },
+        {
+          "owner": "Hugo Thorne",
+          "owner_type": "person",
+          "owned": "Tidal Meadow Holdings LP",
+          "percent": "15",
+          "doc_id": "doc2",
+          "quote": "Hugo Thorne owns 15% of Tidal Meadow Holdings LP."
+        },
+        {
+          "owner": "Theo Rook",
+          "owner_type": "person",
+          "owned": "Amber Glen Ventures Ltd",
+          "percent": "50",
+          "doc_id": "doc2",
+          "quote": "Theo Rook holds a 50% stake in Amber Glen Ventures Ltd."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Dana Kovac",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Dana Kovac",
+              "owned": "Tidal Ridge LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Dana Kovac holds a 30% stake in Tidal Ridge LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Finn Novak",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "62.5% x 40% = 25%",
+          "hops": [
+            {
+              "owner": "Finn Novak",
+              "owned": "Willow Moor Capital LLC",
+              "percent": "125/2",
+              "doc_id": "doc1",
+              "quote": "Finn Novak holds a 62.5% stake in Willow Moor Capital LLC."
+            },
+            {
+              "owner": "Willow Moor Capital LLC",
+              "owned": "Tidal Ridge LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Willow Moor Capital LLC is the holder of 40% of the outstanding shares of Tidal Ridge LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Cleo Duarte",
+      "percent": "14",
+      "display": "14%",
+      "paths": [
+        {
+          "display": "35% x 40% = 14%",
+          "hops": [
+            {
+              "owner": "Cleo Duarte",
+              "owned": "Willow Moor Capital LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Cleo Duarte holds a 35% stake in Willow Moor Capital LLC."
+            },
+            {
+              "owner": "Willow Moor Capital LLC",
+              "owned": "Tidal Ridge LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Willow Moor Capital LLC is the holder of 40% of the outstanding shares of Tidal Ridge LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Hugo Thorne",
+      "percent": "9/2",
+      "display": "4.5%",
+      "paths": [
+        {
+          "display": "15% x 30% = 4.5%",
+          "hops": [
+            {
+              "owner": "Hugo Thorne",
+              "owned": "Tidal Meadow Holdings LP",
+              "percent": "15",
+              "doc_id": "doc2",
+              "quote": "Hugo Thorne owns 15% of Tidal Meadow Holdings LP."
+            },
+            {
+              "owner": "Tidal Meadow Holdings LP",
+              "owned": "Tidal Ridge LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Tidal Meadow Holdings LP holds a 30% stake in Tidal Ridge LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Theo Rook",
+      "percent": "21/2",
+      "display": "10.5%",
+      "paths": [
+        {
+          "display": "50% x 70% x 30% = 10.5%",
+          "hops": [
+            {
+              "owner": "Theo Rook",
+              "owned": "Amber Glen Ventures Ltd",
+              "percent": "50",
+              "doc_id": "doc2",
+              "quote": "Theo Rook holds a 50% stake in Amber Glen Ventures Ltd."
+            },
+            {
+              "owner": "Amber Glen Ventures Ltd",
+              "owned": "Tidal Meadow Holdings LP",
+              "percent": "70",
+              "doc_id": "doc2",
+              "quote": "Amber Glen Ventures Ltd is the holder of 70% of the outstanding shares of Tidal Meadow Holdings LP."
+            },
+            {
+              "owner": "Tidal Meadow Holdings LP",
+              "owned": "Tidal Ridge LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Tidal Meadow Holdings LP holds a 30% stake in Tidal Ridge LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Dana Kovac",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Dana Kovac",
+              "owned": "Tidal Ridge LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Dana Kovac holds a 30% stake in Tidal Ridge LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Finn Novak",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "62.5% x 40% = 25%",
+          "hops": [
+            {
+              "owner": "Finn Novak",
+              "owned": "Willow Moor Capital LLC",
+              "percent": "125/2",
+              "doc_id": "doc1",
+              "quote": "Finn Novak holds a 62.5% stake in Willow Moor Capital LLC."
+            },
+            {
+              "owner": "Willow Moor Capital LLC",
+              "owned": "Tidal Ridge LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Willow Moor Capital LLC is the holder of 40% of the outstanding shares of Tidal Ridge LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,18 @@
+{
+  "scenario": "d1_easy_06",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Milo Eklund",
+      "percent": "25"
+    },
+    {
+      "person": "Rosa Whitlow",
+      "percent": "25"
+    },
+    {
+      "person": "Priya Orsini",
+      "percent": "33.3"
+    }
+  ]
+}

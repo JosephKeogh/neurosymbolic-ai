@@ -1,0 +1,119 @@
+{
+  "scenario": "d1_easy_00",
+  "model": "claude-haiku-5-5",
+  "target": "Marble Haven Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Yara Ashby",
+          "owner_type": "person",
+          "owned": "Marble Haven Inc",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "Yara Ashby is the holder of 24% of the outstanding shares of Marble Haven Inc."
+        },
+        {
+          "owner": "Nico Byrne",
+          "owner_type": "person",
+          "owned": "Marble Haven Inc",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Nico Byrne owns 20% of Marble Haven Inc."
+        },
+        {
+          "owner": "Vince Brannock",
+          "owner_type": "person",
+          "owned": "Marble Haven Inc",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Vince Brannock owns 50% of Marble Haven Inc."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Yara Ashby",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Yara Ashby",
+              "owned": "Marble Haven Inc",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "Yara Ashby is the holder of 24% of the outstanding shares of Marble Haven Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nico Byrne",
+      "percent": "20",
+      "display": "20%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Nico Byrne",
+              "owned": "Marble Haven Inc",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Nico Byrne owns 20% of Marble Haven Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Vince Brannock",
+      "percent": "50",
+      "display": "50%",
+      "paths": [
+        {
+          "display": "50% = 50%",
+          "hops": [
+            {
+              "owner": "Vince Brannock",
+              "owned": "Marble Haven Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Vince Brannock owns 50% of Marble Haven Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Vince Brannock",
+      "percent": "50",
+      "display": "50%",
+      "paths": [
+        {
+          "display": "50% = 50%",
+          "hops": [
+            {
+              "owner": "Vince Brannock",
+              "owned": "Marble Haven Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Vince Brannock owns 50% of Marble Haven Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

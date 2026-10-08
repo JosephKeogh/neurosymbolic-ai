@@ -1,0 +1,138 @@
+{
+  "scenario": "d1_hard_01",
+  "model": "claude-haiku-5-5",
+  "target": "Ember Peak Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Oren Thorne",
+          "owner_type": "person",
+          "owned": "Ember Peak Corp",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Oren Thorne holds 200 of the 1,000 outstanding shares of Ember Peak Corp."
+        },
+        {
+          "owner": "Dana Eklund",
+          "owner_type": "person",
+          "owned": "Ember Peak Corp",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Ember Peak Corp is 50%-owned by Dana Eklund."
+        },
+        {
+          "owner": "Cleo Ashby",
+          "owner_type": "person",
+          "owned": "Ember Peak Corp",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Cleo Ashby holds 2,500 of the 10,000 outstanding shares of Ember Peak Corp."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Oren Thorne",
+      "percent": "20",
+      "display": "20%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Oren Thorne",
+              "owned": "Ember Peak Corp",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Oren Thorne holds 200 of the 1,000 outstanding shares of Ember Peak Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Dana Eklund",
+      "percent": "50",
+      "display": "50%",
+      "paths": [
+        {
+          "display": "50% = 50%",
+          "hops": [
+            {
+              "owner": "Dana Eklund",
+              "owned": "Ember Peak Corp",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Ember Peak Corp is 50%-owned by Dana Eklund."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Cleo Ashby",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Cleo Ashby",
+              "owned": "Ember Peak Corp",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Cleo Ashby holds 2,500 of the 10,000 outstanding shares of Ember Peak Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Dana Eklund",
+      "percent": "50",
+      "display": "50%",
+      "paths": [
+        {
+          "display": "50% = 50%",
+          "hops": [
+            {
+              "owner": "Dana Eklund",
+              "owned": "Ember Peak Corp",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Ember Peak Corp is 50%-owned by Dana Eklund."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Cleo Ashby",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Cleo Ashby",
+              "owned": "Ember Peak Corp",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Cleo Ashby holds 2,500 of the 10,000 outstanding shares of Ember Peak Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,205 @@
+{
+  "scenario": "d3_hard_06",
+  "model": "claude-haiku-5-5",
+  "target": "Hollow Bay Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Ember Grove Holdings LP",
+          "owner_type": "company",
+          "owned": "Hollow Bay Corp",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Ember Grove Holdings LP holds 2,000 of the 6,000 outstanding shares of Hollow Bay Corp."
+        },
+        {
+          "owner": "Wren Park",
+          "owner_type": "person",
+          "owned": "Hollow Bay Corp",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "A 20% interest in Hollow Bay Corp is held by Wren Park."
+        },
+        {
+          "owner": "Willow Reach Group Inc",
+          "owner_type": "company",
+          "owned": "Hollow Bay Corp",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Willow Reach Group Inc owns one-third of Hollow Bay Corp."
+        },
+        {
+          "owner": "Wren Eklund",
+          "owner_type": "person",
+          "owned": "Thistle Gate Holdings LLC",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Wren Eklund holds 30,000 of the 120,000 outstanding shares of Thistle Gate Holdings LLC."
+        },
+        {
+          "owner": "Pia Duarte",
+          "owner_type": "person",
+          "owned": "Ember Grove Holdings LP",
+          "percent": "10",
+          "doc_id": "doc2",
+          "quote": "Ember Grove Holdings LP is 10%-owned by Pia Duarte."
+        },
+        {
+          "owner": "Vince Mendel",
+          "owner_type": "person",
+          "owned": "Ember Grove Holdings LP",
+          "percent": "75",
+          "doc_id": "doc2",
+          "quote": "Vince Mendel owns three-quarters of Ember Grove Holdings LP."
+        },
+        {
+          "owner": "Thistle Gate Holdings LLC",
+          "owner_type": "company",
+          "owned": "Willow Reach Group Inc",
+          "percent": "80",
+          "doc_id": "doc3",
+          "quote": "Willow Reach Group Inc is 80%-owned by Thistle Gate Holdings LLC."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Wren Park",
+      "percent": "20",
+      "display": "20%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Wren Park",
+              "owned": "Hollow Bay Corp",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "A 20% interest in Hollow Bay Corp is held by Wren Park."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Wren Eklund",
+      "percent": "20/3",
+      "display": "6 2/3%",
+      "paths": [
+        {
+          "display": "25% x 80% x 33 1/3% = 6 2/3%",
+          "hops": [
+            {
+              "owner": "Wren Eklund",
+              "owned": "Thistle Gate Holdings LLC",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Wren Eklund holds 30,000 of the 120,000 outstanding shares of Thistle Gate Holdings LLC."
+            },
+            {
+              "owner": "Thistle Gate Holdings LLC",
+              "owned": "Willow Reach Group Inc",
+              "percent": "80",
+              "doc_id": "doc3",
+              "quote": "Willow Reach Group Inc is 80%-owned by Thistle Gate Holdings LLC."
+            },
+            {
+              "owner": "Willow Reach Group Inc",
+              "owned": "Hollow Bay Corp",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Willow Reach Group Inc owns one-third of Hollow Bay Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Pia Duarte",
+      "percent": "10/3",
+      "display": "3 1/3%",
+      "paths": [
+        {
+          "display": "10% x 33 1/3% = 3 1/3%",
+          "hops": [
+            {
+              "owner": "Pia Duarte",
+              "owned": "Ember Grove Holdings LP",
+              "percent": "10",
+              "doc_id": "doc2",
+              "quote": "Ember Grove Holdings LP is 10%-owned by Pia Duarte."
+            },
+            {
+              "owner": "Ember Grove Holdings LP",
+              "owned": "Hollow Bay Corp",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Ember Grove Holdings LP holds 2,000 of the 6,000 outstanding shares of Hollow Bay Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Vince Mendel",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "75% x 33 1/3% = 25%",
+          "hops": [
+            {
+              "owner": "Vince Mendel",
+              "owned": "Ember Grove Holdings LP",
+              "percent": "75",
+              "doc_id": "doc2",
+              "quote": "Vince Mendel owns three-quarters of Ember Grove Holdings LP."
+            },
+            {
+              "owner": "Ember Grove Holdings LP",
+              "owned": "Hollow Bay Corp",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Ember Grove Holdings LP holds 2,000 of the 6,000 outstanding shares of Hollow Bay Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Vince Mendel",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "75% x 33 1/3% = 25%",
+          "hops": [
+            {
+              "owner": "Vince Mendel",
+              "owned": "Ember Grove Holdings LP",
+              "percent": "75",
+              "doc_id": "doc2",
+              "quote": "Vince Mendel owns three-quarters of Ember Grove Holdings LP."
+            },
+            {
+              "owner": "Ember Grove Holdings LP",
+              "owned": "Hollow Bay Corp",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Ember Grove Holdings LP holds 2,000 of the 6,000 outstanding shares of Hollow Bay Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

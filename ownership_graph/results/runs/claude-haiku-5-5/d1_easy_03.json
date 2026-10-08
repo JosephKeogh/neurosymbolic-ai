@@ -1,0 +1,138 @@
+{
+  "scenario": "d1_easy_03",
+  "model": "claude-haiku-5-5",
+  "target": "Meridian Grove Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Pia Tanaka",
+          "owner_type": "person",
+          "owned": "Meridian Grove Ltd",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "Pia Tanaka owns 45% of Meridian Grove Ltd."
+        },
+        {
+          "owner": "Ivy Castell",
+          "owner_type": "person",
+          "owned": "Meridian Grove Ltd",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Ivy Castell holds a 15% stake in Meridian Grove Ltd."
+        },
+        {
+          "owner": "Silas Farrow",
+          "owner_type": "person",
+          "owned": "Meridian Grove Ltd",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Silas Farrow owns 35% of Meridian Grove Ltd."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Pia Tanaka",
+      "percent": "45",
+      "display": "45%",
+      "paths": [
+        {
+          "display": "45% = 45%",
+          "hops": [
+            {
+              "owner": "Pia Tanaka",
+              "owned": "Meridian Grove Ltd",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Pia Tanaka owns 45% of Meridian Grove Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Ivy Castell",
+      "percent": "15",
+      "display": "15%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Ivy Castell",
+              "owned": "Meridian Grove Ltd",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Ivy Castell holds a 15% stake in Meridian Grove Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Silas Farrow",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Silas Farrow",
+              "owned": "Meridian Grove Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Silas Farrow owns 35% of Meridian Grove Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Pia Tanaka",
+      "percent": "45",
+      "display": "45%",
+      "paths": [
+        {
+          "display": "45% = 45%",
+          "hops": [
+            {
+              "owner": "Pia Tanaka",
+              "owned": "Meridian Grove Ltd",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Pia Tanaka owns 45% of Meridian Grove Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Silas Farrow",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Silas Farrow",
+              "owned": "Meridian Grove Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Silas Farrow owns 35% of Meridian Grove Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

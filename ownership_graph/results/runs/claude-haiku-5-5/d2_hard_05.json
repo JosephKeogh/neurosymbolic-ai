@@ -1,0 +1,195 @@
+{
+  "scenario": "d2_hard_05",
+  "model": "claude-haiku-5-5",
+  "target": "Saffron Haven LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Cobalt Crest Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Saffron Haven LLC",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "A 30% interest in Saffron Haven LLC is held by Cobalt Crest Ventures Ltd."
+        },
+        {
+          "owner": "Granite Vale Partners LP",
+          "owner_type": "company",
+          "owned": "Saffron Haven LLC",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Saffron Haven LLC is 30%-owned by Granite Vale Partners LP."
+        },
+        {
+          "owner": "Nico Mendel",
+          "owner_type": "person",
+          "owned": "Saffron Haven LLC",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Saffron Haven LLC is 15%-owned by Nico Mendel."
+        },
+        {
+          "owner": "Yara Okafor",
+          "owner_type": "person",
+          "owned": "Granite Vale Partners LP",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Granite Vale Partners LP is 25%-owned by Yara Okafor."
+        },
+        {
+          "owner": "Joel Varga",
+          "owner_type": "person",
+          "owned": "Cobalt Crest Ventures Ltd",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Cobalt Crest Ventures Ltd is 25%-owned by Joel Varga."
+        },
+        {
+          "owner": "Nico Mendel",
+          "owner_type": "person",
+          "owned": "Cobalt Crest Ventures Ltd",
+          "percent": "200/3",
+          "doc_id": "doc1",
+          "quote": "Nico Mendel holds 20,000 of the 30,000 outstanding shares of Cobalt Crest Ventures Ltd."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Nico Mendel",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Nico Mendel",
+              "owned": "Saffron Haven LLC",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Saffron Haven LLC is 15%-owned by Nico Mendel."
+            }
+          ]
+        },
+        {
+          "display": "66 2/3% x 30% = 20%",
+          "hops": [
+            {
+              "owner": "Nico Mendel",
+              "owned": "Cobalt Crest Ventures Ltd",
+              "percent": "200/3",
+              "doc_id": "doc1",
+              "quote": "Nico Mendel holds 20,000 of the 30,000 outstanding shares of Cobalt Crest Ventures Ltd."
+            },
+            {
+              "owner": "Cobalt Crest Ventures Ltd",
+              "owned": "Saffron Haven LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "A 30% interest in Saffron Haven LLC is held by Cobalt Crest Ventures Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Yara Okafor",
+      "percent": "15/2",
+      "display": "7.5%",
+      "paths": [
+        {
+          "display": "25% x 30% = 7.5%",
+          "hops": [
+            {
+              "owner": "Yara Okafor",
+              "owned": "Granite Vale Partners LP",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Granite Vale Partners LP is 25%-owned by Yara Okafor."
+            },
+            {
+              "owner": "Granite Vale Partners LP",
+              "owned": "Saffron Haven LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Saffron Haven LLC is 30%-owned by Granite Vale Partners LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Joel Varga",
+      "percent": "15/2",
+      "display": "7.5%",
+      "paths": [
+        {
+          "display": "25% x 30% = 7.5%",
+          "hops": [
+            {
+              "owner": "Joel Varga",
+              "owned": "Cobalt Crest Ventures Ltd",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Cobalt Crest Ventures Ltd is 25%-owned by Joel Varga."
+            },
+            {
+              "owner": "Cobalt Crest Ventures Ltd",
+              "owned": "Saffron Haven LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "A 30% interest in Saffron Haven LLC is held by Cobalt Crest Ventures Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Nico Mendel",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Nico Mendel",
+              "owned": "Saffron Haven LLC",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Saffron Haven LLC is 15%-owned by Nico Mendel."
+            }
+          ]
+        },
+        {
+          "display": "66 2/3% x 30% = 20%",
+          "hops": [
+            {
+              "owner": "Nico Mendel",
+              "owned": "Cobalt Crest Ventures Ltd",
+              "percent": "200/3",
+              "doc_id": "doc1",
+              "quote": "Nico Mendel holds 20,000 of the 30,000 outstanding shares of Cobalt Crest Ventures Ltd."
+            },
+            {
+              "owner": "Cobalt Crest Ventures Ltd",
+              "owned": "Saffron Haven LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "A 30% interest in Saffron Haven LLC is held by Cobalt Crest Ventures Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

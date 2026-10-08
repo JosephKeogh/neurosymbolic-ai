@@ -1,0 +1,287 @@
+{
+  "scenario": "d3_hard_00",
+  "model": "claude-haiku-5-5",
+  "target": "Tidal Crest LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Amber Meadow Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Tidal Crest LLC",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Amber Meadow Holdings Ltd holds 400 of the 1,000 outstanding shares of Tidal Crest LLC."
+        },
+        {
+          "owner": "Obsidian Moor Partners LP",
+          "owner_type": "company",
+          "owned": "Tidal Crest LLC",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Tidal Crest LLC is 30%-owned by Obsidian Moor Partners LP."
+        },
+        {
+          "owner": "Fay Hale",
+          "owner_type": "person",
+          "owned": "Amber Meadow Holdings Ltd",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Amber Meadow Holdings Ltd is three-fifths-owned by Fay Hale."
+        },
+        {
+          "owner": "Juniper Haven Holdings Inc",
+          "owner_type": "company",
+          "owned": "Obsidian Moor Partners LP",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "Obsidian Moor Partners LP is 45%-owned by Juniper Haven Holdings Inc."
+        },
+        {
+          "owner": "Cobalt Peak Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Obsidian Moor Partners LP",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Cobalt Peak Ventures Ltd holds 350 of the 1,000 outstanding shares of Obsidian Moor Partners LP."
+        },
+        {
+          "owner": "Theo Whitlow",
+          "owner_type": "person",
+          "owned": "Obsidian Moor Partners LP",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Theo Whitlow owns one-tenth of Obsidian Moor Partners LP."
+        },
+        {
+          "owner": "Rosa Novak",
+          "owner_type": "person",
+          "owned": "Cobalt Peak Ventures Ltd",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Rosa Novak owns one-quarter of Cobalt Peak Ventures Ltd."
+        },
+        {
+          "owner": "Milo Reyes",
+          "owner_type": "person",
+          "owned": "Cobalt Peak Ventures Ltd",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Milo Reyes holds 1,500 of the 6,000 outstanding shares of Cobalt Peak Ventures Ltd."
+        },
+        {
+          "owner": "Fay Hale",
+          "owner_type": "person",
+          "owned": "Juniper Haven Holdings Inc",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Juniper Haven Holdings Inc is one-quarter-owned by Fay Hale."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Fay Hale",
+      "percent": "219/8",
+      "display": "27.375%",
+      "paths": [
+        {
+          "display": "60% x 40% = 24%",
+          "hops": [
+            {
+              "owner": "Fay Hale",
+              "owned": "Amber Meadow Holdings Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Amber Meadow Holdings Ltd is three-fifths-owned by Fay Hale."
+            },
+            {
+              "owner": "Amber Meadow Holdings Ltd",
+              "owned": "Tidal Crest LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Amber Meadow Holdings Ltd holds 400 of the 1,000 outstanding shares of Tidal Crest LLC."
+            }
+          ]
+        },
+        {
+          "display": "25% x 45% x 30% = 3.375%",
+          "hops": [
+            {
+              "owner": "Fay Hale",
+              "owned": "Juniper Haven Holdings Inc",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Juniper Haven Holdings Inc is one-quarter-owned by Fay Hale."
+            },
+            {
+              "owner": "Juniper Haven Holdings Inc",
+              "owned": "Obsidian Moor Partners LP",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Obsidian Moor Partners LP is 45%-owned by Juniper Haven Holdings Inc."
+            },
+            {
+              "owner": "Obsidian Moor Partners LP",
+              "owned": "Tidal Crest LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Tidal Crest LLC is 30%-owned by Obsidian Moor Partners LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Theo Whitlow",
+      "percent": "3",
+      "display": "3%",
+      "paths": [
+        {
+          "display": "10% x 30% = 3%",
+          "hops": [
+            {
+              "owner": "Theo Whitlow",
+              "owned": "Obsidian Moor Partners LP",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Theo Whitlow owns one-tenth of Obsidian Moor Partners LP."
+            },
+            {
+              "owner": "Obsidian Moor Partners LP",
+              "owned": "Tidal Crest LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Tidal Crest LLC is 30%-owned by Obsidian Moor Partners LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Rosa Novak",
+      "percent": "21/8",
+      "display": "2.625%",
+      "paths": [
+        {
+          "display": "25% x 35% x 30% = 2.625%",
+          "hops": [
+            {
+              "owner": "Rosa Novak",
+              "owned": "Cobalt Peak Ventures Ltd",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Rosa Novak owns one-quarter of Cobalt Peak Ventures Ltd."
+            },
+            {
+              "owner": "Cobalt Peak Ventures Ltd",
+              "owned": "Obsidian Moor Partners LP",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Cobalt Peak Ventures Ltd holds 350 of the 1,000 outstanding shares of Obsidian Moor Partners LP."
+            },
+            {
+              "owner": "Obsidian Moor Partners LP",
+              "owned": "Tidal Crest LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Tidal Crest LLC is 30%-owned by Obsidian Moor Partners LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Milo Reyes",
+      "percent": "21/8",
+      "display": "2.625%",
+      "paths": [
+        {
+          "display": "25% x 35% x 30% = 2.625%",
+          "hops": [
+            {
+              "owner": "Milo Reyes",
+              "owned": "Cobalt Peak Ventures Ltd",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Milo Reyes holds 1,500 of the 6,000 outstanding shares of Cobalt Peak Ventures Ltd."
+            },
+            {
+              "owner": "Cobalt Peak Ventures Ltd",
+              "owned": "Obsidian Moor Partners LP",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Cobalt Peak Ventures Ltd holds 350 of the 1,000 outstanding shares of Obsidian Moor Partners LP."
+            },
+            {
+              "owner": "Obsidian Moor Partners LP",
+              "owned": "Tidal Crest LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Tidal Crest LLC is 30%-owned by Obsidian Moor Partners LP."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Fay Hale",
+      "percent": "219/8",
+      "display": "27.375%",
+      "paths": [
+        {
+          "display": "60% x 40% = 24%",
+          "hops": [
+            {
+              "owner": "Fay Hale",
+              "owned": "Amber Meadow Holdings Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Amber Meadow Holdings Ltd is three-fifths-owned by Fay Hale."
+            },
+            {
+              "owner": "Amber Meadow Holdings Ltd",
+              "owned": "Tidal Crest LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Amber Meadow Holdings Ltd holds 400 of the 1,000 outstanding shares of Tidal Crest LLC."
+            }
+          ]
+        },
+        {
+          "display": "25% x 45% x 30% = 3.375%",
+          "hops": [
+            {
+              "owner": "Fay Hale",
+              "owned": "Juniper Haven Holdings Inc",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Juniper Haven Holdings Inc is one-quarter-owned by Fay Hale."
+            },
+            {
+              "owner": "Juniper Haven Holdings Inc",
+              "owned": "Obsidian Moor Partners LP",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Obsidian Moor Partners LP is 45%-owned by Juniper Haven Holdings Inc."
+            },
+            {
+              "owner": "Obsidian Moor Partners LP",
+              "owned": "Tidal Crest LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Tidal Crest LLC is 30%-owned by Obsidian Moor Partners LP."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

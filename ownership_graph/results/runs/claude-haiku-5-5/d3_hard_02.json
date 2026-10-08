@@ -1,0 +1,185 @@
+{
+  "scenario": "d3_hard_02",
+  "model": "claude-haiku-5-5",
+  "target": "Hollow Hollow Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Granite Hollow Capital LLC",
+          "owner_type": "company",
+          "owned": "Hollow Hollow Inc",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Granite Hollow Capital LLC holds 400 of the 1,000 outstanding shares of Hollow Hollow Inc."
+        },
+        {
+          "owner": "Northwind Brook Partners LP",
+          "owner_type": "company",
+          "owned": "Hollow Hollow Inc",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Hollow Hollow Inc is 30%-owned by Northwind Brook Partners LP."
+        },
+        {
+          "owner": "Wren Gallo",
+          "owner_type": "person",
+          "owned": "Northwind Brook Partners LP",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Northwind Brook Partners LP is 15%-owned by Wren Gallo."
+        },
+        {
+          "owner": "Vera Quist",
+          "owner_type": "person",
+          "owned": "Northwind Brook Partners LP",
+          "percent": "80",
+          "doc_id": "doc1",
+          "quote": "Northwind Brook Partners LP is four-fifths-owned by Vera Quist."
+        },
+        {
+          "owner": "Alma Okafor",
+          "owner_type": "person",
+          "owned": "Granite Hollow Capital LLC",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "A 10% interest in Granite Hollow Capital LLC is held by Alma Okafor."
+        },
+        {
+          "owner": "Briar Stone Group Inc",
+          "owner_type": "company",
+          "owned": "Granite Hollow Capital LLC",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "Briar Stone Group Inc holds 2,700 of the 6,000 outstanding shares of Granite Hollow Capital LLC."
+        },
+        {
+          "owner": "Sana Lindqvist",
+          "owner_type": "person",
+          "owned": "Briar Stone Group Inc",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "Sana Lindqvist holds 13,500 of the 30,000 outstanding shares of Briar Stone Group Inc."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Wren Gallo",
+      "percent": "9/2",
+      "display": "4.5%",
+      "paths": [
+        {
+          "display": "15% x 30% = 4.5%",
+          "hops": [
+            {
+              "owner": "Wren Gallo",
+              "owned": "Northwind Brook Partners LP",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Northwind Brook Partners LP is 15%-owned by Wren Gallo."
+            },
+            {
+              "owner": "Northwind Brook Partners LP",
+              "owned": "Hollow Hollow Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Hollow Hollow Inc is 30%-owned by Northwind Brook Partners LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Vera Quist",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "80% x 30% = 24%",
+          "hops": [
+            {
+              "owner": "Vera Quist",
+              "owned": "Northwind Brook Partners LP",
+              "percent": "80",
+              "doc_id": "doc1",
+              "quote": "Northwind Brook Partners LP is four-fifths-owned by Vera Quist."
+            },
+            {
+              "owner": "Northwind Brook Partners LP",
+              "owned": "Hollow Hollow Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Hollow Hollow Inc is 30%-owned by Northwind Brook Partners LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Alma Okafor",
+      "percent": "4",
+      "display": "4%",
+      "paths": [
+        {
+          "display": "10% x 40% = 4%",
+          "hops": [
+            {
+              "owner": "Alma Okafor",
+              "owned": "Granite Hollow Capital LLC",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "A 10% interest in Granite Hollow Capital LLC is held by Alma Okafor."
+            },
+            {
+              "owner": "Granite Hollow Capital LLC",
+              "owned": "Hollow Hollow Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Granite Hollow Capital LLC holds 400 of the 1,000 outstanding shares of Hollow Hollow Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Sana Lindqvist",
+      "percent": "81/10",
+      "display": "8.1%",
+      "paths": [
+        {
+          "display": "45% x 45% x 40% = 8.1%",
+          "hops": [
+            {
+              "owner": "Sana Lindqvist",
+              "owned": "Briar Stone Group Inc",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Sana Lindqvist holds 13,500 of the 30,000 outstanding shares of Briar Stone Group Inc."
+            },
+            {
+              "owner": "Briar Stone Group Inc",
+              "owned": "Granite Hollow Capital LLC",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Briar Stone Group Inc holds 2,700 of the 6,000 outstanding shares of Granite Hollow Capital LLC."
+            },
+            {
+              "owner": "Granite Hollow Capital LLC",
+              "owned": "Hollow Hollow Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Granite Hollow Capital LLC holds 400 of the 1,000 outstanding shares of Hollow Hollow Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [],
+  "error": null
+}

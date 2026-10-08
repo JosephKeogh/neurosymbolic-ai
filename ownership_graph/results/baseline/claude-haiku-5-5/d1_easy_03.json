@@ -1,0 +1,14 @@
+{
+  "scenario": "d1_easy_03",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Pia Tanaka",
+      "percent": "45"
+    },
+    {
+      "person": "Silas Farrow",
+      "percent": "35"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "scenario": "d4_easy_05",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Joel Byrne",
+      "percent": "25.7"
+    }
+  ]
+}

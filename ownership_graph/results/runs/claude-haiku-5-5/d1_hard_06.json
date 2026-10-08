@@ -1,0 +1,146 @@
+{
+  "scenario": "d1_hard_06",
+  "model": "claude-haiku-5-5",
+  "target": "Saffron Ridge LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Uma Moreau",
+          "owner_type": "person",
+          "owned": "Saffron Ridge LLC",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Saffron Ridge LLC is 10%-owned by Uma Moreau."
+        },
+        {
+          "owner": "Nico Farrow",
+          "owner_type": "person",
+          "owned": "Saffron Ridge LLC",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Nico Farrow owns one-quarter of Saffron Ridge LLC."
+        },
+        {
+          "owner": "Cleo Varga",
+          "owner_type": "person",
+          "owned": "Saffron Ridge LLC",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Cleo Varga holds 24,000 of the 120,000 outstanding shares of Saffron Ridge LLC."
+        },
+        {
+          "owner": "Otto Thorne",
+          "owner_type": "person",
+          "owned": "Saffron Ridge LLC",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Otto Thorne holds 600 of the 6,000 outstanding shares of Saffron Ridge LLC."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Uma Moreau",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Uma Moreau",
+              "owned": "Saffron Ridge LLC",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Saffron Ridge LLC is 10%-owned by Uma Moreau."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nico Farrow",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Nico Farrow",
+              "owned": "Saffron Ridge LLC",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Nico Farrow owns one-quarter of Saffron Ridge LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Cleo Varga",
+      "percent": "20",
+      "display": "20%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Cleo Varga",
+              "owned": "Saffron Ridge LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Cleo Varga holds 24,000 of the 120,000 outstanding shares of Saffron Ridge LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Otto Thorne",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Otto Thorne",
+              "owned": "Saffron Ridge LLC",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Otto Thorne holds 600 of the 6,000 outstanding shares of Saffron Ridge LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Nico Farrow",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Nico Farrow",
+              "owned": "Saffron Ridge LLC",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Nico Farrow owns one-quarter of Saffron Ridge LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

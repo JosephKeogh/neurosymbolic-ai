@@ -1,0 +1,283 @@
+{
+  "scenario": "d3_easy_04",
+  "model": "claude-haiku-5-5",
+  "target": "Harbor Point Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Cleo Larkin",
+          "owner_type": "person",
+          "owned": "Harbor Point Inc",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Cleo Larkin is the holder of 10% of the outstanding shares of Harbor Point Inc."
+        },
+        {
+          "owner": "Quartz Vale Partners LP",
+          "owner_type": "company",
+          "owned": "Harbor Point Inc",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Quartz Vale Partners LP is the holder of 15% of the outstanding shares of Harbor Point Inc."
+        },
+        {
+          "owner": "Cobalt Grove Partners LP",
+          "owner_type": "company",
+          "owned": "Harbor Point Inc",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Cobalt Grove Partners LP owns 35% of Harbor Point Inc."
+        },
+        {
+          "owner": "Theo Duarte",
+          "owner_type": "person",
+          "owned": "Quartz Vale Partners LP",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Theo Duarte owns 20% of Quartz Vale Partners LP."
+        },
+        {
+          "owner": "Xavi Thorne",
+          "owner_type": "person",
+          "owned": "Quartz Vale Partners LP",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Xavi Thorne is the holder of 30% of the outstanding shares of Quartz Vale Partners LP."
+        },
+        {
+          "owner": "Nadia Tanaka",
+          "owner_type": "person",
+          "owned": "Quartz Vale Partners LP",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Nadia Tanaka holds a 20% stake in Quartz Vale Partners LP."
+        },
+        {
+          "owner": "Silas Yilmaz",
+          "owner_type": "person",
+          "owned": "Cobalt Grove Partners LP",
+          "percent": "25",
+          "doc_id": "doc2",
+          "quote": "Silas Yilmaz holds a 25% stake in Cobalt Grove Partners LP."
+        },
+        {
+          "owner": "Quartz Vale Partners LP",
+          "owner_type": "company",
+          "owned": "Cobalt Grove Partners LP",
+          "percent": "50",
+          "doc_id": "doc2",
+          "quote": "Quartz Vale Partners LP is the holder of 50% of the outstanding shares of Cobalt Grove Partners LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Cleo Larkin",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Cleo Larkin",
+              "owned": "Harbor Point Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Cleo Larkin is the holder of 10% of the outstanding shares of Harbor Point Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Theo Duarte",
+      "percent": "13/2",
+      "display": "6.5%",
+      "paths": [
+        {
+          "display": "20% x 15% = 3%",
+          "hops": [
+            {
+              "owner": "Theo Duarte",
+              "owned": "Quartz Vale Partners LP",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Theo Duarte owns 20% of Quartz Vale Partners LP."
+            },
+            {
+              "owner": "Quartz Vale Partners LP",
+              "owned": "Harbor Point Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Quartz Vale Partners LP is the holder of 15% of the outstanding shares of Harbor Point Inc."
+            }
+          ]
+        },
+        {
+          "display": "20% x 50% x 35% = 3.5%",
+          "hops": [
+            {
+              "owner": "Theo Duarte",
+              "owned": "Quartz Vale Partners LP",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Theo Duarte owns 20% of Quartz Vale Partners LP."
+            },
+            {
+              "owner": "Quartz Vale Partners LP",
+              "owned": "Cobalt Grove Partners LP",
+              "percent": "50",
+              "doc_id": "doc2",
+              "quote": "Quartz Vale Partners LP is the holder of 50% of the outstanding shares of Cobalt Grove Partners LP."
+            },
+            {
+              "owner": "Cobalt Grove Partners LP",
+              "owned": "Harbor Point Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Cobalt Grove Partners LP owns 35% of Harbor Point Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Xavi Thorne",
+      "percent": "39/4",
+      "display": "9.75%",
+      "paths": [
+        {
+          "display": "30% x 15% = 4.5%",
+          "hops": [
+            {
+              "owner": "Xavi Thorne",
+              "owned": "Quartz Vale Partners LP",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Xavi Thorne is the holder of 30% of the outstanding shares of Quartz Vale Partners LP."
+            },
+            {
+              "owner": "Quartz Vale Partners LP",
+              "owned": "Harbor Point Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Quartz Vale Partners LP is the holder of 15% of the outstanding shares of Harbor Point Inc."
+            }
+          ]
+        },
+        {
+          "display": "30% x 50% x 35% = 5.25%",
+          "hops": [
+            {
+              "owner": "Xavi Thorne",
+              "owned": "Quartz Vale Partners LP",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Xavi Thorne is the holder of 30% of the outstanding shares of Quartz Vale Partners LP."
+            },
+            {
+              "owner": "Quartz Vale Partners LP",
+              "owned": "Cobalt Grove Partners LP",
+              "percent": "50",
+              "doc_id": "doc2",
+              "quote": "Quartz Vale Partners LP is the holder of 50% of the outstanding shares of Cobalt Grove Partners LP."
+            },
+            {
+              "owner": "Cobalt Grove Partners LP",
+              "owned": "Harbor Point Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Cobalt Grove Partners LP owns 35% of Harbor Point Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nadia Tanaka",
+      "percent": "13/2",
+      "display": "6.5%",
+      "paths": [
+        {
+          "display": "20% x 15% = 3%",
+          "hops": [
+            {
+              "owner": "Nadia Tanaka",
+              "owned": "Quartz Vale Partners LP",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Nadia Tanaka holds a 20% stake in Quartz Vale Partners LP."
+            },
+            {
+              "owner": "Quartz Vale Partners LP",
+              "owned": "Harbor Point Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Quartz Vale Partners LP is the holder of 15% of the outstanding shares of Harbor Point Inc."
+            }
+          ]
+        },
+        {
+          "display": "20% x 50% x 35% = 3.5%",
+          "hops": [
+            {
+              "owner": "Nadia Tanaka",
+              "owned": "Quartz Vale Partners LP",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Nadia Tanaka holds a 20% stake in Quartz Vale Partners LP."
+            },
+            {
+              "owner": "Quartz Vale Partners LP",
+              "owned": "Cobalt Grove Partners LP",
+              "percent": "50",
+              "doc_id": "doc2",
+              "quote": "Quartz Vale Partners LP is the holder of 50% of the outstanding shares of Cobalt Grove Partners LP."
+            },
+            {
+              "owner": "Cobalt Grove Partners LP",
+              "owned": "Harbor Point Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Cobalt Grove Partners LP owns 35% of Harbor Point Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Silas Yilmaz",
+      "percent": "35/4",
+      "display": "8.75%",
+      "paths": [
+        {
+          "display": "25% x 35% = 8.75%",
+          "hops": [
+            {
+              "owner": "Silas Yilmaz",
+              "owned": "Cobalt Grove Partners LP",
+              "percent": "25",
+              "doc_id": "doc2",
+              "quote": "Silas Yilmaz holds a 25% stake in Cobalt Grove Partners LP."
+            },
+            {
+              "owner": "Cobalt Grove Partners LP",
+              "owned": "Harbor Point Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Cobalt Grove Partners LP owns 35% of Harbor Point Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [],
+  "error": null
+}

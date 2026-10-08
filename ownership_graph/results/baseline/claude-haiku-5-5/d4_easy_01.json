@@ -1,0 +1,10 @@
+{
+  "scenario": "d4_easy_01",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Lena Park",
+      "percent": "25"
+    }
+  ]
+}

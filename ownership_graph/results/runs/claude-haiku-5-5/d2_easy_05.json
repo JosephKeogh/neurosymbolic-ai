@@ -1,0 +1,187 @@
+{
+  "scenario": "d2_easy_05",
+  "model": "claude-haiku-5-5",
+  "target": "Marble Reach Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Oren Eklund",
+          "owner_type": "person",
+          "owned": "Marble Reach Ltd",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Oren Eklund owns 20% of Marble Reach Ltd."
+        },
+        {
+          "owner": "Marble Vale Capital LLC",
+          "owner_type": "company",
+          "owned": "Marble Reach Ltd",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Marble Vale Capital LLC owns 30% of Marble Reach Ltd."
+        },
+        {
+          "owner": "Mara Okafor",
+          "owner_type": "person",
+          "owned": "Marble Vale Capital LLC",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Mara Okafor holds a 10% stake in Marble Vale Capital LLC."
+        },
+        {
+          "owner": "Oren Eklund",
+          "owner_type": "person",
+          "owned": "Marble Vale Capital LLC",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Oren Eklund owns 30% of Marble Vale Capital LLC."
+        },
+        {
+          "owner": "Uma Reyes",
+          "owner_type": "person",
+          "owned": "Marble Vale Capital LLC",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Uma Reyes holds a 60% stake in Marble Vale Capital LLC."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Oren Eklund",
+      "percent": "29",
+      "display": "29%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Oren Eklund",
+              "owned": "Marble Reach Ltd",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Oren Eklund owns 20% of Marble Reach Ltd."
+            }
+          ]
+        },
+        {
+          "display": "30% x 30% = 9%",
+          "hops": [
+            {
+              "owner": "Oren Eklund",
+              "owned": "Marble Vale Capital LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Oren Eklund owns 30% of Marble Vale Capital LLC."
+            },
+            {
+              "owner": "Marble Vale Capital LLC",
+              "owned": "Marble Reach Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Marble Vale Capital LLC owns 30% of Marble Reach Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Mara Okafor",
+      "percent": "3",
+      "display": "3%",
+      "paths": [
+        {
+          "display": "10% x 30% = 3%",
+          "hops": [
+            {
+              "owner": "Mara Okafor",
+              "owned": "Marble Vale Capital LLC",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Mara Okafor holds a 10% stake in Marble Vale Capital LLC."
+            },
+            {
+              "owner": "Marble Vale Capital LLC",
+              "owned": "Marble Reach Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Marble Vale Capital LLC owns 30% of Marble Reach Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Uma Reyes",
+      "percent": "18",
+      "display": "18%",
+      "paths": [
+        {
+          "display": "60% x 30% = 18%",
+          "hops": [
+            {
+              "owner": "Uma Reyes",
+              "owned": "Marble Vale Capital LLC",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Uma Reyes holds a 60% stake in Marble Vale Capital LLC."
+            },
+            {
+              "owner": "Marble Vale Capital LLC",
+              "owned": "Marble Reach Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Marble Vale Capital LLC owns 30% of Marble Reach Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Oren Eklund",
+      "percent": "29",
+      "display": "29%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Oren Eklund",
+              "owned": "Marble Reach Ltd",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Oren Eklund owns 20% of Marble Reach Ltd."
+            }
+          ]
+        },
+        {
+          "display": "30% x 30% = 9%",
+          "hops": [
+            {
+              "owner": "Oren Eklund",
+              "owned": "Marble Vale Capital LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Oren Eklund owns 30% of Marble Vale Capital LLC."
+            },
+            {
+              "owner": "Marble Vale Capital LLC",
+              "owned": "Marble Reach Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Marble Vale Capital LLC owns 30% of Marble Reach Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

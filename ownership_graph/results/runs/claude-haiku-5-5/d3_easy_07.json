@@ -1,0 +1,178 @@
+{
+  "scenario": "d3_easy_07",
+  "model": "claude-haiku-5-5",
+  "target": "Tidal Gate Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Liam Duarte",
+          "owner_type": "person",
+          "owned": "Tidal Gate Ltd",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "Liam Duarte is the holder of 24% of the outstanding shares of Tidal Gate Ltd."
+        },
+        {
+          "owner": "Rosa Yilmaz",
+          "owner_type": "person",
+          "owned": "Tidal Gate Ltd",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Rosa Yilmaz holds a 20% stake in Tidal Gate Ltd."
+        },
+        {
+          "owner": "Amber Gate Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Tidal Gate Ltd",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Amber Gate Ventures Ltd holds a 30% stake in Tidal Gate Ltd."
+        },
+        {
+          "owner": "Willow Haven Capital LLC",
+          "owner_type": "company",
+          "owned": "Amber Gate Ventures Ltd",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "Willow Haven Capital LLC is the holder of 45% of the outstanding shares of Amber Gate Ventures Ltd."
+        },
+        {
+          "owner": "Lantern Vale Capital LLC",
+          "owner_type": "company",
+          "owned": "Amber Gate Ventures Ltd",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "Lantern Vale Capital LLC holds a 45% stake in Amber Gate Ventures Ltd."
+        },
+        {
+          "owner": "Vera Kovac",
+          "owner_type": "person",
+          "owned": "Lantern Vale Capital LLC",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Vera Kovac owns 20% of Lantern Vale Capital LLC."
+        },
+        {
+          "owner": "Dov Sorensen",
+          "owner_type": "person",
+          "owned": "Lantern Vale Capital LLC",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Dov Sorensen is the holder of 20% of the outstanding shares of Lantern Vale Capital LLC."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Liam Duarte",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Liam Duarte",
+              "owned": "Tidal Gate Ltd",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "Liam Duarte is the holder of 24% of the outstanding shares of Tidal Gate Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Rosa Yilmaz",
+      "percent": "20",
+      "display": "20%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Rosa Yilmaz",
+              "owned": "Tidal Gate Ltd",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Rosa Yilmaz holds a 20% stake in Tidal Gate Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Vera Kovac",
+      "percent": "27/10",
+      "display": "2.7%",
+      "paths": [
+        {
+          "display": "20% x 45% x 30% = 2.7%",
+          "hops": [
+            {
+              "owner": "Vera Kovac",
+              "owned": "Lantern Vale Capital LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Vera Kovac owns 20% of Lantern Vale Capital LLC."
+            },
+            {
+              "owner": "Lantern Vale Capital LLC",
+              "owned": "Amber Gate Ventures Ltd",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Lantern Vale Capital LLC holds a 45% stake in Amber Gate Ventures Ltd."
+            },
+            {
+              "owner": "Amber Gate Ventures Ltd",
+              "owned": "Tidal Gate Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Amber Gate Ventures Ltd holds a 30% stake in Tidal Gate Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Dov Sorensen",
+      "percent": "27/10",
+      "display": "2.7%",
+      "paths": [
+        {
+          "display": "20% x 45% x 30% = 2.7%",
+          "hops": [
+            {
+              "owner": "Dov Sorensen",
+              "owned": "Lantern Vale Capital LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Dov Sorensen is the holder of 20% of the outstanding shares of Lantern Vale Capital LLC."
+            },
+            {
+              "owner": "Lantern Vale Capital LLC",
+              "owned": "Amber Gate Ventures Ltd",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Lantern Vale Capital LLC holds a 45% stake in Amber Gate Ventures Ltd."
+            },
+            {
+              "owner": "Amber Gate Ventures Ltd",
+              "owned": "Tidal Gate Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Amber Gate Ventures Ltd holds a 30% stake in Tidal Gate Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [],
+  "error": null
+}

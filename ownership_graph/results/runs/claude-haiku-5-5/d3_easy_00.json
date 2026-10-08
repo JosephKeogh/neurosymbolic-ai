@@ -1,0 +1,217 @@
+{
+  "scenario": "d3_easy_00",
+  "model": "claude-haiku-5-5",
+  "target": "Amber Crest Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Pia Gallo",
+          "owner_type": "person",
+          "owned": "Amber Crest Inc",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Pia Gallo owns 20% of Amber Crest Inc."
+        },
+        {
+          "owner": "Cedar Gate Holdings LLC",
+          "owner_type": "company",
+          "owned": "Amber Crest Inc",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Cedar Gate Holdings LLC owns 30% of Amber Crest Inc."
+        },
+        {
+          "owner": "Northwind Vale Capital LLC",
+          "owner_type": "company",
+          "owned": "Amber Crest Inc",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Northwind Vale Capital LLC owns 40% of Amber Crest Inc."
+        },
+        {
+          "owner": "Zane Gallo",
+          "owner_type": "person",
+          "owned": "Amber Crest Inc",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Zane Gallo owns 10% of Amber Crest Inc."
+        },
+        {
+          "owner": "Quartz Grove Partners LP",
+          "owner_type": "company",
+          "owned": "Cedar Gate Holdings LLC",
+          "percent": "75",
+          "doc_id": "doc2",
+          "quote": "Quartz Grove Partners LP holds a 75% stake in Cedar Gate Holdings LLC."
+        },
+        {
+          "owner": "Dov Whitlow",
+          "owner_type": "person",
+          "owned": "Quartz Grove Partners LP",
+          "percent": "100/3",
+          "doc_id": "doc3",
+          "quote": "Dov Whitlow is the holder of 33 1/3% of the outstanding shares of Quartz Grove Partners LP."
+        },
+        {
+          "owner": "Pia Gallo",
+          "owner_type": "person",
+          "owned": "Quartz Grove Partners LP",
+          "percent": "35",
+          "doc_id": "doc3",
+          "quote": "Pia Gallo is the holder of 35% of the outstanding shares of Quartz Grove Partners LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Pia Gallo",
+      "percent": "223/8",
+      "display": "27.875%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Pia Gallo",
+              "owned": "Amber Crest Inc",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Pia Gallo owns 20% of Amber Crest Inc."
+            }
+          ]
+        },
+        {
+          "display": "35% x 75% x 30% = 7.875%",
+          "hops": [
+            {
+              "owner": "Pia Gallo",
+              "owned": "Quartz Grove Partners LP",
+              "percent": "35",
+              "doc_id": "doc3",
+              "quote": "Pia Gallo is the holder of 35% of the outstanding shares of Quartz Grove Partners LP."
+            },
+            {
+              "owner": "Quartz Grove Partners LP",
+              "owned": "Cedar Gate Holdings LLC",
+              "percent": "75",
+              "doc_id": "doc2",
+              "quote": "Quartz Grove Partners LP holds a 75% stake in Cedar Gate Holdings LLC."
+            },
+            {
+              "owner": "Cedar Gate Holdings LLC",
+              "owned": "Amber Crest Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Gate Holdings LLC owns 30% of Amber Crest Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Zane Gallo",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Zane Gallo",
+              "owned": "Amber Crest Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Zane Gallo owns 10% of Amber Crest Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Dov Whitlow",
+      "percent": "15/2",
+      "display": "7.5%",
+      "paths": [
+        {
+          "display": "33 1/3% x 75% x 30% = 7.5%",
+          "hops": [
+            {
+              "owner": "Dov Whitlow",
+              "owned": "Quartz Grove Partners LP",
+              "percent": "100/3",
+              "doc_id": "doc3",
+              "quote": "Dov Whitlow is the holder of 33 1/3% of the outstanding shares of Quartz Grove Partners LP."
+            },
+            {
+              "owner": "Quartz Grove Partners LP",
+              "owned": "Cedar Gate Holdings LLC",
+              "percent": "75",
+              "doc_id": "doc2",
+              "quote": "Quartz Grove Partners LP holds a 75% stake in Cedar Gate Holdings LLC."
+            },
+            {
+              "owner": "Cedar Gate Holdings LLC",
+              "owned": "Amber Crest Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Gate Holdings LLC owns 30% of Amber Crest Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Pia Gallo",
+      "percent": "223/8",
+      "display": "27.875%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Pia Gallo",
+              "owned": "Amber Crest Inc",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Pia Gallo owns 20% of Amber Crest Inc."
+            }
+          ]
+        },
+        {
+          "display": "35% x 75% x 30% = 7.875%",
+          "hops": [
+            {
+              "owner": "Pia Gallo",
+              "owned": "Quartz Grove Partners LP",
+              "percent": "35",
+              "doc_id": "doc3",
+              "quote": "Pia Gallo is the holder of 35% of the outstanding shares of Quartz Grove Partners LP."
+            },
+            {
+              "owner": "Quartz Grove Partners LP",
+              "owned": "Cedar Gate Holdings LLC",
+              "percent": "75",
+              "doc_id": "doc2",
+              "quote": "Quartz Grove Partners LP holds a 75% stake in Cedar Gate Holdings LLC."
+            },
+            {
+              "owner": "Cedar Gate Holdings LLC",
+              "owned": "Amber Crest Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Gate Holdings LLC owns 30% of Amber Crest Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

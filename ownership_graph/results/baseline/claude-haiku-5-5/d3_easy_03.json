@@ -1,0 +1,10 @@
+{
+  "scenario": "d3_easy_03",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Sana Reyes",
+      "percent": "31.7"
+    }
+  ]
+}

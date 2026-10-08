@@ -1,0 +1,10 @@
+{
+  "scenario": "d2_easy_05",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Oren Eklund",
+      "percent": "29"
+    }
+  ]
+}

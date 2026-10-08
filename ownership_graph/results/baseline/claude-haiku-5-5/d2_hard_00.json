@@ -1,0 +1,14 @@
+{
+  "scenario": "d2_hard_00",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Wren Gallo",
+      "percent": "40"
+    },
+    {
+      "person": "Dov Byrne",
+      "percent": "25"
+    }
+  ]
+}

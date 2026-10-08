@@ -1,0 +1,14 @@
+{
+  "scenario": "d1_hard_00",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Otto Sorensen",
+      "percent": "33.3"
+    },
+    {
+      "person": "Esme Ashby",
+      "percent": "30"
+    }
+  ]
+}

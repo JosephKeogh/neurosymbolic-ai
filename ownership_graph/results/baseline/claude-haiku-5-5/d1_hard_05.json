@@ -1,0 +1,14 @@
+{
+  "scenario": "d1_hard_05",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Quinn Thorne",
+      "percent": "35"
+    },
+    {
+      "person": "Dov Underhill",
+      "percent": "30"
+    }
+  ]
+}

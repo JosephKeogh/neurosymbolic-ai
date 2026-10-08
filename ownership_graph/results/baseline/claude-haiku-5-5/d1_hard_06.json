@@ -1,0 +1,10 @@
+{
+  "scenario": "d1_hard_06",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Nico Farrow",
+      "percent": "25"
+    }
+  ]
+}

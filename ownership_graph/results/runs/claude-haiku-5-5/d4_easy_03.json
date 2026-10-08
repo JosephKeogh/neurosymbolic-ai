@@ -1,0 +1,194 @@
+{
+  "scenario": "d4_easy_03",
+  "model": "claude-haiku-5-5",
+  "target": "Larch Moor Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Kira Farrow",
+          "owner_type": "person",
+          "owned": "Larch Moor Corp",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Kira Farrow is the holder of 30% of the outstanding shares of Larch Moor Corp."
+        },
+        {
+          "owner": "Saffron Ford Partners LP",
+          "owner_type": "company",
+          "owned": "Larch Moor Corp",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Saffron Ford Partners LP holds a 40% stake in Larch Moor Corp."
+        },
+        {
+          "owner": "Juniper Crest Holdings Inc",
+          "owner_type": "company",
+          "owned": "Larch Moor Corp",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Juniper Crest Holdings Inc is the holder of 30% of the outstanding shares of Larch Moor Corp."
+        },
+        {
+          "owner": "Copper Hollow Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Juniper Crest Holdings Inc",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Copper Hollow Ventures Ltd is the holder of 33 1/3% of the outstanding shares of Juniper Crest Holdings Inc."
+        },
+        {
+          "owner": "Lantern Grove Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Juniper Crest Holdings Inc",
+          "percent": "200/3",
+          "doc_id": "doc1",
+          "quote": "Lantern Grove Holdings Ltd holds a 66 2/3% stake in Juniper Crest Holdings Inc."
+        },
+        {
+          "owner": "Thistle Crest Group Inc",
+          "owner_type": "company",
+          "owned": "Lantern Grove Holdings Ltd",
+          "percent": "80",
+          "doc_id": "doc1",
+          "quote": "Thistle Crest Group Inc holds a 80% stake in Lantern Grove Holdings Ltd."
+        },
+        {
+          "owner": "Ines Gallo",
+          "owner_type": "person",
+          "owned": "Copper Hollow Ventures Ltd",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Ines Gallo owns 50% of Copper Hollow Ventures Ltd."
+        },
+        {
+          "owner": "Yara Okafor",
+          "owner_type": "person",
+          "owned": "Thistle Crest Group Inc",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Yara Okafor holds a 33 1/3% stake in Thistle Crest Group Inc."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Kira Farrow",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Kira Farrow",
+              "owned": "Larch Moor Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Kira Farrow is the holder of 30% of the outstanding shares of Larch Moor Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Ines Gallo",
+      "percent": "5",
+      "display": "5%",
+      "paths": [
+        {
+          "display": "50% x 33 1/3% x 30% = 5%",
+          "hops": [
+            {
+              "owner": "Ines Gallo",
+              "owned": "Copper Hollow Ventures Ltd",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Ines Gallo owns 50% of Copper Hollow Ventures Ltd."
+            },
+            {
+              "owner": "Copper Hollow Ventures Ltd",
+              "owned": "Juniper Crest Holdings Inc",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Copper Hollow Ventures Ltd is the holder of 33 1/3% of the outstanding shares of Juniper Crest Holdings Inc."
+            },
+            {
+              "owner": "Juniper Crest Holdings Inc",
+              "owned": "Larch Moor Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Juniper Crest Holdings Inc is the holder of 30% of the outstanding shares of Larch Moor Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Yara Okafor",
+      "percent": "16/3",
+      "display": "5 1/3%",
+      "paths": [
+        {
+          "display": "33 1/3% x 80% x 66 2/3% x 30% = 5 1/3%",
+          "hops": [
+            {
+              "owner": "Yara Okafor",
+              "owned": "Thistle Crest Group Inc",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Yara Okafor holds a 33 1/3% stake in Thistle Crest Group Inc."
+            },
+            {
+              "owner": "Thistle Crest Group Inc",
+              "owned": "Lantern Grove Holdings Ltd",
+              "percent": "80",
+              "doc_id": "doc1",
+              "quote": "Thistle Crest Group Inc holds a 80% stake in Lantern Grove Holdings Ltd."
+            },
+            {
+              "owner": "Lantern Grove Holdings Ltd",
+              "owned": "Juniper Crest Holdings Inc",
+              "percent": "200/3",
+              "doc_id": "doc1",
+              "quote": "Lantern Grove Holdings Ltd holds a 66 2/3% stake in Juniper Crest Holdings Inc."
+            },
+            {
+              "owner": "Juniper Crest Holdings Inc",
+              "owned": "Larch Moor Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Juniper Crest Holdings Inc is the holder of 30% of the outstanding shares of Larch Moor Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Kira Farrow",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Kira Farrow",
+              "owned": "Larch Moor Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Kira Farrow is the holder of 30% of the outstanding shares of Larch Moor Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

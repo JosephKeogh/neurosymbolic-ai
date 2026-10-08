@@ -1,0 +1,138 @@
+{
+  "scenario": "d1_hard_05",
+  "model": "claude-haiku-5-5",
+  "target": "Quartz Glen Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Quinn Thorne",
+          "owner_type": "person",
+          "owned": "Quartz Glen Inc",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "A 35% interest in Quartz Glen Inc is held by Quinn Thorne."
+        },
+        {
+          "owner": "Dov Underhill",
+          "owner_type": "person",
+          "owned": "Quartz Glen Inc",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Dov Underhill holds 720 of the 2,400 outstanding shares of Quartz Glen Inc."
+        },
+        {
+          "owner": "Xavi Reyes",
+          "owner_type": "person",
+          "owned": "Quartz Glen Inc",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "Xavi Reyes holds 240 of the 1,000 outstanding shares of Quartz Glen Inc."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Quinn Thorne",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Quinn Thorne",
+              "owned": "Quartz Glen Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "A 35% interest in Quartz Glen Inc is held by Quinn Thorne."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Dov Underhill",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Dov Underhill",
+              "owned": "Quartz Glen Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Dov Underhill holds 720 of the 2,400 outstanding shares of Quartz Glen Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Xavi Reyes",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Xavi Reyes",
+              "owned": "Quartz Glen Inc",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "Xavi Reyes holds 240 of the 1,000 outstanding shares of Quartz Glen Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Quinn Thorne",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Quinn Thorne",
+              "owned": "Quartz Glen Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "A 35% interest in Quartz Glen Inc is held by Quinn Thorne."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Dov Underhill",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Dov Underhill",
+              "owned": "Quartz Glen Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Dov Underhill holds 720 of the 2,400 outstanding shares of Quartz Glen Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

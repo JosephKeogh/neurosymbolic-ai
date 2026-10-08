@@ -1,0 +1,138 @@
+{
+  "scenario": "d1_hard_02",
+  "model": "claude-haiku-5-5",
+  "target": "Thistle Field Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Liam Pryce",
+          "owner_type": "person",
+          "owned": "Thistle Field Corp",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "A 30% interest in Thistle Field Corp is held by Liam Pryce."
+        },
+        {
+          "owner": "Eli Varga",
+          "owner_type": "person",
+          "owned": "Thistle Field Corp",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "A 24% interest in Thistle Field Corp is held by Eli Varga."
+        },
+        {
+          "owner": "Sana Yilmaz",
+          "owner_type": "person",
+          "owned": "Thistle Field Corp",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "A 45% interest in Thistle Field Corp is held by Sana Yilmaz."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Liam Pryce",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Liam Pryce",
+              "owned": "Thistle Field Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "A 30% interest in Thistle Field Corp is held by Liam Pryce."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Eli Varga",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Eli Varga",
+              "owned": "Thistle Field Corp",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "A 24% interest in Thistle Field Corp is held by Eli Varga."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Sana Yilmaz",
+      "percent": "45",
+      "display": "45%",
+      "paths": [
+        {
+          "display": "45% = 45%",
+          "hops": [
+            {
+              "owner": "Sana Yilmaz",
+              "owned": "Thistle Field Corp",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "A 45% interest in Thistle Field Corp is held by Sana Yilmaz."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Liam Pryce",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Liam Pryce",
+              "owned": "Thistle Field Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "A 30% interest in Thistle Field Corp is held by Liam Pryce."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Sana Yilmaz",
+      "percent": "45",
+      "display": "45%",
+      "paths": [
+        {
+          "display": "45% = 45%",
+          "hops": [
+            {
+              "owner": "Sana Yilmaz",
+              "owned": "Thistle Field Corp",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "A 45% interest in Thistle Field Corp is held by Sana Yilmaz."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

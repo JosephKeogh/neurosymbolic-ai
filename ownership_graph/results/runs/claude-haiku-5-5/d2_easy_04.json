@@ -1,0 +1,163 @@
+{
+  "scenario": "d2_easy_04",
+  "model": "claude-haiku-5-5",
+  "target": "Tidal Stone Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Xavi Ibarra",
+          "owner_type": "person",
+          "owned": "Tidal Stone Ltd",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Xavi Ibarra is the holder of 20% of the outstanding shares of Tidal Stone Ltd."
+        },
+        {
+          "owner": "Larch Glen Partners LP",
+          "owner_type": "company",
+          "owned": "Tidal Stone Ltd",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Larch Glen Partners LP holds a 33 1/3% stake in Tidal Stone Ltd."
+        },
+        {
+          "owner": "Ember Ford Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Tidal Stone Ltd",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Ember Ford Holdings Ltd holds a 33 1/3% stake in Tidal Stone Ltd."
+        },
+        {
+          "owner": "Joel Orsini",
+          "owner_type": "person",
+          "owned": "Ember Ford Holdings Ltd",
+          "percent": "50",
+          "doc_id": "doc2",
+          "quote": "Joel Orsini owns 50% of Ember Ford Holdings Ltd."
+        },
+        {
+          "owner": "Uma Castell",
+          "owner_type": "person",
+          "owned": "Ember Ford Holdings Ltd",
+          "percent": "50",
+          "doc_id": "doc2",
+          "quote": "Uma Castell owns 50% of Ember Ford Holdings Ltd."
+        },
+        {
+          "owner": "Yara Brannock",
+          "owner_type": "person",
+          "owned": "Larch Glen Partners LP",
+          "percent": "45",
+          "doc_id": "doc3",
+          "quote": "Yara Brannock holds a 45% stake in Larch Glen Partners LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Xavi Ibarra",
+      "percent": "20",
+      "display": "20%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Xavi Ibarra",
+              "owned": "Tidal Stone Ltd",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Xavi Ibarra is the holder of 20% of the outstanding shares of Tidal Stone Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Joel Orsini",
+      "percent": "50/3",
+      "display": "16 2/3%",
+      "paths": [
+        {
+          "display": "50% x 33 1/3% = 16 2/3%",
+          "hops": [
+            {
+              "owner": "Joel Orsini",
+              "owned": "Ember Ford Holdings Ltd",
+              "percent": "50",
+              "doc_id": "doc2",
+              "quote": "Joel Orsini owns 50% of Ember Ford Holdings Ltd."
+            },
+            {
+              "owner": "Ember Ford Holdings Ltd",
+              "owned": "Tidal Stone Ltd",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Ember Ford Holdings Ltd holds a 33 1/3% stake in Tidal Stone Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Uma Castell",
+      "percent": "50/3",
+      "display": "16 2/3%",
+      "paths": [
+        {
+          "display": "50% x 33 1/3% = 16 2/3%",
+          "hops": [
+            {
+              "owner": "Uma Castell",
+              "owned": "Ember Ford Holdings Ltd",
+              "percent": "50",
+              "doc_id": "doc2",
+              "quote": "Uma Castell owns 50% of Ember Ford Holdings Ltd."
+            },
+            {
+              "owner": "Ember Ford Holdings Ltd",
+              "owned": "Tidal Stone Ltd",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Ember Ford Holdings Ltd holds a 33 1/3% stake in Tidal Stone Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Yara Brannock",
+      "percent": "15",
+      "display": "15%",
+      "paths": [
+        {
+          "display": "45% x 33 1/3% = 15%",
+          "hops": [
+            {
+              "owner": "Yara Brannock",
+              "owned": "Larch Glen Partners LP",
+              "percent": "45",
+              "doc_id": "doc3",
+              "quote": "Yara Brannock holds a 45% stake in Larch Glen Partners LP."
+            },
+            {
+              "owner": "Larch Glen Partners LP",
+              "owned": "Tidal Stone Ltd",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Larch Glen Partners LP holds a 33 1/3% stake in Tidal Stone Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [],
+  "error": null
+}

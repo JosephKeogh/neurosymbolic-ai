@@ -1,0 +1,14 @@
+{
+  "scenario": "d1_easy_07",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Nadia Orsini",
+      "percent": "33.3"
+    },
+    {
+      "person": "Eli Ibarra",
+      "percent": "25"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "scenario": "d4_hard_00",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Ines Ibarra",
+      "percent": "30"
+    },
+    {
+      "person": "Cleo Byrne",
+      "percent": "29.3"
+    }
+  ]
+}

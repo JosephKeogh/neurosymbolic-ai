@@ -1,0 +1,163 @@
+{
+  "scenario": "d2_hard_07",
+  "model": "claude-haiku-5-5",
+  "target": "Ember Stone Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Esme Novak",
+          "owner_type": "person",
+          "owned": "Ember Stone Ltd",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Esme Novak holds 4,500 of the 30,000 outstanding shares of Ember Stone Ltd."
+        },
+        {
+          "owner": "Ember Point Partners LP",
+          "owner_type": "company",
+          "owned": "Ember Stone Ltd",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Ember Point Partners LP holds 2,100 of the 6,000 outstanding shares of Ember Stone Ltd."
+        },
+        {
+          "owner": "Indigo Reach Holdings LLC",
+          "owner_type": "company",
+          "owned": "Ember Stone Ltd",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Indigo Reach Holdings LLC holds 2,000 of the 6,000 outstanding shares of Ember Stone Ltd."
+        },
+        {
+          "owner": "Pia Quist",
+          "owner_type": "person",
+          "owned": "Indigo Reach Holdings LLC",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Pia Quist holds 2,000 of the 10,000 outstanding shares of Indigo Reach Holdings LLC."
+        },
+        {
+          "owner": "Milo Tanaka",
+          "owner_type": "person",
+          "owned": "Indigo Reach Holdings LLC",
+          "percent": "72",
+          "doc_id": "doc1",
+          "quote": "Milo Tanaka holds 1,728 of the 2,400 outstanding shares of Indigo Reach Holdings LLC."
+        },
+        {
+          "owner": "Hugo Pryce",
+          "owner_type": "person",
+          "owned": "Ember Point Partners LP",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "A 35% interest in Ember Point Partners LP is held by Hugo Pryce."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Esme Novak",
+      "percent": "15",
+      "display": "15%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Esme Novak",
+              "owned": "Ember Stone Ltd",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Esme Novak holds 4,500 of the 30,000 outstanding shares of Ember Stone Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Pia Quist",
+      "percent": "20/3",
+      "display": "6 2/3%",
+      "paths": [
+        {
+          "display": "20% x 33 1/3% = 6 2/3%",
+          "hops": [
+            {
+              "owner": "Pia Quist",
+              "owned": "Indigo Reach Holdings LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Pia Quist holds 2,000 of the 10,000 outstanding shares of Indigo Reach Holdings LLC."
+            },
+            {
+              "owner": "Indigo Reach Holdings LLC",
+              "owned": "Ember Stone Ltd",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Indigo Reach Holdings LLC holds 2,000 of the 6,000 outstanding shares of Ember Stone Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Milo Tanaka",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "72% x 33 1/3% = 24%",
+          "hops": [
+            {
+              "owner": "Milo Tanaka",
+              "owned": "Indigo Reach Holdings LLC",
+              "percent": "72",
+              "doc_id": "doc1",
+              "quote": "Milo Tanaka holds 1,728 of the 2,400 outstanding shares of Indigo Reach Holdings LLC."
+            },
+            {
+              "owner": "Indigo Reach Holdings LLC",
+              "owned": "Ember Stone Ltd",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Indigo Reach Holdings LLC holds 2,000 of the 6,000 outstanding shares of Ember Stone Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Hugo Pryce",
+      "percent": "49/4",
+      "display": "12.25%",
+      "paths": [
+        {
+          "display": "35% x 35% = 12.25%",
+          "hops": [
+            {
+              "owner": "Hugo Pryce",
+              "owned": "Ember Point Partners LP",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "A 35% interest in Ember Point Partners LP is held by Hugo Pryce."
+            },
+            {
+              "owner": "Ember Point Partners LP",
+              "owned": "Ember Stone Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Ember Point Partners LP holds 2,100 of the 6,000 outstanding shares of Ember Stone Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [],
+  "error": null
+}

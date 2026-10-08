@@ -1,0 +1,14 @@
+{
+  "scenario": "d1_easy_01",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Lena Zeller",
+      "percent": "45"
+    },
+    {
+      "person": "Kira Duarte",
+      "percent": "25"
+    }
+  ]
+}

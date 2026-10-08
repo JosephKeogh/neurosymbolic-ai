@@ -1,0 +1,14 @@
+{
+  "scenario": "d1_hard_02",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Liam Pryce",
+      "percent": "30"
+    },
+    {
+      "person": "Sana Yilmaz",
+      "percent": "45"
+    }
+  ]
+}

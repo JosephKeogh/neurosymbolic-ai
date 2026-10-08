@@ -1,0 +1,119 @@
+{
+  "scenario": "d1_easy_05",
+  "model": "claude-haiku-5-5",
+  "target": "Willow Glen Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Uma Novak",
+          "owner_type": "person",
+          "owned": "Willow Glen Inc",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Uma Novak owns 35% of Willow Glen Inc."
+        },
+        {
+          "owner": "Nico Rook",
+          "owner_type": "person",
+          "owned": "Willow Glen Inc",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "Nico Rook holds a 24% stake in Willow Glen Inc."
+        },
+        {
+          "owner": "Rosa Zeller",
+          "owner_type": "person",
+          "owned": "Willow Glen Inc",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Rosa Zeller holds a 10% stake in Willow Glen Inc."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Uma Novak",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Uma Novak",
+              "owned": "Willow Glen Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Uma Novak owns 35% of Willow Glen Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nico Rook",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Nico Rook",
+              "owned": "Willow Glen Inc",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "Nico Rook holds a 24% stake in Willow Glen Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Rosa Zeller",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Rosa Zeller",
+              "owned": "Willow Glen Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Rosa Zeller holds a 10% stake in Willow Glen Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Uma Novak",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Uma Novak",
+              "owned": "Willow Glen Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Uma Novak owns 35% of Willow Glen Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

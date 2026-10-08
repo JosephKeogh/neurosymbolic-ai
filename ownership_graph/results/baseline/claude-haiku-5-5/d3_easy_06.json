@@ -1,0 +1,10 @@
+{
+  "scenario": "d3_easy_06",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Joel Quist",
+      "percent": "25"
+    }
+  ]
+}

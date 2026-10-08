@@ -1,0 +1,14 @@
+{
+  "scenario": "d1_hard_01",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Dana Eklund",
+      "percent": "50"
+    },
+    {
+      "person": "Cleo Ashby",
+      "percent": "25"
+    }
+  ]
+}

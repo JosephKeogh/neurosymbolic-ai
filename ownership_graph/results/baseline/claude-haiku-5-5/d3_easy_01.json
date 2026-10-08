@@ -1,0 +1,14 @@
+{
+  "scenario": "d3_easy_01",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Dana Kovac",
+      "percent": "30"
+    },
+    {
+      "person": "Finn Novak",
+      "percent": "25"
+    }
+  ]
+}

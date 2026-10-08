@@ -1,0 +1,253 @@
+{
+  "scenario": "d3_hard_03",
+  "model": "claude-haiku-5-5",
+  "target": "Falcon Vale Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Saffron Ridge Group Inc",
+          "owner_type": "company",
+          "owned": "Falcon Vale Inc",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Saffron Ridge Group Inc holds 36,000 of the 120,000 outstanding shares of Falcon Vale Inc."
+        },
+        {
+          "owner": "Uma Mendel",
+          "owner_type": "person",
+          "owned": "Falcon Vale Inc",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Falcon Vale Inc is three-fifths-owned by Uma Mendel."
+        },
+        {
+          "owner": "Larch Field Holdings Inc",
+          "owner_type": "company",
+          "owned": "Saffron Ridge Group Inc",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Larch Field Holdings Inc owns one-third of Saffron Ridge Group Inc."
+        },
+        {
+          "owner": "Willow Meadow Holdings LP",
+          "owner_type": "company",
+          "owned": "Saffron Ridge Group Inc",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Willow Meadow Holdings LP owns three-fifths of Saffron Ridge Group Inc."
+        },
+        {
+          "owner": "Yara Orsini",
+          "owner_type": "person",
+          "owned": "Larch Field Holdings Inc",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Yara Orsini holds 7,500 of the 50,000 outstanding shares of Larch Field Holdings Inc."
+        },
+        {
+          "owner": "Joel Underhill",
+          "owner_type": "person",
+          "owned": "Larch Field Holdings Inc",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Joel Underhill holds 200 of the 1,000 outstanding shares of Larch Field Holdings Inc."
+        },
+        {
+          "owner": "Mara Brannock",
+          "owner_type": "person",
+          "owned": "Larch Field Holdings Inc",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Mara Brannock owns one-half of Larch Field Holdings Inc."
+        },
+        {
+          "owner": "Nico Kovac",
+          "owner_type": "person",
+          "owned": "Larch Field Holdings Inc",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Larch Field Holdings Inc is one-tenth-owned by Nico Kovac."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Uma Mendel",
+      "percent": "60",
+      "display": "60%",
+      "paths": [
+        {
+          "display": "60% = 60%",
+          "hops": [
+            {
+              "owner": "Uma Mendel",
+              "owned": "Falcon Vale Inc",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Falcon Vale Inc is three-fifths-owned by Uma Mendel."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Yara Orsini",
+      "percent": "3/2",
+      "display": "1.5%",
+      "paths": [
+        {
+          "display": "15% x 33 1/3% x 30% = 1.5%",
+          "hops": [
+            {
+              "owner": "Yara Orsini",
+              "owned": "Larch Field Holdings Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Yara Orsini holds 7,500 of the 50,000 outstanding shares of Larch Field Holdings Inc."
+            },
+            {
+              "owner": "Larch Field Holdings Inc",
+              "owned": "Saffron Ridge Group Inc",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Larch Field Holdings Inc owns one-third of Saffron Ridge Group Inc."
+            },
+            {
+              "owner": "Saffron Ridge Group Inc",
+              "owned": "Falcon Vale Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Saffron Ridge Group Inc holds 36,000 of the 120,000 outstanding shares of Falcon Vale Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Joel Underhill",
+      "percent": "2",
+      "display": "2%",
+      "paths": [
+        {
+          "display": "20% x 33 1/3% x 30% = 2%",
+          "hops": [
+            {
+              "owner": "Joel Underhill",
+              "owned": "Larch Field Holdings Inc",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Joel Underhill holds 200 of the 1,000 outstanding shares of Larch Field Holdings Inc."
+            },
+            {
+              "owner": "Larch Field Holdings Inc",
+              "owned": "Saffron Ridge Group Inc",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Larch Field Holdings Inc owns one-third of Saffron Ridge Group Inc."
+            },
+            {
+              "owner": "Saffron Ridge Group Inc",
+              "owned": "Falcon Vale Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Saffron Ridge Group Inc holds 36,000 of the 120,000 outstanding shares of Falcon Vale Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Mara Brannock",
+      "percent": "5",
+      "display": "5%",
+      "paths": [
+        {
+          "display": "50% x 33 1/3% x 30% = 5%",
+          "hops": [
+            {
+              "owner": "Mara Brannock",
+              "owned": "Larch Field Holdings Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Mara Brannock owns one-half of Larch Field Holdings Inc."
+            },
+            {
+              "owner": "Larch Field Holdings Inc",
+              "owned": "Saffron Ridge Group Inc",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Larch Field Holdings Inc owns one-third of Saffron Ridge Group Inc."
+            },
+            {
+              "owner": "Saffron Ridge Group Inc",
+              "owned": "Falcon Vale Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Saffron Ridge Group Inc holds 36,000 of the 120,000 outstanding shares of Falcon Vale Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nico Kovac",
+      "percent": "1",
+      "display": "1%",
+      "paths": [
+        {
+          "display": "10% x 33 1/3% x 30% = 1%",
+          "hops": [
+            {
+              "owner": "Nico Kovac",
+              "owned": "Larch Field Holdings Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Larch Field Holdings Inc is one-tenth-owned by Nico Kovac."
+            },
+            {
+              "owner": "Larch Field Holdings Inc",
+              "owned": "Saffron Ridge Group Inc",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Larch Field Holdings Inc owns one-third of Saffron Ridge Group Inc."
+            },
+            {
+              "owner": "Saffron Ridge Group Inc",
+              "owned": "Falcon Vale Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Saffron Ridge Group Inc holds 36,000 of the 120,000 outstanding shares of Falcon Vale Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Uma Mendel",
+      "percent": "60",
+      "display": "60%",
+      "paths": [
+        {
+          "display": "60% = 60%",
+          "hops": [
+            {
+              "owner": "Uma Mendel",
+              "owned": "Falcon Vale Inc",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Falcon Vale Inc is three-fifths-owned by Uma Mendel."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,119 @@
+{
+  "scenario": "d1_easy_04",
+  "model": "claude-haiku-5-5",
+  "target": "Granite Gate Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Eli Okafor",
+          "owner_type": "person",
+          "owned": "Granite Gate Ltd",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Eli Okafor holds a 10% stake in Granite Gate Ltd."
+        },
+        {
+          "owner": "Yara Kovac",
+          "owner_type": "person",
+          "owned": "Granite Gate Ltd",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Yara Kovac holds a 60% stake in Granite Gate Ltd."
+        },
+        {
+          "owner": "Theo Park",
+          "owner_type": "person",
+          "owned": "Granite Gate Ltd",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Theo Park owns 20% of Granite Gate Ltd."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Eli Okafor",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Eli Okafor",
+              "owned": "Granite Gate Ltd",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Eli Okafor holds a 10% stake in Granite Gate Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Yara Kovac",
+      "percent": "60",
+      "display": "60%",
+      "paths": [
+        {
+          "display": "60% = 60%",
+          "hops": [
+            {
+              "owner": "Yara Kovac",
+              "owned": "Granite Gate Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Yara Kovac holds a 60% stake in Granite Gate Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Theo Park",
+      "percent": "20",
+      "display": "20%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Theo Park",
+              "owned": "Granite Gate Ltd",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Theo Park owns 20% of Granite Gate Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Yara Kovac",
+      "percent": "60",
+      "display": "60%",
+      "paths": [
+        {
+          "display": "60% = 60%",
+          "hops": [
+            {
+              "owner": "Yara Kovac",
+              "owned": "Granite Gate Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Yara Kovac holds a 60% stake in Granite Gate Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

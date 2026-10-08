@@ -1,0 +1,233 @@
+{
+  "scenario": "d4_easy_02",
+  "model": "claude-haiku-5-5",
+  "target": "Obsidian Ridge Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Ravi Farrow",
+          "owner_type": "person",
+          "owned": "Obsidian Ridge Inc",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "Ravi Farrow is the holder of 24% of the outstanding shares of Obsidian Ridge Inc."
+        },
+        {
+          "owner": "Cedar Peak Holdings Inc",
+          "owner_type": "company",
+          "owned": "Obsidian Ridge Inc",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Cedar Peak Holdings Inc owns 25% of Obsidian Ridge Inc."
+        },
+        {
+          "owner": "Marble Point Capital LLC",
+          "owner_type": "company",
+          "owned": "Obsidian Ridge Inc",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Marble Point Capital LLC holds a 35% stake in Obsidian Ridge Inc."
+        },
+        {
+          "owner": "Silver Reach Capital LLC",
+          "owner_type": "company",
+          "owned": "Cedar Peak Holdings Inc",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Silver Reach Capital LLC is the holder of 50% of the outstanding shares of Cedar Peak Holdings Inc."
+        },
+        {
+          "owner": "Quartz Reach Capital LLC",
+          "owner_type": "company",
+          "owned": "Cedar Peak Holdings Inc",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Quartz Reach Capital LLC owns 35% of Cedar Peak Holdings Inc."
+        },
+        {
+          "owner": "Cedar Peak Holdings Inc",
+          "owner_type": "company",
+          "owned": "Marble Point Capital LLC",
+          "percent": "45",
+          "doc_id": "doc2",
+          "quote": "Cedar Peak Holdings Inc is the holder of 45% of the outstanding shares of Marble Point Capital LLC."
+        },
+        {
+          "owner": "Nico Duarte",
+          "owner_type": "person",
+          "owned": "Quartz Reach Capital LLC",
+          "percent": "25",
+          "doc_id": "doc2",
+          "quote": "Nico Duarte owns 25% of Quartz Reach Capital LLC."
+        },
+        {
+          "owner": "Esme Yilmaz",
+          "owner_type": "person",
+          "owned": "Quartz Reach Capital LLC",
+          "percent": "40",
+          "doc_id": "doc2",
+          "quote": "Esme Yilmaz holds a 40% stake in Quartz Reach Capital LLC."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Ravi Farrow",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Ravi Farrow",
+              "owned": "Obsidian Ridge Inc",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "Ravi Farrow is the holder of 24% of the outstanding shares of Obsidian Ridge Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nico Duarte",
+      "percent": "1141/320",
+      "display": "3.56562%",
+      "paths": [
+        {
+          "display": "25% x 35% x 25% = 2.1875%",
+          "hops": [
+            {
+              "owner": "Nico Duarte",
+              "owned": "Quartz Reach Capital LLC",
+              "percent": "25",
+              "doc_id": "doc2",
+              "quote": "Nico Duarte owns 25% of Quartz Reach Capital LLC."
+            },
+            {
+              "owner": "Quartz Reach Capital LLC",
+              "owned": "Cedar Peak Holdings Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Quartz Reach Capital LLC owns 35% of Cedar Peak Holdings Inc."
+            },
+            {
+              "owner": "Cedar Peak Holdings Inc",
+              "owned": "Obsidian Ridge Inc",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Cedar Peak Holdings Inc owns 25% of Obsidian Ridge Inc."
+            }
+          ]
+        },
+        {
+          "display": "25% x 35% x 45% x 35% = 1.37813%",
+          "hops": [
+            {
+              "owner": "Nico Duarte",
+              "owned": "Quartz Reach Capital LLC",
+              "percent": "25",
+              "doc_id": "doc2",
+              "quote": "Nico Duarte owns 25% of Quartz Reach Capital LLC."
+            },
+            {
+              "owner": "Quartz Reach Capital LLC",
+              "owned": "Cedar Peak Holdings Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Quartz Reach Capital LLC owns 35% of Cedar Peak Holdings Inc."
+            },
+            {
+              "owner": "Cedar Peak Holdings Inc",
+              "owned": "Marble Point Capital LLC",
+              "percent": "45",
+              "doc_id": "doc2",
+              "quote": "Cedar Peak Holdings Inc is the holder of 45% of the outstanding shares of Marble Point Capital LLC."
+            },
+            {
+              "owner": "Marble Point Capital LLC",
+              "owned": "Obsidian Ridge Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Marble Point Capital LLC holds a 35% stake in Obsidian Ridge Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Esme Yilmaz",
+      "percent": "1141/200",
+      "display": "5.705%",
+      "paths": [
+        {
+          "display": "40% x 35% x 25% = 3.5%",
+          "hops": [
+            {
+              "owner": "Esme Yilmaz",
+              "owned": "Quartz Reach Capital LLC",
+              "percent": "40",
+              "doc_id": "doc2",
+              "quote": "Esme Yilmaz holds a 40% stake in Quartz Reach Capital LLC."
+            },
+            {
+              "owner": "Quartz Reach Capital LLC",
+              "owned": "Cedar Peak Holdings Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Quartz Reach Capital LLC owns 35% of Cedar Peak Holdings Inc."
+            },
+            {
+              "owner": "Cedar Peak Holdings Inc",
+              "owned": "Obsidian Ridge Inc",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Cedar Peak Holdings Inc owns 25% of Obsidian Ridge Inc."
+            }
+          ]
+        },
+        {
+          "display": "40% x 35% x 45% x 35% = 2.205%",
+          "hops": [
+            {
+              "owner": "Esme Yilmaz",
+              "owned": "Quartz Reach Capital LLC",
+              "percent": "40",
+              "doc_id": "doc2",
+              "quote": "Esme Yilmaz holds a 40% stake in Quartz Reach Capital LLC."
+            },
+            {
+              "owner": "Quartz Reach Capital LLC",
+              "owned": "Cedar Peak Holdings Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Quartz Reach Capital LLC owns 35% of Cedar Peak Holdings Inc."
+            },
+            {
+              "owner": "Cedar Peak Holdings Inc",
+              "owned": "Marble Point Capital LLC",
+              "percent": "45",
+              "doc_id": "doc2",
+              "quote": "Cedar Peak Holdings Inc is the holder of 45% of the outstanding shares of Marble Point Capital LLC."
+            },
+            {
+              "owner": "Marble Point Capital LLC",
+              "owned": "Obsidian Ridge Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Marble Point Capital LLC holds a 35% stake in Obsidian Ridge Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [],
+  "error": null
+}

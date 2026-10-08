@@ -1,0 +1,10 @@
+{
+  "scenario": "d1_easy_02",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Xavi Varga",
+      "percent": "35"
+    }
+  ]
+}

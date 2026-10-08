@@ -1,0 +1,165 @@
+{
+  "scenario": "d3_hard_04",
+  "model": "claude-haiku-5-5",
+  "target": "Larch Haven LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Granite Point Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Larch Haven LLC",
+          "percent": "3333333333333333/100000000000000",
+          "doc_id": "doc1",
+          "quote": "Granite Point Ventures Ltd holds 4,000 of the 12,000 outstanding shares of Larch Haven LLC."
+        },
+        {
+          "owner": "Amber Stone Partners LP",
+          "owner_type": "company",
+          "owned": "Granite Point Ventures Ltd",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "Amber Stone Partners LP holds 4,500 of the 10,000 outstanding shares of Granite Point Ventures Ltd."
+        },
+        {
+          "owner": "Briar Peak Partners LP",
+          "owner_type": "company",
+          "owned": "Granite Point Ventures Ltd",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Briar Peak Partners LP holds 1,200 of the 2,400 outstanding shares of Granite Point Ventures Ltd."
+        },
+        {
+          "owner": "Greta Kovac",
+          "owner_type": "person",
+          "owned": "Amber Stone Partners LP",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Greta Kovac owns one-fifth of Amber Stone Partners LP."
+        },
+        {
+          "owner": "Nico Zeller",
+          "owner_type": "person",
+          "owned": "Amber Stone Partners LP",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Nico Zeller holds 900 of the 6,000 outstanding shares of Amber Stone Partners LP."
+        },
+        {
+          "owner": "Dov Sorensen",
+          "owner_type": "person",
+          "owned": "Briar Peak Partners LP",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Briar Peak Partners LP is 30%-owned by Dov Sorensen."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Greta Kovac",
+      "percent": "29999999999999997/10000000000000000",
+      "display": "3%",
+      "paths": [
+        {
+          "display": "20% x 45% x 33.3333% = 3%",
+          "hops": [
+            {
+              "owner": "Greta Kovac",
+              "owned": "Amber Stone Partners LP",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Greta Kovac owns one-fifth of Amber Stone Partners LP."
+            },
+            {
+              "owner": "Amber Stone Partners LP",
+              "owned": "Granite Point Ventures Ltd",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Amber Stone Partners LP holds 4,500 of the 10,000 outstanding shares of Granite Point Ventures Ltd."
+            },
+            {
+              "owner": "Granite Point Ventures Ltd",
+              "owned": "Larch Haven LLC",
+              "percent": "3333333333333333/100000000000000",
+              "doc_id": "doc1",
+              "quote": "Granite Point Ventures Ltd holds 4,000 of the 12,000 outstanding shares of Larch Haven LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nico Zeller",
+      "percent": "89999999999999991/40000000000000000",
+      "display": "2.25%",
+      "paths": [
+        {
+          "display": "15% x 45% x 33.3333% = 2.25%",
+          "hops": [
+            {
+              "owner": "Nico Zeller",
+              "owned": "Amber Stone Partners LP",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Nico Zeller holds 900 of the 6,000 outstanding shares of Amber Stone Partners LP."
+            },
+            {
+              "owner": "Amber Stone Partners LP",
+              "owned": "Granite Point Ventures Ltd",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Amber Stone Partners LP holds 4,500 of the 10,000 outstanding shares of Granite Point Ventures Ltd."
+            },
+            {
+              "owner": "Granite Point Ventures Ltd",
+              "owned": "Larch Haven LLC",
+              "percent": "3333333333333333/100000000000000",
+              "doc_id": "doc1",
+              "quote": "Granite Point Ventures Ltd holds 4,000 of the 12,000 outstanding shares of Larch Haven LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Dov Sorensen",
+      "percent": "9999999999999999/2000000000000000",
+      "display": "5%",
+      "paths": [
+        {
+          "display": "30% x 50% x 33.3333% = 5%",
+          "hops": [
+            {
+              "owner": "Dov Sorensen",
+              "owned": "Briar Peak Partners LP",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Briar Peak Partners LP is 30%-owned by Dov Sorensen."
+            },
+            {
+              "owner": "Briar Peak Partners LP",
+              "owned": "Granite Point Ventures Ltd",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Briar Peak Partners LP holds 1,200 of the 2,400 outstanding shares of Granite Point Ventures Ltd."
+            },
+            {
+              "owner": "Granite Point Ventures Ltd",
+              "owned": "Larch Haven LLC",
+              "percent": "3333333333333333/100000000000000",
+              "doc_id": "doc1",
+              "quote": "Granite Point Ventures Ltd holds 4,000 of the 12,000 outstanding shares of Larch Haven LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [],
+  "error": null
+}

@@ -1,0 +1,213 @@
+{
+  "scenario": "d4_hard_03",
+  "model": "claude-haiku-5-5",
+  "target": "Cobalt Moor Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Hollow Ridge Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Cobalt Moor Inc",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Cobalt Moor Inc, Hollow Ridge Holdings Ltd holds 35% and Silver Ford Holdings LP holds 30%; the remaining interest is held by Sana Lindqvist."
+        },
+        {
+          "owner": "Silver Ford Holdings LP",
+          "owner_type": "company",
+          "owned": "Cobalt Moor Inc",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Cobalt Moor Inc, Hollow Ridge Holdings Ltd holds 35% and Silver Ford Holdings LP holds 30%; the remaining interest is held by Sana Lindqvist."
+        },
+        {
+          "owner": "Sana Lindqvist",
+          "owner_type": "person",
+          "owned": "Cobalt Moor Inc",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Cobalt Moor Inc, Hollow Ridge Holdings Ltd holds 35% and Silver Ford Holdings LP holds 30%; the remaining interest is held by Sana Lindqvist."
+        },
+        {
+          "owner": "Oren Thorne",
+          "owner_type": "person",
+          "owned": "Silver Ford Holdings LP",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Oren Thorne owns one-quarter of Silver Ford Holdings LP."
+        },
+        {
+          "owner": "Silas Ibarra",
+          "owner_type": "person",
+          "owned": "Copper Ford Ventures Ltd",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Silas Ibarra holds 15,000 of the 30,000 outstanding shares of Copper Ford Ventures Ltd."
+        },
+        {
+          "owner": "Nadia Yilmaz",
+          "owner_type": "person",
+          "owned": "Hollow Ridge Holdings Ltd",
+          "percent": "10",
+          "doc_id": "doc2",
+          "quote": "Nadia Yilmaz owns one-tenth of Hollow Ridge Holdings Ltd."
+        },
+        {
+          "owner": "Hollow Ridge Holdings LLC",
+          "owner_type": "company",
+          "owned": "Hollow Ridge Holdings Ltd",
+          "percent": "70",
+          "doc_id": "doc2",
+          "quote": "Hollow Ridge Holdings LLC holds 84,000 of the 120,000 outstanding shares of Hollow Ridge Holdings Ltd."
+        },
+        {
+          "owner": "Copper Ford Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Hollow Ridge Holdings LLC",
+          "percent": "70",
+          "doc_id": "doc2",
+          "quote": "A 70% interest in Hollow Ridge Holdings LLC is held by Copper Ford Ventures Ltd."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Sana Lindqvist",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Sana Lindqvist",
+              "owned": "Cobalt Moor Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Cobalt Moor Inc, Hollow Ridge Holdings Ltd holds 35% and Silver Ford Holdings LP holds 30%; the remaining interest is held by Sana Lindqvist."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Oren Thorne",
+      "percent": "15/2",
+      "display": "7.5%",
+      "paths": [
+        {
+          "display": "25% x 30% = 7.5%",
+          "hops": [
+            {
+              "owner": "Oren Thorne",
+              "owned": "Silver Ford Holdings LP",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Oren Thorne owns one-quarter of Silver Ford Holdings LP."
+            },
+            {
+              "owner": "Silver Ford Holdings LP",
+              "owned": "Cobalt Moor Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Cobalt Moor Inc, Hollow Ridge Holdings Ltd holds 35% and Silver Ford Holdings LP holds 30%; the remaining interest is held by Sana Lindqvist."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Silas Ibarra",
+      "percent": "343/40",
+      "display": "8.575%",
+      "paths": [
+        {
+          "display": "50% x 70% x 70% x 35% = 8.575%",
+          "hops": [
+            {
+              "owner": "Silas Ibarra",
+              "owned": "Copper Ford Ventures Ltd",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Silas Ibarra holds 15,000 of the 30,000 outstanding shares of Copper Ford Ventures Ltd."
+            },
+            {
+              "owner": "Copper Ford Ventures Ltd",
+              "owned": "Hollow Ridge Holdings LLC",
+              "percent": "70",
+              "doc_id": "doc2",
+              "quote": "A 70% interest in Hollow Ridge Holdings LLC is held by Copper Ford Ventures Ltd."
+            },
+            {
+              "owner": "Hollow Ridge Holdings LLC",
+              "owned": "Hollow Ridge Holdings Ltd",
+              "percent": "70",
+              "doc_id": "doc2",
+              "quote": "Hollow Ridge Holdings LLC holds 84,000 of the 120,000 outstanding shares of Hollow Ridge Holdings Ltd."
+            },
+            {
+              "owner": "Hollow Ridge Holdings Ltd",
+              "owned": "Cobalt Moor Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Cobalt Moor Inc, Hollow Ridge Holdings Ltd holds 35% and Silver Ford Holdings LP holds 30%; the remaining interest is held by Sana Lindqvist."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nadia Yilmaz",
+      "percent": "7/2",
+      "display": "3.5%",
+      "paths": [
+        {
+          "display": "10% x 35% = 3.5%",
+          "hops": [
+            {
+              "owner": "Nadia Yilmaz",
+              "owned": "Hollow Ridge Holdings Ltd",
+              "percent": "10",
+              "doc_id": "doc2",
+              "quote": "Nadia Yilmaz owns one-tenth of Hollow Ridge Holdings Ltd."
+            },
+            {
+              "owner": "Hollow Ridge Holdings Ltd",
+              "owned": "Cobalt Moor Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Cobalt Moor Inc, Hollow Ridge Holdings Ltd holds 35% and Silver Ford Holdings LP holds 30%; the remaining interest is held by Sana Lindqvist."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Sana Lindqvist",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Sana Lindqvist",
+              "owned": "Cobalt Moor Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Cobalt Moor Inc, Hollow Ridge Holdings Ltd holds 35% and Silver Ford Holdings LP holds 30%; the remaining interest is held by Sana Lindqvist."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

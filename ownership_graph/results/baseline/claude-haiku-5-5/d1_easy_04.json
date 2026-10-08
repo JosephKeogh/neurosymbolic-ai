@@ -1,0 +1,10 @@
+{
+  "scenario": "d1_easy_04",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Yara Kovac",
+      "percent": "60"
+    }
+  ]
+}

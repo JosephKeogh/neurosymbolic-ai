@@ -1,0 +1,411 @@
+{
+  "scenario": "d4_easy_00",
+  "model": "claude-haiku-5-5",
+  "target": "Copper Ford Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Larch Field Group Inc",
+          "owner_type": "company",
+          "owned": "Copper Ford Ltd",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Larch Field Group Inc is the holder of 10% of the outstanding shares of Copper Ford Ltd."
+        },
+        {
+          "owner": "Cedar Meadow Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Copper Ford Ltd",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Cedar Meadow Ventures Ltd owns 30% of Copper Ford Ltd."
+        },
+        {
+          "owner": "Cedar Moor Holdings Inc",
+          "owner_type": "company",
+          "owned": "Copper Ford Ltd",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Cedar Moor Holdings Inc owns 30% of Copper Ford Ltd."
+        },
+        {
+          "owner": "Yara Varga",
+          "owner_type": "person",
+          "owned": "Cedar Moor Holdings Inc",
+          "percent": "80",
+          "doc_id": "doc1",
+          "quote": "Yara Varga holds a 80% stake in Cedar Moor Holdings Inc."
+        },
+        {
+          "owner": "Meridian Moor Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Cedar Meadow Ventures Ltd",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Meridian Moor Ventures Ltd is the holder of 33 1/3% of the outstanding shares of Cedar Meadow Ventures Ltd."
+        },
+        {
+          "owner": "Falcon Hollow Holdings LP",
+          "owner_type": "company",
+          "owned": "Cedar Meadow Ventures Ltd",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Falcon Hollow Holdings LP is the holder of 30% of the outstanding shares of Cedar Meadow Ventures Ltd."
+        },
+        {
+          "owner": "Larch Field Holdings LP",
+          "owner_type": "company",
+          "owned": "Cedar Meadow Ventures Ltd",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Larch Field Holdings LP holds a 25% stake in Cedar Meadow Ventures Ltd."
+        },
+        {
+          "owner": "Larch Field Group Inc",
+          "owner_type": "company",
+          "owned": "Falcon Hollow Holdings LP",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Larch Field Group Inc holds a 60% stake in Falcon Hollow Holdings LP."
+        },
+        {
+          "owner": "Otto Varga",
+          "owner_type": "person",
+          "owned": "Meridian Moor Ventures Ltd",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Otto Varga holds a 20% stake in Meridian Moor Ventures Ltd."
+        },
+        {
+          "owner": "Larch Field Holdings LP",
+          "owner_type": "company",
+          "owned": "Meridian Moor Ventures Ltd",
+          "percent": "70",
+          "doc_id": "doc1",
+          "quote": "Larch Field Holdings LP owns 70% of Meridian Moor Ventures Ltd."
+        },
+        {
+          "owner": "Alma Reyes",
+          "owner_type": "person",
+          "owned": "Meridian Moor Ventures Ltd",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Alma Reyes owns 10% of Meridian Moor Ventures Ltd."
+        },
+        {
+          "owner": "Silas Larkin",
+          "owner_type": "person",
+          "owned": "Larch Field Holdings LP",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Silas Larkin holds a 50% stake in Larch Field Holdings LP."
+        },
+        {
+          "owner": "Yara Varga",
+          "owner_type": "person",
+          "owned": "Larch Field Group Inc",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Yara Varga owns 10% of Larch Field Group Inc."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Silas Larkin",
+      "percent": "29/4",
+      "display": "7.25%",
+      "paths": [
+        {
+          "display": "50% x 25% x 30% = 3.75%",
+          "hops": [
+            {
+              "owner": "Silas Larkin",
+              "owned": "Larch Field Holdings LP",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Silas Larkin holds a 50% stake in Larch Field Holdings LP."
+            },
+            {
+              "owner": "Larch Field Holdings LP",
+              "owned": "Cedar Meadow Ventures Ltd",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Larch Field Holdings LP holds a 25% stake in Cedar Meadow Ventures Ltd."
+            },
+            {
+              "owner": "Cedar Meadow Ventures Ltd",
+              "owned": "Copper Ford Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Meadow Ventures Ltd owns 30% of Copper Ford Ltd."
+            }
+          ]
+        },
+        {
+          "display": "50% x 70% x 33 1/3% x 30% = 3.5%",
+          "hops": [
+            {
+              "owner": "Silas Larkin",
+              "owned": "Larch Field Holdings LP",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Silas Larkin holds a 50% stake in Larch Field Holdings LP."
+            },
+            {
+              "owner": "Larch Field Holdings LP",
+              "owned": "Meridian Moor Ventures Ltd",
+              "percent": "70",
+              "doc_id": "doc1",
+              "quote": "Larch Field Holdings LP owns 70% of Meridian Moor Ventures Ltd."
+            },
+            {
+              "owner": "Meridian Moor Ventures Ltd",
+              "owned": "Cedar Meadow Ventures Ltd",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Meridian Moor Ventures Ltd is the holder of 33 1/3% of the outstanding shares of Cedar Meadow Ventures Ltd."
+            },
+            {
+              "owner": "Cedar Meadow Ventures Ltd",
+              "owned": "Copper Ford Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Meadow Ventures Ltd owns 30% of Copper Ford Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Yara Varga",
+      "percent": "1277/50",
+      "display": "25.54%",
+      "paths": [
+        {
+          "display": "80% x 30% = 24%",
+          "hops": [
+            {
+              "owner": "Yara Varga",
+              "owned": "Cedar Moor Holdings Inc",
+              "percent": "80",
+              "doc_id": "doc1",
+              "quote": "Yara Varga holds a 80% stake in Cedar Moor Holdings Inc."
+            },
+            {
+              "owner": "Cedar Moor Holdings Inc",
+              "owned": "Copper Ford Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Moor Holdings Inc owns 30% of Copper Ford Ltd."
+            }
+          ]
+        },
+        {
+          "display": "10% x 10% = 1%",
+          "hops": [
+            {
+              "owner": "Yara Varga",
+              "owned": "Larch Field Group Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Yara Varga owns 10% of Larch Field Group Inc."
+            },
+            {
+              "owner": "Larch Field Group Inc",
+              "owned": "Copper Ford Ltd",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Larch Field Group Inc is the holder of 10% of the outstanding shares of Copper Ford Ltd."
+            }
+          ]
+        },
+        {
+          "display": "10% x 60% x 30% x 30% = 0.54%",
+          "hops": [
+            {
+              "owner": "Yara Varga",
+              "owned": "Larch Field Group Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Yara Varga owns 10% of Larch Field Group Inc."
+            },
+            {
+              "owner": "Larch Field Group Inc",
+              "owned": "Falcon Hollow Holdings LP",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Larch Field Group Inc holds a 60% stake in Falcon Hollow Holdings LP."
+            },
+            {
+              "owner": "Falcon Hollow Holdings LP",
+              "owned": "Cedar Meadow Ventures Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Falcon Hollow Holdings LP is the holder of 30% of the outstanding shares of Cedar Meadow Ventures Ltd."
+            },
+            {
+              "owner": "Cedar Meadow Ventures Ltd",
+              "owned": "Copper Ford Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Meadow Ventures Ltd owns 30% of Copper Ford Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Otto Varga",
+      "percent": "2",
+      "display": "2%",
+      "paths": [
+        {
+          "display": "20% x 33 1/3% x 30% = 2%",
+          "hops": [
+            {
+              "owner": "Otto Varga",
+              "owned": "Meridian Moor Ventures Ltd",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Otto Varga holds a 20% stake in Meridian Moor Ventures Ltd."
+            },
+            {
+              "owner": "Meridian Moor Ventures Ltd",
+              "owned": "Cedar Meadow Ventures Ltd",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Meridian Moor Ventures Ltd is the holder of 33 1/3% of the outstanding shares of Cedar Meadow Ventures Ltd."
+            },
+            {
+              "owner": "Cedar Meadow Ventures Ltd",
+              "owned": "Copper Ford Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Meadow Ventures Ltd owns 30% of Copper Ford Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Alma Reyes",
+      "percent": "1",
+      "display": "1%",
+      "paths": [
+        {
+          "display": "10% x 33 1/3% x 30% = 1%",
+          "hops": [
+            {
+              "owner": "Alma Reyes",
+              "owned": "Meridian Moor Ventures Ltd",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Alma Reyes owns 10% of Meridian Moor Ventures Ltd."
+            },
+            {
+              "owner": "Meridian Moor Ventures Ltd",
+              "owned": "Cedar Meadow Ventures Ltd",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Meridian Moor Ventures Ltd is the holder of 33 1/3% of the outstanding shares of Cedar Meadow Ventures Ltd."
+            },
+            {
+              "owner": "Cedar Meadow Ventures Ltd",
+              "owned": "Copper Ford Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Meadow Ventures Ltd owns 30% of Copper Ford Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Yara Varga",
+      "percent": "1277/50",
+      "display": "25.54%",
+      "paths": [
+        {
+          "display": "80% x 30% = 24%",
+          "hops": [
+            {
+              "owner": "Yara Varga",
+              "owned": "Cedar Moor Holdings Inc",
+              "percent": "80",
+              "doc_id": "doc1",
+              "quote": "Yara Varga holds a 80% stake in Cedar Moor Holdings Inc."
+            },
+            {
+              "owner": "Cedar Moor Holdings Inc",
+              "owned": "Copper Ford Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Moor Holdings Inc owns 30% of Copper Ford Ltd."
+            }
+          ]
+        },
+        {
+          "display": "10% x 10% = 1%",
+          "hops": [
+            {
+              "owner": "Yara Varga",
+              "owned": "Larch Field Group Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Yara Varga owns 10% of Larch Field Group Inc."
+            },
+            {
+              "owner": "Larch Field Group Inc",
+              "owned": "Copper Ford Ltd",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Larch Field Group Inc is the holder of 10% of the outstanding shares of Copper Ford Ltd."
+            }
+          ]
+        },
+        {
+          "display": "10% x 60% x 30% x 30% = 0.54%",
+          "hops": [
+            {
+              "owner": "Yara Varga",
+              "owned": "Larch Field Group Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Yara Varga owns 10% of Larch Field Group Inc."
+            },
+            {
+              "owner": "Larch Field Group Inc",
+              "owned": "Falcon Hollow Holdings LP",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Larch Field Group Inc holds a 60% stake in Falcon Hollow Holdings LP."
+            },
+            {
+              "owner": "Falcon Hollow Holdings LP",
+              "owned": "Cedar Meadow Ventures Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Falcon Hollow Holdings LP is the holder of 30% of the outstanding shares of Cedar Meadow Ventures Ltd."
+            },
+            {
+              "owner": "Cedar Meadow Ventures Ltd",
+              "owned": "Copper Ford Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Meadow Ventures Ltd owns 30% of Copper Ford Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

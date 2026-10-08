@@ -1,0 +1,14 @@
+{
+  "scenario": "d2_easy_06",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Nico Byrne",
+      "percent": "25"
+    },
+    {
+      "person": "Otto Jansen",
+      "percent": "25"
+    }
+  ]
+}

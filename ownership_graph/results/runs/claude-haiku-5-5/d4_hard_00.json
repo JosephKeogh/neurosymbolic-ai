@@ -1,0 +1,507 @@
+{
+  "scenario": "d4_hard_00",
+  "model": "claude-haiku-5-5",
+  "target": "Briar Field LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Ines Ibarra",
+          "owner_type": "person",
+          "owned": "Briar Field LLC",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+        },
+        {
+          "owner": "Cleo Byrne",
+          "owner_type": "person",
+          "owned": "Briar Field LLC",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+        },
+        {
+          "owner": "Amber Crest Group Inc",
+          "owner_type": "company",
+          "owned": "Briar Field LLC",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+        },
+        {
+          "owner": "Granite Ford Holdings Inc",
+          "owner_type": "company",
+          "owned": "Briar Field LLC",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+        },
+        {
+          "owner": "Tidal Ridge Holdings LP",
+          "owner_type": "company",
+          "owned": "Granite Ford Holdings Inc",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Tidal Ridge Holdings LP holds 800 of the 2,400 outstanding shares of Granite Ford Holdings Inc."
+        },
+        {
+          "owner": "Amber Crest Group Inc",
+          "owner_type": "company",
+          "owned": "Granite Ford Holdings Inc",
+          "percent": "45",
+          "doc_id": "doc1",
+          "quote": "Granite Ford Holdings Inc is 45%-owned by Amber Crest Group Inc."
+        },
+        {
+          "owner": "Granite Hollow Holdings Inc",
+          "owner_type": "company",
+          "owned": "Amber Crest Group Inc",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Amber Crest Group Inc is 40%-owned by Granite Hollow Holdings Inc."
+        },
+        {
+          "owner": "Falcon Haven Holdings LLC",
+          "owner_type": "company",
+          "owned": "Amber Crest Group Inc",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "A 50% interest in Amber Crest Group Inc is held by Falcon Haven Holdings LLC."
+        },
+        {
+          "owner": "Greta Pryce",
+          "owner_type": "person",
+          "owned": "Granite Hollow Holdings Inc",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+        },
+        {
+          "owner": "Quinn Byrne",
+          "owner_type": "person",
+          "owned": "Granite Hollow Holdings Inc",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+        },
+        {
+          "owner": "Cleo Orsini",
+          "owner_type": "person",
+          "owned": "Granite Hollow Holdings Inc",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+        },
+        {
+          "owner": "Cleo Byrne",
+          "owner_type": "person",
+          "owned": "Falcon Haven Holdings LLC",
+          "percent": "80",
+          "doc_id": "doc1",
+          "quote": "Falcon Haven Holdings LLC is 80%-owned by Cleo Byrne."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Ines Ibarra",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Ines Ibarra",
+              "owned": "Briar Field LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Cleo Orsini",
+      "percent": "429/200",
+      "display": "2.145%",
+      "paths": [
+        {
+          "display": "15% x 40% x 20% = 1.2%",
+          "hops": [
+            {
+              "owner": "Cleo Orsini",
+              "owned": "Granite Hollow Holdings Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+            },
+            {
+              "owner": "Granite Hollow Holdings Inc",
+              "owned": "Amber Crest Group Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Amber Crest Group Inc is 40%-owned by Granite Hollow Holdings Inc."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Briar Field LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        },
+        {
+          "display": "15% x 40% x 45% x 35% = 0.945%",
+          "hops": [
+            {
+              "owner": "Cleo Orsini",
+              "owned": "Granite Hollow Holdings Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+            },
+            {
+              "owner": "Granite Hollow Holdings Inc",
+              "owned": "Amber Crest Group Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Amber Crest Group Inc is 40%-owned by Granite Hollow Holdings Inc."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Granite Ford Holdings Inc",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Granite Ford Holdings Inc is 45%-owned by Amber Crest Group Inc."
+            },
+            {
+              "owner": "Granite Ford Holdings Inc",
+              "owned": "Briar Field LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Cleo Byrne",
+      "percent": "293/10",
+      "display": "29.3%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Cleo Byrne",
+              "owned": "Briar Field LLC",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        },
+        {
+          "display": "80% x 50% x 20% = 8%",
+          "hops": [
+            {
+              "owner": "Cleo Byrne",
+              "owned": "Falcon Haven Holdings LLC",
+              "percent": "80",
+              "doc_id": "doc1",
+              "quote": "Falcon Haven Holdings LLC is 80%-owned by Cleo Byrne."
+            },
+            {
+              "owner": "Falcon Haven Holdings LLC",
+              "owned": "Amber Crest Group Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "A 50% interest in Amber Crest Group Inc is held by Falcon Haven Holdings LLC."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Briar Field LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        },
+        {
+          "display": "80% x 50% x 45% x 35% = 6.3%",
+          "hops": [
+            {
+              "owner": "Cleo Byrne",
+              "owned": "Falcon Haven Holdings LLC",
+              "percent": "80",
+              "doc_id": "doc1",
+              "quote": "Falcon Haven Holdings LLC is 80%-owned by Cleo Byrne."
+            },
+            {
+              "owner": "Falcon Haven Holdings LLC",
+              "owned": "Amber Crest Group Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "A 50% interest in Amber Crest Group Inc is held by Falcon Haven Holdings LLC."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Granite Ford Holdings Inc",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Granite Ford Holdings Inc is 45%-owned by Amber Crest Group Inc."
+            },
+            {
+              "owner": "Granite Ford Holdings Inc",
+              "owned": "Briar Field LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Greta Pryce",
+      "percent": "143/20",
+      "display": "7.15%",
+      "paths": [
+        {
+          "display": "50% x 40% x 20% = 4%",
+          "hops": [
+            {
+              "owner": "Greta Pryce",
+              "owned": "Granite Hollow Holdings Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+            },
+            {
+              "owner": "Granite Hollow Holdings Inc",
+              "owned": "Amber Crest Group Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Amber Crest Group Inc is 40%-owned by Granite Hollow Holdings Inc."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Briar Field LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        },
+        {
+          "display": "50% x 40% x 45% x 35% = 3.15%",
+          "hops": [
+            {
+              "owner": "Greta Pryce",
+              "owned": "Granite Hollow Holdings Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+            },
+            {
+              "owner": "Granite Hollow Holdings Inc",
+              "owned": "Amber Crest Group Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Amber Crest Group Inc is 40%-owned by Granite Hollow Holdings Inc."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Granite Ford Holdings Inc",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Granite Ford Holdings Inc is 45%-owned by Amber Crest Group Inc."
+            },
+            {
+              "owner": "Granite Ford Holdings Inc",
+              "owned": "Briar Field LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Quinn Byrne",
+      "percent": "1001/200",
+      "display": "5.005%",
+      "paths": [
+        {
+          "display": "35% x 40% x 20% = 2.8%",
+          "hops": [
+            {
+              "owner": "Quinn Byrne",
+              "owned": "Granite Hollow Holdings Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+            },
+            {
+              "owner": "Granite Hollow Holdings Inc",
+              "owned": "Amber Crest Group Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Amber Crest Group Inc is 40%-owned by Granite Hollow Holdings Inc."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Briar Field LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        },
+        {
+          "display": "35% x 40% x 45% x 35% = 2.205%",
+          "hops": [
+            {
+              "owner": "Quinn Byrne",
+              "owned": "Granite Hollow Holdings Inc",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Granite Hollow Holdings Inc, Greta Pryce holds 50% and Quinn Byrne holds 35%; the remaining interest is held by Cleo Orsini."
+            },
+            {
+              "owner": "Granite Hollow Holdings Inc",
+              "owned": "Amber Crest Group Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Amber Crest Group Inc is 40%-owned by Granite Hollow Holdings Inc."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Granite Ford Holdings Inc",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Granite Ford Holdings Inc is 45%-owned by Amber Crest Group Inc."
+            },
+            {
+              "owner": "Granite Ford Holdings Inc",
+              "owned": "Briar Field LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Ines Ibarra",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Ines Ibarra",
+              "owned": "Briar Field LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Cleo Byrne",
+      "percent": "293/10",
+      "display": "29.3%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Cleo Byrne",
+              "owned": "Briar Field LLC",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        },
+        {
+          "display": "80% x 50% x 20% = 8%",
+          "hops": [
+            {
+              "owner": "Cleo Byrne",
+              "owned": "Falcon Haven Holdings LLC",
+              "percent": "80",
+              "doc_id": "doc1",
+              "quote": "Falcon Haven Holdings LLC is 80%-owned by Cleo Byrne."
+            },
+            {
+              "owner": "Falcon Haven Holdings LLC",
+              "owned": "Amber Crest Group Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "A 50% interest in Amber Crest Group Inc is held by Falcon Haven Holdings LLC."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Briar Field LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        },
+        {
+          "display": "80% x 50% x 45% x 35% = 6.3%",
+          "hops": [
+            {
+              "owner": "Cleo Byrne",
+              "owned": "Falcon Haven Holdings LLC",
+              "percent": "80",
+              "doc_id": "doc1",
+              "quote": "Falcon Haven Holdings LLC is 80%-owned by Cleo Byrne."
+            },
+            {
+              "owner": "Falcon Haven Holdings LLC",
+              "owned": "Amber Crest Group Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "A 50% interest in Amber Crest Group Inc is held by Falcon Haven Holdings LLC."
+            },
+            {
+              "owner": "Amber Crest Group Inc",
+              "owned": "Granite Ford Holdings Inc",
+              "percent": "45",
+              "doc_id": "doc1",
+              "quote": "Granite Ford Holdings Inc is 45%-owned by Amber Crest Group Inc."
+            },
+            {
+              "owner": "Granite Ford Holdings Inc",
+              "owned": "Briar Field LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Briar Field LLC, Ines Ibarra holds 30% and Cleo Byrne holds 15% and Amber Crest Group Inc holds 20%; the remaining interest is held by Granite Ford Holdings Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

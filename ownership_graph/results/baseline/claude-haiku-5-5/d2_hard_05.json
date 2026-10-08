@@ -1,0 +1,10 @@
+{
+  "scenario": "d2_hard_05",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Nico Mendel",
+      "percent": "35"
+    }
+  ]
+}

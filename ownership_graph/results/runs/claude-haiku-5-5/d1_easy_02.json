@@ -1,0 +1,119 @@
+{
+  "scenario": "d1_easy_02",
+  "model": "claude-haiku-5-5",
+  "target": "Lantern Moor LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Hugo Park",
+          "owner_type": "person",
+          "owned": "Lantern Moor LLC",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "Hugo Park holds a 24% stake in Lantern Moor LLC."
+        },
+        {
+          "owner": "Xavi Orsini",
+          "owner_type": "person",
+          "owned": "Lantern Moor LLC",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Xavi Orsini holds a 10% stake in Lantern Moor LLC."
+        },
+        {
+          "owner": "Xavi Varga",
+          "owner_type": "person",
+          "owned": "Lantern Moor LLC",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Xavi Varga is the holder of 35% of the outstanding shares of Lantern Moor LLC."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Hugo Park",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Hugo Park",
+              "owned": "Lantern Moor LLC",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "Hugo Park holds a 24% stake in Lantern Moor LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Xavi Orsini",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Xavi Orsini",
+              "owned": "Lantern Moor LLC",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Xavi Orsini holds a 10% stake in Lantern Moor LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Xavi Varga",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Xavi Varga",
+              "owned": "Lantern Moor LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Xavi Varga is the holder of 35% of the outstanding shares of Lantern Moor LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Xavi Varga",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Xavi Varga",
+              "owned": "Lantern Moor LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Xavi Varga is the holder of 35% of the outstanding shares of Lantern Moor LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,187 @@
+{
+  "scenario": "d2_easy_00",
+  "model": "claude-haiku-5-5",
+  "target": "Hollow Crest Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Dov Whitlow",
+          "owner_type": "person",
+          "owned": "Hollow Crest Corp",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Dov Whitlow owns 20% of Hollow Crest Corp."
+        },
+        {
+          "owner": "Ember Bay Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Hollow Crest Corp",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Ember Bay Ventures Ltd holds a 35% stake in Hollow Crest Corp."
+        },
+        {
+          "owner": "Liam Brannock",
+          "owner_type": "person",
+          "owned": "Ember Bay Ventures Ltd",
+          "percent": "20",
+          "doc_id": "doc2",
+          "quote": "Liam Brannock owns 20% of Ember Bay Ventures Ltd."
+        },
+        {
+          "owner": "Dov Whitlow",
+          "owner_type": "person",
+          "owned": "Ember Bay Ventures Ltd",
+          "percent": "40",
+          "doc_id": "doc2",
+          "quote": "Dov Whitlow is the holder of 40% of the outstanding shares of Ember Bay Ventures Ltd."
+        },
+        {
+          "owner": "Tova Byrne",
+          "owner_type": "person",
+          "owned": "Ember Bay Ventures Ltd",
+          "percent": "30",
+          "doc_id": "doc2",
+          "quote": "Tova Byrne is the holder of 30% of the outstanding shares of Ember Bay Ventures Ltd."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Dov Whitlow",
+      "percent": "34",
+      "display": "34%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Dov Whitlow",
+              "owned": "Hollow Crest Corp",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Dov Whitlow owns 20% of Hollow Crest Corp."
+            }
+          ]
+        },
+        {
+          "display": "40% x 35% = 14%",
+          "hops": [
+            {
+              "owner": "Dov Whitlow",
+              "owned": "Ember Bay Ventures Ltd",
+              "percent": "40",
+              "doc_id": "doc2",
+              "quote": "Dov Whitlow is the holder of 40% of the outstanding shares of Ember Bay Ventures Ltd."
+            },
+            {
+              "owner": "Ember Bay Ventures Ltd",
+              "owned": "Hollow Crest Corp",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Ember Bay Ventures Ltd holds a 35% stake in Hollow Crest Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Liam Brannock",
+      "percent": "7",
+      "display": "7%",
+      "paths": [
+        {
+          "display": "20% x 35% = 7%",
+          "hops": [
+            {
+              "owner": "Liam Brannock",
+              "owned": "Ember Bay Ventures Ltd",
+              "percent": "20",
+              "doc_id": "doc2",
+              "quote": "Liam Brannock owns 20% of Ember Bay Ventures Ltd."
+            },
+            {
+              "owner": "Ember Bay Ventures Ltd",
+              "owned": "Hollow Crest Corp",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Ember Bay Ventures Ltd holds a 35% stake in Hollow Crest Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Tova Byrne",
+      "percent": "21/2",
+      "display": "10.5%",
+      "paths": [
+        {
+          "display": "30% x 35% = 10.5%",
+          "hops": [
+            {
+              "owner": "Tova Byrne",
+              "owned": "Ember Bay Ventures Ltd",
+              "percent": "30",
+              "doc_id": "doc2",
+              "quote": "Tova Byrne is the holder of 30% of the outstanding shares of Ember Bay Ventures Ltd."
+            },
+            {
+              "owner": "Ember Bay Ventures Ltd",
+              "owned": "Hollow Crest Corp",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Ember Bay Ventures Ltd holds a 35% stake in Hollow Crest Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Dov Whitlow",
+      "percent": "34",
+      "display": "34%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Dov Whitlow",
+              "owned": "Hollow Crest Corp",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Dov Whitlow owns 20% of Hollow Crest Corp."
+            }
+          ]
+        },
+        {
+          "display": "40% x 35% = 14%",
+          "hops": [
+            {
+              "owner": "Dov Whitlow",
+              "owned": "Ember Bay Ventures Ltd",
+              "percent": "40",
+              "doc_id": "doc2",
+              "quote": "Dov Whitlow is the holder of 40% of the outstanding shares of Ember Bay Ventures Ltd."
+            },
+            {
+              "owner": "Ember Bay Ventures Ltd",
+              "owned": "Hollow Crest Corp",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Ember Bay Ventures Ltd holds a 35% stake in Hollow Crest Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

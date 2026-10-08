@@ -1,0 +1,10 @@
+{
+  "scenario": "d1_hard_04",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Joel Varga",
+      "percent": "50"
+    }
+  ]
+}

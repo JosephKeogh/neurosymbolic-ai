@@ -1,0 +1,201 @@
+{
+  "scenario": "d2_easy_06",
+  "model": "claude-haiku-5-5",
+  "target": "Granite Point LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Briar Ford Holdings LLC",
+          "owner_type": "company",
+          "owned": "Granite Point LLC",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Briar Ford Holdings LLC owns 40% of Granite Point LLC."
+        },
+        {
+          "owner": "Nico Byrne",
+          "owner_type": "person",
+          "owned": "Granite Point LLC",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Nico Byrne owns 25% of Granite Point LLC."
+        },
+        {
+          "owner": "Oren Zeller",
+          "owner_type": "person",
+          "owned": "Briar Ford Holdings LLC",
+          "percent": "20",
+          "doc_id": "doc2",
+          "quote": "Oren Zeller is the holder of 20% of the outstanding shares of Briar Ford Holdings LLC."
+        },
+        {
+          "owner": "Zane Rook",
+          "owner_type": "person",
+          "owned": "Briar Ford Holdings LLC",
+          "percent": "15",
+          "doc_id": "doc2",
+          "quote": "Zane Rook owns 15% of Briar Ford Holdings LLC."
+        },
+        {
+          "owner": "Otto Jansen",
+          "owner_type": "person",
+          "owned": "Briar Ford Holdings LLC",
+          "percent": "125/2",
+          "doc_id": "doc2",
+          "quote": "Otto Jansen owns 62.5% of Briar Ford Holdings LLC."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Nico Byrne",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Nico Byrne",
+              "owned": "Granite Point LLC",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Nico Byrne owns 25% of Granite Point LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Oren Zeller",
+      "percent": "8",
+      "display": "8%",
+      "paths": [
+        {
+          "display": "20% x 40% = 8%",
+          "hops": [
+            {
+              "owner": "Oren Zeller",
+              "owned": "Briar Ford Holdings LLC",
+              "percent": "20",
+              "doc_id": "doc2",
+              "quote": "Oren Zeller is the holder of 20% of the outstanding shares of Briar Ford Holdings LLC."
+            },
+            {
+              "owner": "Briar Ford Holdings LLC",
+              "owned": "Granite Point LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Briar Ford Holdings LLC owns 40% of Granite Point LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Zane Rook",
+      "percent": "6",
+      "display": "6%",
+      "paths": [
+        {
+          "display": "15% x 40% = 6%",
+          "hops": [
+            {
+              "owner": "Zane Rook",
+              "owned": "Briar Ford Holdings LLC",
+              "percent": "15",
+              "doc_id": "doc2",
+              "quote": "Zane Rook owns 15% of Briar Ford Holdings LLC."
+            },
+            {
+              "owner": "Briar Ford Holdings LLC",
+              "owned": "Granite Point LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Briar Ford Holdings LLC owns 40% of Granite Point LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Otto Jansen",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "62.5% x 40% = 25%",
+          "hops": [
+            {
+              "owner": "Otto Jansen",
+              "owned": "Briar Ford Holdings LLC",
+              "percent": "125/2",
+              "doc_id": "doc2",
+              "quote": "Otto Jansen owns 62.5% of Briar Ford Holdings LLC."
+            },
+            {
+              "owner": "Briar Ford Holdings LLC",
+              "owned": "Granite Point LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Briar Ford Holdings LLC owns 40% of Granite Point LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Nico Byrne",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Nico Byrne",
+              "owned": "Granite Point LLC",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Nico Byrne owns 25% of Granite Point LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Otto Jansen",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "62.5% x 40% = 25%",
+          "hops": [
+            {
+              "owner": "Otto Jansen",
+              "owned": "Briar Ford Holdings LLC",
+              "percent": "125/2",
+              "doc_id": "doc2",
+              "quote": "Otto Jansen owns 62.5% of Briar Ford Holdings LLC."
+            },
+            {
+              "owner": "Briar Ford Holdings LLC",
+              "owned": "Granite Point LLC",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Briar Ford Holdings LLC owns 40% of Granite Point LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

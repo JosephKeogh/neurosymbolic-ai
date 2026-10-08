@@ -1,0 +1,146 @@
+{
+  "scenario": "d1_hard_04",
+  "model": "claude-haiku-5-5",
+  "target": "Briar Ridge Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Joel Varga",
+          "owner_type": "person",
+          "owned": "Briar Ridge Inc",
+          "percent": "50",
+          "doc_id": "doc1",
+          "quote": "Joel Varga owns one-half of Briar Ridge Inc."
+        },
+        {
+          "owner": "Bram Underhill",
+          "owner_type": "person",
+          "owned": "Briar Ridge Inc",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Bram Underhill holds 1,800 of the 12,000 outstanding shares of Briar Ridge Inc."
+        },
+        {
+          "owner": "Milo Gallo",
+          "owner_type": "person",
+          "owned": "Briar Ridge Inc",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Milo Gallo holds 600 of the 6,000 outstanding shares of Briar Ridge Inc."
+        },
+        {
+          "owner": "Xavi Tanaka",
+          "owner_type": "person",
+          "owned": "Briar Ridge Inc",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Briar Ridge Inc is 20%-owned by Xavi Tanaka."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Joel Varga",
+      "percent": "50",
+      "display": "50%",
+      "paths": [
+        {
+          "display": "50% = 50%",
+          "hops": [
+            {
+              "owner": "Joel Varga",
+              "owned": "Briar Ridge Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Joel Varga owns one-half of Briar Ridge Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Bram Underhill",
+      "percent": "15",
+      "display": "15%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Bram Underhill",
+              "owned": "Briar Ridge Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Bram Underhill holds 1,800 of the 12,000 outstanding shares of Briar Ridge Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Milo Gallo",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Milo Gallo",
+              "owned": "Briar Ridge Inc",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Milo Gallo holds 600 of the 6,000 outstanding shares of Briar Ridge Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Xavi Tanaka",
+      "percent": "20",
+      "display": "20%",
+      "paths": [
+        {
+          "display": "20% = 20%",
+          "hops": [
+            {
+              "owner": "Xavi Tanaka",
+              "owned": "Briar Ridge Inc",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Briar Ridge Inc is 20%-owned by Xavi Tanaka."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Joel Varga",
+      "percent": "50",
+      "display": "50%",
+      "paths": [
+        {
+          "display": "50% = 50%",
+          "hops": [
+            {
+              "owner": "Joel Varga",
+              "owned": "Briar Ridge Inc",
+              "percent": "50",
+              "doc_id": "doc1",
+              "quote": "Joel Varga owns one-half of Briar Ridge Inc."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

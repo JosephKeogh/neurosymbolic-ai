@@ -1,0 +1,217 @@
+{
+  "scenario": "d2_easy_02",
+  "model": "claude-haiku-5-5",
+  "target": "Harbor Haven Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Jonah Eklund",
+          "owner_type": "person",
+          "owned": "Harbor Haven Corp",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Jonah Eklund owns 30% of Harbor Haven Corp."
+        },
+        {
+          "owner": "Indigo Stone Capital LLC",
+          "owner_type": "company",
+          "owned": "Harbor Haven Corp",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Indigo Stone Capital LLC is the holder of 33 1/3% of the outstanding shares of Harbor Haven Corp."
+        },
+        {
+          "owner": "Silver Meadow Holdings LP",
+          "owner_type": "company",
+          "owned": "Harbor Haven Corp",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Silver Meadow Holdings LP is the holder of 33 1/3% of the outstanding shares of Harbor Haven Corp."
+        },
+        {
+          "owner": "Zane Underhill",
+          "owner_type": "person",
+          "owned": "Indigo Stone Capital LLC",
+          "percent": "30",
+          "doc_id": "doc2",
+          "quote": "Zane Underhill owns 30% of Indigo Stone Capital LLC."
+        },
+        {
+          "owner": "Yara Varga",
+          "owner_type": "person",
+          "owned": "Silver Meadow Holdings LP",
+          "percent": "10",
+          "doc_id": "doc3",
+          "quote": "Yara Varga owns 10% of Silver Meadow Holdings LP."
+        },
+        {
+          "owner": "Priya Lindqvist",
+          "owner_type": "person",
+          "owned": "Silver Meadow Holdings LP",
+          "percent": "72",
+          "doc_id": "doc3",
+          "quote": "Priya Lindqvist owns 72% of Silver Meadow Holdings LP."
+        },
+        {
+          "owner": "Alma Castell",
+          "owner_type": "person",
+          "owned": "Silver Meadow Holdings LP",
+          "percent": "15",
+          "doc_id": "doc3",
+          "quote": "Alma Castell owns 15% of Silver Meadow Holdings LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Jonah Eklund",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Jonah Eklund",
+              "owned": "Harbor Haven Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Jonah Eklund owns 30% of Harbor Haven Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Zane Underhill",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "30% x 33 1/3% = 10%",
+          "hops": [
+            {
+              "owner": "Zane Underhill",
+              "owned": "Indigo Stone Capital LLC",
+              "percent": "30",
+              "doc_id": "doc2",
+              "quote": "Zane Underhill owns 30% of Indigo Stone Capital LLC."
+            },
+            {
+              "owner": "Indigo Stone Capital LLC",
+              "owned": "Harbor Haven Corp",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Indigo Stone Capital LLC is the holder of 33 1/3% of the outstanding shares of Harbor Haven Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Yara Varga",
+      "percent": "10/3",
+      "display": "3 1/3%",
+      "paths": [
+        {
+          "display": "10% x 33 1/3% = 3 1/3%",
+          "hops": [
+            {
+              "owner": "Yara Varga",
+              "owned": "Silver Meadow Holdings LP",
+              "percent": "10",
+              "doc_id": "doc3",
+              "quote": "Yara Varga owns 10% of Silver Meadow Holdings LP."
+            },
+            {
+              "owner": "Silver Meadow Holdings LP",
+              "owned": "Harbor Haven Corp",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Silver Meadow Holdings LP is the holder of 33 1/3% of the outstanding shares of Harbor Haven Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Priya Lindqvist",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "72% x 33 1/3% = 24%",
+          "hops": [
+            {
+              "owner": "Priya Lindqvist",
+              "owned": "Silver Meadow Holdings LP",
+              "percent": "72",
+              "doc_id": "doc3",
+              "quote": "Priya Lindqvist owns 72% of Silver Meadow Holdings LP."
+            },
+            {
+              "owner": "Silver Meadow Holdings LP",
+              "owned": "Harbor Haven Corp",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Silver Meadow Holdings LP is the holder of 33 1/3% of the outstanding shares of Harbor Haven Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Alma Castell",
+      "percent": "5",
+      "display": "5%",
+      "paths": [
+        {
+          "display": "15% x 33 1/3% = 5%",
+          "hops": [
+            {
+              "owner": "Alma Castell",
+              "owned": "Silver Meadow Holdings LP",
+              "percent": "15",
+              "doc_id": "doc3",
+              "quote": "Alma Castell owns 15% of Silver Meadow Holdings LP."
+            },
+            {
+              "owner": "Silver Meadow Holdings LP",
+              "owned": "Harbor Haven Corp",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Silver Meadow Holdings LP is the holder of 33 1/3% of the outstanding shares of Harbor Haven Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Jonah Eklund",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Jonah Eklund",
+              "owned": "Harbor Haven Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Jonah Eklund owns 30% of Harbor Haven Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

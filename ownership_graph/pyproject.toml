@@ -1,0 +1,9 @@
+[project]
+name = "ownership-graph"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["numpy", "matplotlib", "anthropic", "pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,0 +1,10 @@
+{
+  "scenario": "d3_hard_07",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Esme Orsini",
+      "percent": "30"
+    }
+  ]
+}

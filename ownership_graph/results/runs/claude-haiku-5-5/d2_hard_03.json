@@ -1,0 +1,149 @@
+{
+  "scenario": "d2_hard_03",
+  "model": "claude-haiku-5-5",
+  "target": "Falcon Crest Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Alma Varga",
+          "owner_type": "person",
+          "owned": "Falcon Crest Corp",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Falcon Crest Corp, Alma Varga holds 35% and Marble Haven Holdings LLC holds 35%; the remaining interest is held by Granite Glen Partners LP."
+        },
+        {
+          "owner": "Marble Haven Holdings LLC",
+          "owner_type": "company",
+          "owned": "Falcon Crest Corp",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Falcon Crest Corp, Alma Varga holds 35% and Marble Haven Holdings LLC holds 35%; the remaining interest is held by Granite Glen Partners LP."
+        },
+        {
+          "owner": "Granite Glen Partners LP",
+          "owner_type": "company",
+          "owned": "Falcon Crest Corp",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Falcon Crest Corp, Alma Varga holds 35% and Marble Haven Holdings LLC holds 35%; the remaining interest is held by Granite Glen Partners LP."
+        },
+        {
+          "owner": "Bram Tanaka",
+          "owner_type": "person",
+          "owned": "Granite Glen Partners LP",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Granite Glen Partners LP, Bram Tanaka holds 60%; the remaining interest is held by Finn Hale."
+        },
+        {
+          "owner": "Finn Hale",
+          "owner_type": "person",
+          "owned": "Granite Glen Partners LP",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Of the shares of Granite Glen Partners LP, Bram Tanaka holds 60%; the remaining interest is held by Finn Hale."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Alma Varga",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Alma Varga",
+              "owned": "Falcon Crest Corp",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Falcon Crest Corp, Alma Varga holds 35% and Marble Haven Holdings LLC holds 35%; the remaining interest is held by Granite Glen Partners LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Bram Tanaka",
+      "percent": "18",
+      "display": "18%",
+      "paths": [
+        {
+          "display": "60% x 30% = 18%",
+          "hops": [
+            {
+              "owner": "Bram Tanaka",
+              "owned": "Granite Glen Partners LP",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Granite Glen Partners LP, Bram Tanaka holds 60%; the remaining interest is held by Finn Hale."
+            },
+            {
+              "owner": "Granite Glen Partners LP",
+              "owned": "Falcon Crest Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Falcon Crest Corp, Alma Varga holds 35% and Marble Haven Holdings LLC holds 35%; the remaining interest is held by Granite Glen Partners LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Finn Hale",
+      "percent": "12",
+      "display": "12%",
+      "paths": [
+        {
+          "display": "40% x 30% = 12%",
+          "hops": [
+            {
+              "owner": "Finn Hale",
+              "owned": "Granite Glen Partners LP",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Granite Glen Partners LP, Bram Tanaka holds 60%; the remaining interest is held by Finn Hale."
+            },
+            {
+              "owner": "Granite Glen Partners LP",
+              "owned": "Falcon Crest Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Falcon Crest Corp, Alma Varga holds 35% and Marble Haven Holdings LLC holds 35%; the remaining interest is held by Granite Glen Partners LP."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Alma Varga",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Alma Varga",
+              "owned": "Falcon Crest Corp",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Of the shares of Falcon Crest Corp, Alma Varga holds 35% and Marble Haven Holdings LLC holds 35%; the remaining interest is held by Granite Glen Partners LP."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

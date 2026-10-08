@@ -1,0 +1,301 @@
+{
+  "scenario": "d4_easy_01",
+  "model": "claude-haiku-5-5",
+  "target": "Willow Ford LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Harbor Gate Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Willow Ford LLC",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Harbor Gate Holdings Ltd holds a 35% stake in Willow Ford LLC."
+        },
+        {
+          "owner": "Harbor Moor Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Willow Ford LLC",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Harbor Moor Holdings Ltd holds a 33 1/3% stake in Willow Ford LLC."
+        },
+        {
+          "owner": "Falcon Ridge Group Inc",
+          "owner_type": "company",
+          "owned": "Harbor Moor Holdings Ltd",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Falcon Ridge Group Inc is the holder of 15% of the outstanding shares of Harbor Moor Holdings Ltd."
+        },
+        {
+          "owner": "Lena Park",
+          "owner_type": "person",
+          "owned": "Harbor Moor Holdings Ltd",
+          "percent": "75",
+          "doc_id": "doc1",
+          "quote": "Lena Park is the holder of 75% of the outstanding shares of Harbor Moor Holdings Ltd."
+        },
+        {
+          "owner": "Vince Pryce",
+          "owner_type": "person",
+          "owned": "Falcon Ridge Group Inc",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Vince Pryce is the holder of 15% of the outstanding shares of Falcon Ridge Group Inc."
+        },
+        {
+          "owner": "Nadia Jansen",
+          "owner_type": "person",
+          "owned": "Falcon Ridge Group Inc",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Nadia Jansen holds a 40% stake in Falcon Ridge Group Inc."
+        },
+        {
+          "owner": "Xavi Reyes",
+          "owner_type": "person",
+          "owned": "Harbor Gate Holdings Ltd",
+          "percent": "50",
+          "doc_id": "doc2",
+          "quote": "Xavi Reyes owns 50% of Harbor Gate Holdings Ltd."
+        },
+        {
+          "owner": "Willow Vale Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Harbor Gate Holdings Ltd",
+          "percent": "30",
+          "doc_id": "doc2",
+          "quote": "Willow Vale Holdings Ltd is the holder of 30% of the outstanding shares of Harbor Gate Holdings Ltd."
+        },
+        {
+          "owner": "Falcon Ridge Group Inc",
+          "owner_type": "company",
+          "owned": "Willow Vale Holdings Ltd",
+          "percent": "75",
+          "doc_id": "doc2",
+          "quote": "Falcon Ridge Group Inc holds a 75% stake in Willow Vale Holdings Ltd."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Lena Park",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "75% x 33 1/3% = 25%",
+          "hops": [
+            {
+              "owner": "Lena Park",
+              "owned": "Harbor Moor Holdings Ltd",
+              "percent": "75",
+              "doc_id": "doc1",
+              "quote": "Lena Park is the holder of 75% of the outstanding shares of Harbor Moor Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Moor Holdings Ltd",
+              "owned": "Willow Ford LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Harbor Moor Holdings Ltd holds a 33 1/3% stake in Willow Ford LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Vince Pryce",
+      "percent": "309/160",
+      "display": "1.93125%",
+      "paths": [
+        {
+          "display": "15% x 15% x 33 1/3% = 0.75%",
+          "hops": [
+            {
+              "owner": "Vince Pryce",
+              "owned": "Falcon Ridge Group Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Vince Pryce is the holder of 15% of the outstanding shares of Falcon Ridge Group Inc."
+            },
+            {
+              "owner": "Falcon Ridge Group Inc",
+              "owned": "Harbor Moor Holdings Ltd",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Falcon Ridge Group Inc is the holder of 15% of the outstanding shares of Harbor Moor Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Moor Holdings Ltd",
+              "owned": "Willow Ford LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Harbor Moor Holdings Ltd holds a 33 1/3% stake in Willow Ford LLC."
+            }
+          ]
+        },
+        {
+          "display": "15% x 75% x 30% x 35% = 1.18125%",
+          "hops": [
+            {
+              "owner": "Vince Pryce",
+              "owned": "Falcon Ridge Group Inc",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Vince Pryce is the holder of 15% of the outstanding shares of Falcon Ridge Group Inc."
+            },
+            {
+              "owner": "Falcon Ridge Group Inc",
+              "owned": "Willow Vale Holdings Ltd",
+              "percent": "75",
+              "doc_id": "doc2",
+              "quote": "Falcon Ridge Group Inc holds a 75% stake in Willow Vale Holdings Ltd."
+            },
+            {
+              "owner": "Willow Vale Holdings Ltd",
+              "owned": "Harbor Gate Holdings Ltd",
+              "percent": "30",
+              "doc_id": "doc2",
+              "quote": "Willow Vale Holdings Ltd is the holder of 30% of the outstanding shares of Harbor Gate Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Gate Holdings Ltd",
+              "owned": "Willow Ford LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Harbor Gate Holdings Ltd holds a 35% stake in Willow Ford LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nadia Jansen",
+      "percent": "103/20",
+      "display": "5.15%",
+      "paths": [
+        {
+          "display": "40% x 15% x 33 1/3% = 2%",
+          "hops": [
+            {
+              "owner": "Nadia Jansen",
+              "owned": "Falcon Ridge Group Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Nadia Jansen holds a 40% stake in Falcon Ridge Group Inc."
+            },
+            {
+              "owner": "Falcon Ridge Group Inc",
+              "owned": "Harbor Moor Holdings Ltd",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Falcon Ridge Group Inc is the holder of 15% of the outstanding shares of Harbor Moor Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Moor Holdings Ltd",
+              "owned": "Willow Ford LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Harbor Moor Holdings Ltd holds a 33 1/3% stake in Willow Ford LLC."
+            }
+          ]
+        },
+        {
+          "display": "40% x 75% x 30% x 35% = 3.15%",
+          "hops": [
+            {
+              "owner": "Nadia Jansen",
+              "owned": "Falcon Ridge Group Inc",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Nadia Jansen holds a 40% stake in Falcon Ridge Group Inc."
+            },
+            {
+              "owner": "Falcon Ridge Group Inc",
+              "owned": "Willow Vale Holdings Ltd",
+              "percent": "75",
+              "doc_id": "doc2",
+              "quote": "Falcon Ridge Group Inc holds a 75% stake in Willow Vale Holdings Ltd."
+            },
+            {
+              "owner": "Willow Vale Holdings Ltd",
+              "owned": "Harbor Gate Holdings Ltd",
+              "percent": "30",
+              "doc_id": "doc2",
+              "quote": "Willow Vale Holdings Ltd is the holder of 30% of the outstanding shares of Harbor Gate Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Gate Holdings Ltd",
+              "owned": "Willow Ford LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Harbor Gate Holdings Ltd holds a 35% stake in Willow Ford LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Xavi Reyes",
+      "percent": "35/2",
+      "display": "17.5%",
+      "paths": [
+        {
+          "display": "50% x 35% = 17.5%",
+          "hops": [
+            {
+              "owner": "Xavi Reyes",
+              "owned": "Harbor Gate Holdings Ltd",
+              "percent": "50",
+              "doc_id": "doc2",
+              "quote": "Xavi Reyes owns 50% of Harbor Gate Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Gate Holdings Ltd",
+              "owned": "Willow Ford LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Harbor Gate Holdings Ltd holds a 35% stake in Willow Ford LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Lena Park",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "75% x 33 1/3% = 25%",
+          "hops": [
+            {
+              "owner": "Lena Park",
+              "owned": "Harbor Moor Holdings Ltd",
+              "percent": "75",
+              "doc_id": "doc1",
+              "quote": "Lena Park is the holder of 75% of the outstanding shares of Harbor Moor Holdings Ltd."
+            },
+            {
+              "owner": "Harbor Moor Holdings Ltd",
+              "owned": "Willow Ford LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Harbor Moor Holdings Ltd holds a 33 1/3% stake in Willow Ford LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

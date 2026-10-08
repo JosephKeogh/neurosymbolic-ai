@@ -1,0 +1,138 @@
+{
+  "scenario": "d1_hard_00",
+  "model": "claude-haiku-5-5",
+  "target": "Copper Vale Inc",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Kira Moreau",
+          "owner_type": "person",
+          "owned": "Copper Vale Inc",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "Kira Moreau holds 7,200 of the 30,000 outstanding shares of Copper Vale Inc."
+        },
+        {
+          "owner": "Otto Sorensen",
+          "owner_type": "person",
+          "owned": "Copper Vale Inc",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "A 33 1/3% interest in Copper Vale Inc is held by Otto Sorensen."
+        },
+        {
+          "owner": "Esme Ashby",
+          "owner_type": "person",
+          "owned": "Copper Vale Inc",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "A 30% interest in Copper Vale Inc is held by Esme Ashby."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Kira Moreau",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Kira Moreau",
+              "owned": "Copper Vale Inc",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "Kira Moreau holds 7,200 of the 30,000 outstanding shares of Copper Vale Inc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Otto Sorensen",
+      "percent": "100/3",
+      "display": "33 1/3%",
+      "paths": [
+        {
+          "display": "33 1/3% = 33 1/3%",
+          "hops": [
+            {
+              "owner": "Otto Sorensen",
+              "owned": "Copper Vale Inc",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "A 33 1/3% interest in Copper Vale Inc is held by Otto Sorensen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Esme Ashby",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Esme Ashby",
+              "owned": "Copper Vale Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "A 30% interest in Copper Vale Inc is held by Esme Ashby."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Otto Sorensen",
+      "percent": "100/3",
+      "display": "33 1/3%",
+      "paths": [
+        {
+          "display": "33 1/3% = 33 1/3%",
+          "hops": [
+            {
+              "owner": "Otto Sorensen",
+              "owned": "Copper Vale Inc",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "A 33 1/3% interest in Copper Vale Inc is held by Otto Sorensen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Esme Ashby",
+      "percent": "30",
+      "display": "30%",
+      "paths": [
+        {
+          "display": "30% = 30%",
+          "hops": [
+            {
+              "owner": "Esme Ashby",
+              "owned": "Copper Vale Inc",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "A 30% interest in Copper Vale Inc is held by Esme Ashby."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

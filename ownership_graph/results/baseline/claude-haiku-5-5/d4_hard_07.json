@@ -1,0 +1,10 @@
+{
+  "scenario": "d4_hard_07",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Pia Park",
+      "percent": "30"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "scenario": "d1_hard_03",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Finn Ibarra",
+      "percent": "40"
+    },
+    {
+      "person": "Tova Duarte",
+      "percent": "60"
+    }
+  ]
+}

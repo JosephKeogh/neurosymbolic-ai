@@ -1,0 +1,10 @@
+{
+  "scenario": "d4_hard_02",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Fay Mendel",
+      "percent": "25"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "scenario": "d2_hard_06",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Pia Lindqvist",
+      "percent": "25"
+    }
+  ]
+}

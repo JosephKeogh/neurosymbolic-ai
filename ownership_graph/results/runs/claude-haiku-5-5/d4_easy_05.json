@@ -1,0 +1,336 @@
+{
+  "scenario": "d4_easy_05",
+  "model": "claude-haiku-5-5",
+  "target": "Amber Vale Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Vera Zeller",
+          "owner_type": "person",
+          "owned": "Amber Vale Ltd",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Vera Zeller owns 10% of Amber Vale Ltd."
+        },
+        {
+          "owner": "Cedar Moor Holdings LLC",
+          "owner_type": "company",
+          "owned": "Amber Vale Ltd",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Cedar Moor Holdings LLC owns 30% of Amber Vale Ltd."
+        },
+        {
+          "owner": "Lantern Brook Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Amber Vale Ltd",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Lantern Brook Ventures Ltd owns 35% of Amber Vale Ltd."
+        },
+        {
+          "owner": "Nadia Yilmaz",
+          "owner_type": "person",
+          "owned": "Cedar Moor Holdings LLC",
+          "percent": "20",
+          "doc_id": "doc1",
+          "quote": "Nadia Yilmaz holds a 20% stake in Cedar Moor Holdings LLC."
+        },
+        {
+          "owner": "Marble Stone Holdings LLC",
+          "owner_type": "company",
+          "owned": "Cedar Moor Holdings LLC",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Marble Stone Holdings LLC owns 40% of Cedar Moor Holdings LLC."
+        },
+        {
+          "owner": "Tidal Point Group Inc",
+          "owner_type": "company",
+          "owned": "Cedar Moor Holdings LLC",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Tidal Point Group Inc is the holder of 33 1/3% of the outstanding shares of Cedar Moor Holdings LLC."
+        },
+        {
+          "owner": "Pia Novak",
+          "owner_type": "person",
+          "owned": "Silver Grove Holdings Ltd",
+          "percent": "40",
+          "doc_id": "doc1",
+          "quote": "Pia Novak holds a 40% stake in Silver Grove Holdings Ltd."
+        },
+        {
+          "owner": "Joel Byrne",
+          "owner_type": "person",
+          "owned": "Silver Grove Holdings Ltd",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Joel Byrne owns 60% of Silver Grove Holdings Ltd."
+        },
+        {
+          "owner": "Kira Pryce",
+          "owner_type": "person",
+          "owned": "Lantern Brook Ventures Ltd",
+          "percent": "15",
+          "doc_id": "doc2",
+          "quote": "Kira Pryce is the holder of 15% of the outstanding shares of Lantern Brook Ventures Ltd."
+        },
+        {
+          "owner": "Joel Byrne",
+          "owner_type": "person",
+          "owned": "Lantern Brook Ventures Ltd",
+          "percent": "200/3",
+          "doc_id": "doc2",
+          "quote": "Joel Byrne is the holder of 66 2/3% of the outstanding shares of Lantern Brook Ventures Ltd."
+        },
+        {
+          "owner": "Silver Grove Holdings Ltd",
+          "owner_type": "company",
+          "owned": "Tidal Point Group Inc",
+          "percent": "40",
+          "doc_id": "doc2",
+          "quote": "Silver Grove Holdings Ltd owns 40% of Tidal Point Group Inc."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Vera Zeller",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Vera Zeller",
+              "owned": "Amber Vale Ltd",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Vera Zeller owns 10% of Amber Vale Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Kira Pryce",
+      "percent": "21/4",
+      "display": "5.25%",
+      "paths": [
+        {
+          "display": "15% x 35% = 5.25%",
+          "hops": [
+            {
+              "owner": "Kira Pryce",
+              "owned": "Lantern Brook Ventures Ltd",
+              "percent": "15",
+              "doc_id": "doc2",
+              "quote": "Kira Pryce is the holder of 15% of the outstanding shares of Lantern Brook Ventures Ltd."
+            },
+            {
+              "owner": "Lantern Brook Ventures Ltd",
+              "owned": "Amber Vale Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Lantern Brook Ventures Ltd owns 35% of Amber Vale Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nadia Yilmaz",
+      "percent": "6",
+      "display": "6%",
+      "paths": [
+        {
+          "display": "20% x 30% = 6%",
+          "hops": [
+            {
+              "owner": "Nadia Yilmaz",
+              "owned": "Cedar Moor Holdings LLC",
+              "percent": "20",
+              "doc_id": "doc1",
+              "quote": "Nadia Yilmaz holds a 20% stake in Cedar Moor Holdings LLC."
+            },
+            {
+              "owner": "Cedar Moor Holdings LLC",
+              "owned": "Amber Vale Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Moor Holdings LLC owns 30% of Amber Vale Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Pia Novak",
+      "percent": "8/5",
+      "display": "1.6%",
+      "paths": [
+        {
+          "display": "40% x 40% x 33 1/3% x 30% = 1.6%",
+          "hops": [
+            {
+              "owner": "Pia Novak",
+              "owned": "Silver Grove Holdings Ltd",
+              "percent": "40",
+              "doc_id": "doc1",
+              "quote": "Pia Novak holds a 40% stake in Silver Grove Holdings Ltd."
+            },
+            {
+              "owner": "Silver Grove Holdings Ltd",
+              "owned": "Tidal Point Group Inc",
+              "percent": "40",
+              "doc_id": "doc2",
+              "quote": "Silver Grove Holdings Ltd owns 40% of Tidal Point Group Inc."
+            },
+            {
+              "owner": "Tidal Point Group Inc",
+              "owned": "Cedar Moor Holdings LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Tidal Point Group Inc is the holder of 33 1/3% of the outstanding shares of Cedar Moor Holdings LLC."
+            },
+            {
+              "owner": "Cedar Moor Holdings LLC",
+              "owned": "Amber Vale Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Moor Holdings LLC owns 30% of Amber Vale Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Joel Byrne",
+      "percent": "386/15",
+      "display": "25 11/15%",
+      "paths": [
+        {
+          "display": "60% x 40% x 33 1/3% x 30% = 2.4%",
+          "hops": [
+            {
+              "owner": "Joel Byrne",
+              "owned": "Silver Grove Holdings Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Joel Byrne owns 60% of Silver Grove Holdings Ltd."
+            },
+            {
+              "owner": "Silver Grove Holdings Ltd",
+              "owned": "Tidal Point Group Inc",
+              "percent": "40",
+              "doc_id": "doc2",
+              "quote": "Silver Grove Holdings Ltd owns 40% of Tidal Point Group Inc."
+            },
+            {
+              "owner": "Tidal Point Group Inc",
+              "owned": "Cedar Moor Holdings LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Tidal Point Group Inc is the holder of 33 1/3% of the outstanding shares of Cedar Moor Holdings LLC."
+            },
+            {
+              "owner": "Cedar Moor Holdings LLC",
+              "owned": "Amber Vale Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Moor Holdings LLC owns 30% of Amber Vale Ltd."
+            }
+          ]
+        },
+        {
+          "display": "66 2/3% x 35% = 23 1/3%",
+          "hops": [
+            {
+              "owner": "Joel Byrne",
+              "owned": "Lantern Brook Ventures Ltd",
+              "percent": "200/3",
+              "doc_id": "doc2",
+              "quote": "Joel Byrne is the holder of 66 2/3% of the outstanding shares of Lantern Brook Ventures Ltd."
+            },
+            {
+              "owner": "Lantern Brook Ventures Ltd",
+              "owned": "Amber Vale Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Lantern Brook Ventures Ltd owns 35% of Amber Vale Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Joel Byrne",
+      "percent": "386/15",
+      "display": "25 11/15%",
+      "paths": [
+        {
+          "display": "60% x 40% x 33 1/3% x 30% = 2.4%",
+          "hops": [
+            {
+              "owner": "Joel Byrne",
+              "owned": "Silver Grove Holdings Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Joel Byrne owns 60% of Silver Grove Holdings Ltd."
+            },
+            {
+              "owner": "Silver Grove Holdings Ltd",
+              "owned": "Tidal Point Group Inc",
+              "percent": "40",
+              "doc_id": "doc2",
+              "quote": "Silver Grove Holdings Ltd owns 40% of Tidal Point Group Inc."
+            },
+            {
+              "owner": "Tidal Point Group Inc",
+              "owned": "Cedar Moor Holdings LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Tidal Point Group Inc is the holder of 33 1/3% of the outstanding shares of Cedar Moor Holdings LLC."
+            },
+            {
+              "owner": "Cedar Moor Holdings LLC",
+              "owned": "Amber Vale Ltd",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Cedar Moor Holdings LLC owns 30% of Amber Vale Ltd."
+            }
+          ]
+        },
+        {
+          "display": "66 2/3% x 35% = 23 1/3%",
+          "hops": [
+            {
+              "owner": "Joel Byrne",
+              "owned": "Lantern Brook Ventures Ltd",
+              "percent": "200/3",
+              "doc_id": "doc2",
+              "quote": "Joel Byrne is the holder of 66 2/3% of the outstanding shares of Lantern Brook Ventures Ltd."
+            },
+            {
+              "owner": "Lantern Brook Ventures Ltd",
+              "owned": "Amber Vale Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Lantern Brook Ventures Ltd owns 35% of Amber Vale Ltd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

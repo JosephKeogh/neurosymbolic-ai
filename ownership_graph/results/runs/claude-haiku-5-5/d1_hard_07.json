@@ -1,0 +1,119 @@
+{
+  "scenario": "d1_hard_07",
+  "model": "claude-haiku-5-5",
+  "target": "Indigo Vale Ltd",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Ivy Quist",
+          "owner_type": "person",
+          "owned": "Indigo Vale Ltd",
+          "percent": "24",
+          "doc_id": "doc1",
+          "quote": "Ivy Quist holds 2,880 of the 12,000 outstanding shares of Indigo Vale Ltd."
+        },
+        {
+          "owner": "Vince Jansen",
+          "owner_type": "person",
+          "owned": "Indigo Vale Ltd",
+          "percent": "60",
+          "doc_id": "doc1",
+          "quote": "Indigo Vale Ltd is three-fifths-owned by Vince Jansen."
+        },
+        {
+          "owner": "Uma Park",
+          "owner_type": "person",
+          "owned": "Indigo Vale Ltd",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Indigo Vale Ltd is one-tenth-owned by Uma Park."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Ivy Quist",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "24% = 24%",
+          "hops": [
+            {
+              "owner": "Ivy Quist",
+              "owned": "Indigo Vale Ltd",
+              "percent": "24",
+              "doc_id": "doc1",
+              "quote": "Ivy Quist holds 2,880 of the 12,000 outstanding shares of Indigo Vale Ltd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Vince Jansen",
+      "percent": "60",
+      "display": "60%",
+      "paths": [
+        {
+          "display": "60% = 60%",
+          "hops": [
+            {
+              "owner": "Vince Jansen",
+              "owned": "Indigo Vale Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Indigo Vale Ltd is three-fifths-owned by Vince Jansen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Uma Park",
+      "percent": "10",
+      "display": "10%",
+      "paths": [
+        {
+          "display": "10% = 10%",
+          "hops": [
+            {
+              "owner": "Uma Park",
+              "owned": "Indigo Vale Ltd",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Indigo Vale Ltd is one-tenth-owned by Uma Park."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Vince Jansen",
+      "percent": "60",
+      "display": "60%",
+      "paths": [
+        {
+          "display": "60% = 60%",
+          "hops": [
+            {
+              "owner": "Vince Jansen",
+              "owned": "Indigo Vale Ltd",
+              "percent": "60",
+              "doc_id": "doc1",
+              "quote": "Indigo Vale Ltd is three-fifths-owned by Vince Jansen."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

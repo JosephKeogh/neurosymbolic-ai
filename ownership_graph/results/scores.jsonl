@@ -1,0 +1,128 @@
+{"id": "d1_easy_00", "depth": 1, "difficulty": "easy", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_00", "depth": 1, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_00", "depth": 2, "difficulty": "easy", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_00", "depth": 2, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_00", "depth": 3, "difficulty": "easy", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_00", "depth": 3, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.025}
+{"id": "d4_easy_00", "depth": 4, "difficulty": "easy", "method": "pipeline", "tp": 13, "n_pred": 13, "n_true": 13, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_easy_00", "depth": 4, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_00", "depth": 1, "difficulty": "hard", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_00", "depth": 1, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.016666666666666666}
+{"id": "d2_hard_00", "depth": 2, "difficulty": "hard", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_00", "depth": 2, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_00", "depth": 3, "difficulty": "hard", "method": "pipeline", "tp": 9, "n_pred": 9, "n_true": 9, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_00", "depth": 3, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.025}
+{"id": "d4_hard_00", "depth": 4, "difficulty": "hard", "method": "pipeline", "tp": 12, "n_pred": 12, "n_true": 12, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_00", "depth": 4, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_01", "depth": 1, "difficulty": "easy", "method": "pipeline", "tp": 4, "n_pred": 4, "n_true": 4, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_01", "depth": 1, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_01", "depth": 2, "difficulty": "easy", "method": "pipeline", "tp": 4, "n_pred": 4, "n_true": 4, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_01", "depth": 2, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_01", "depth": 3, "difficulty": "easy", "method": "pipeline", "tp": 8, "n_pred": 8, "n_true": 8, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_01", "depth": 3, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_easy_01", "depth": 4, "difficulty": "easy", "method": "pipeline", "tp": 9, "n_pred": 9, "n_true": 9, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_easy_01", "depth": 4, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_01", "depth": 1, "difficulty": "hard", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_01", "depth": 1, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_01", "depth": 2, "difficulty": "hard", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_01", "depth": 2, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_01", "depth": 3, "difficulty": "hard", "method": "pipeline", "tp": 9, "n_pred": 9, "n_true": 9, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_01", "depth": 3, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_01", "depth": 4, "difficulty": "hard", "method": "pipeline", "tp": 9, "n_pred": 9, "n_true": 9, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_01", "depth": 4, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_02", "depth": 1, "difficulty": "easy", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_02", "depth": 1, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_02", "depth": 2, "difficulty": "easy", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_02", "depth": 2, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_02", "depth": 3, "difficulty": "easy", "method": "pipeline", "tp": 9, "n_pred": 9, "n_true": 9, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_easy_02", "depth": 3, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_easy_02", "depth": 4, "difficulty": "easy", "method": "pipeline", "tp": 8, "n_pred": 8, "n_true": 8, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_easy_02", "depth": 4, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d1_hard_02", "depth": 1, "difficulty": "hard", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_02", "depth": 1, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_02", "depth": 2, "difficulty": "hard", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_02", "depth": 2, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_02", "depth": 3, "difficulty": "hard", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_hard_02", "depth": 3, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_hard_02", "depth": 4, "difficulty": "hard", "method": "pipeline", "tp": 10, "n_pred": 10, "n_true": 10, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_02", "depth": 4, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_03", "depth": 1, "difficulty": "easy", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_03", "depth": 1, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_03", "depth": 2, "difficulty": "easy", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_03", "depth": 2, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_03", "depth": 3, "difficulty": "easy", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_03", "depth": 3, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.03333333333333333}
+{"id": "d4_easy_03", "depth": 4, "difficulty": "easy", "method": "pipeline", "tp": 8, "n_pred": 8, "n_true": 8, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_easy_03", "depth": 4, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_03", "depth": 1, "difficulty": "hard", "method": "pipeline", "tp": 2, "n_pred": 2, "n_true": 2, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_03", "depth": 1, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_03", "depth": 2, "difficulty": "hard", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_03", "depth": 2, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_03", "depth": 3, "difficulty": "hard", "method": "pipeline", "tp": 8, "n_pred": 8, "n_true": 8, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_03", "depth": 3, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_03", "depth": 4, "difficulty": "hard", "method": "pipeline", "tp": 8, "n_pred": 8, "n_true": 8, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_03", "depth": 4, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_04", "depth": 1, "difficulty": "easy", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_04", "depth": 1, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_04", "depth": 2, "difficulty": "easy", "method": "pipeline", "tp": 6, "n_pred": 6, "n_true": 6, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d2_easy_04", "depth": 2, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_easy_04", "depth": 3, "difficulty": "easy", "method": "pipeline", "tp": 8, "n_pred": 8, "n_true": 8, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_easy_04", "depth": 3, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_easy_04", "depth": 4, "difficulty": "easy", "method": "pipeline", "tp": 10, "n_pred": 10, "n_true": 10, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_easy_04", "depth": 4, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d1_hard_04", "depth": 1, "difficulty": "hard", "method": "pipeline", "tp": 4, "n_pred": 4, "n_true": 4, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_04", "depth": 1, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_04", "depth": 2, "difficulty": "hard", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d2_hard_04", "depth": 2, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_hard_04", "depth": 3, "difficulty": "hard", "method": "pipeline", "tp": 6, "n_pred": 6, "n_true": 6, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_hard_04", "depth": 3, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_hard_04", "depth": 4, "difficulty": "hard", "method": "pipeline", "tp": 9, "n_pred": 9, "n_true": 9, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_hard_04", "depth": 4, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d1_easy_05", "depth": 1, "difficulty": "easy", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_05", "depth": 1, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_05", "depth": 2, "difficulty": "easy", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_05", "depth": 2, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_05", "depth": 3, "difficulty": "easy", "method": "pipeline", "tp": 9, "n_pred": 9, "n_true": 9, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_05", "depth": 3, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_easy_05", "depth": 4, "difficulty": "easy", "method": "pipeline", "tp": 11, "n_pred": 11, "n_true": 11, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_easy_05", "depth": 4, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.03333333333333333}
+{"id": "d1_hard_05", "depth": 1, "difficulty": "hard", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_05", "depth": 1, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_05", "depth": 2, "difficulty": "hard", "method": "pipeline", "tp": 6, "n_pred": 6, "n_true": 6, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_05", "depth": 2, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_05", "depth": 3, "difficulty": "hard", "method": "pipeline", "tp": 6, "n_pred": 6, "n_true": 6, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_05", "depth": 3, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_05", "depth": 4, "difficulty": "hard", "method": "pipeline", "tp": 11, "n_pred": 11, "n_true": 11, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_05", "depth": 4, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_06", "depth": 1, "difficulty": "easy", "method": "pipeline", "tp": 4, "n_pred": 4, "n_true": 4, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_06", "depth": 1, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.011111111111111112}
+{"id": "d2_easy_06", "depth": 2, "difficulty": "easy", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_easy_06", "depth": 2, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_06", "depth": 3, "difficulty": "easy", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_easy_06", "depth": 3, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_easy_06", "depth": 4, "difficulty": "easy", "method": "pipeline", "tp": 10, "n_pred": 10, "n_true": 10, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_easy_06", "depth": 4, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_06", "depth": 1, "difficulty": "hard", "method": "pipeline", "tp": 4, "n_pred": 4, "n_true": 4, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_06", "depth": 1, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_06", "depth": 2, "difficulty": "hard", "method": "pipeline", "tp": 5, "n_pred": 5, "n_true": 5, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_06", "depth": 2, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_06", "depth": 3, "difficulty": "hard", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_06", "depth": 3, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_06", "depth": 4, "difficulty": "hard", "method": "pipeline", "tp": 12, "n_pred": 12, "n_true": 12, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_06", "depth": 4, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_07", "depth": 1, "difficulty": "easy", "method": "pipeline", "tp": 4, "n_pred": 4, "n_true": 4, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_easy_07", "depth": 1, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.016666666666666666}
+{"id": "d2_easy_07", "depth": 2, "difficulty": "easy", "method": "pipeline", "tp": 6, "n_pred": 6, "n_true": 6, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d2_easy_07", "depth": 2, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_easy_07", "depth": 3, "difficulty": "easy", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_easy_07", "depth": 3, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_easy_07", "depth": 4, "difficulty": "easy", "method": "pipeline", "tp": 11, "n_pred": 11, "n_true": 11, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d4_easy_07", "depth": 4, "difficulty": "easy", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d1_hard_07", "depth": 1, "difficulty": "hard", "method": "pipeline", "tp": 3, "n_pred": 3, "n_true": 3, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d1_hard_07", "depth": 1, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d2_hard_07", "depth": 2, "difficulty": "hard", "method": "pipeline", "tp": 6, "n_pred": 6, "n_true": 6, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d2_hard_07", "depth": 2, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": null}
+{"id": "d3_hard_07", "depth": 3, "difficulty": "hard", "method": "pipeline", "tp": 8, "n_pred": 8, "n_true": 8, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d3_hard_07", "depth": 3, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_07", "depth": 4, "difficulty": "hard", "method": "pipeline", "tp": 7, "n_pred": 7, "n_true": 7, "violations_found": 0, "initially_invalid": false, "repaired": false, "rounds": 1, "exact_match": true, "set_f1": 1.0, "mae": 0.0}
+{"id": "d4_hard_07", "depth": 4, "difficulty": "hard", "method": "llm_only", "exact_match": true, "set_f1": 1.0, "mae": 0.0}

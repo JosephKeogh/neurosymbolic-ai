@@ -1,0 +1,10 @@
+{
+  "scenario": "d4_hard_05",
+  "model": "claude-haiku-5-5",
+  "owners": [
+    {
+      "person": "Ravi Hale",
+      "percent": "27.2"
+    }
+  ]
+}

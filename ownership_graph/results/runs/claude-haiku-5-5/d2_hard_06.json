@@ -1,0 +1,156 @@
+{
+  "scenario": "d2_hard_06",
+  "model": "claude-haiku-5-5",
+  "target": "Cedar Gate LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Nico Rook",
+          "owner_type": "person",
+          "owned": "Cedar Gate LLC",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Nico Rook holds 150 of the 1,000 outstanding shares of Cedar Gate LLC."
+        },
+        {
+          "owner": "Meridian Glen Partners LP",
+          "owner_type": "company",
+          "owned": "Cedar Gate LLC",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Meridian Glen Partners LP holds 10,500 of the 30,000 outstanding shares of Cedar Gate LLC."
+        },
+        {
+          "owner": "Thistle Bay Holdings LLC",
+          "owner_type": "company",
+          "owned": "Cedar Gate LLC",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Thistle Bay Holdings LLC owns one-third of Cedar Gate LLC."
+        },
+        {
+          "owner": "Pia Lindqvist",
+          "owner_type": "person",
+          "owned": "Thistle Bay Holdings LLC",
+          "percent": "75",
+          "doc_id": "doc1",
+          "quote": "Pia Lindqvist holds 4,500 of the 6,000 outstanding shares of Thistle Bay Holdings LLC."
+        },
+        {
+          "owner": "Nico Larkin",
+          "owner_type": "person",
+          "owned": "Meridian Glen Partners LP",
+          "percent": "20",
+          "doc_id": "doc2",
+          "quote": "Nico Larkin holds 480 of the 2,400 outstanding shares of Meridian Glen Partners LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Nico Rook",
+      "percent": "15",
+      "display": "15%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Nico Rook",
+              "owned": "Cedar Gate LLC",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Nico Rook holds 150 of the 1,000 outstanding shares of Cedar Gate LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Pia Lindqvist",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "75% x 33 1/3% = 25%",
+          "hops": [
+            {
+              "owner": "Pia Lindqvist",
+              "owned": "Thistle Bay Holdings LLC",
+              "percent": "75",
+              "doc_id": "doc1",
+              "quote": "Pia Lindqvist holds 4,500 of the 6,000 outstanding shares of Thistle Bay Holdings LLC."
+            },
+            {
+              "owner": "Thistle Bay Holdings LLC",
+              "owned": "Cedar Gate LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Thistle Bay Holdings LLC owns one-third of Cedar Gate LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Nico Larkin",
+      "percent": "7",
+      "display": "7%",
+      "paths": [
+        {
+          "display": "20% x 35% = 7%",
+          "hops": [
+            {
+              "owner": "Nico Larkin",
+              "owned": "Meridian Glen Partners LP",
+              "percent": "20",
+              "doc_id": "doc2",
+              "quote": "Nico Larkin holds 480 of the 2,400 outstanding shares of Meridian Glen Partners LP."
+            },
+            {
+              "owner": "Meridian Glen Partners LP",
+              "owned": "Cedar Gate LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Meridian Glen Partners LP holds 10,500 of the 30,000 outstanding shares of Cedar Gate LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Pia Lindqvist",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "75% x 33 1/3% = 25%",
+          "hops": [
+            {
+              "owner": "Pia Lindqvist",
+              "owned": "Thistle Bay Holdings LLC",
+              "percent": "75",
+              "doc_id": "doc1",
+              "quote": "Pia Lindqvist holds 4,500 of the 6,000 outstanding shares of Thistle Bay Holdings LLC."
+            },
+            {
+              "owner": "Thistle Bay Holdings LLC",
+              "owned": "Cedar Gate LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Thistle Bay Holdings LLC owns one-third of Cedar Gate LLC."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

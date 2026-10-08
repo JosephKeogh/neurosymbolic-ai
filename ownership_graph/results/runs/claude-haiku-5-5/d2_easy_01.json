@@ -1,0 +1,134 @@
+{
+  "scenario": "d2_easy_01",
+  "model": "claude-haiku-5-5",
+  "target": "Willow Point Corp",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Northwind Meadow Partners LP",
+          "owner_type": "company",
+          "owned": "Willow Point Corp",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Northwind Meadow Partners LP holds a 30% stake in Willow Point Corp."
+        },
+        {
+          "owner": "Nico Moreau",
+          "owner_type": "person",
+          "owned": "Willow Point Corp",
+          "percent": "15",
+          "doc_id": "doc1",
+          "quote": "Nico Moreau is the holder of 15% of the outstanding shares of Willow Point Corp."
+        },
+        {
+          "owner": "Pia Yilmaz",
+          "owner_type": "person",
+          "owned": "Willow Point Corp",
+          "percent": "25",
+          "doc_id": "doc1",
+          "quote": "Pia Yilmaz is the holder of 25% of the outstanding shares of Willow Point Corp."
+        },
+        {
+          "owner": "Alma Okafor",
+          "owner_type": "person",
+          "owned": "Northwind Meadow Partners LP",
+          "percent": "50",
+          "doc_id": "doc2",
+          "quote": "Alma Okafor holds a 50% stake in Northwind Meadow Partners LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Nico Moreau",
+      "percent": "15",
+      "display": "15%",
+      "paths": [
+        {
+          "display": "15% = 15%",
+          "hops": [
+            {
+              "owner": "Nico Moreau",
+              "owned": "Willow Point Corp",
+              "percent": "15",
+              "doc_id": "doc1",
+              "quote": "Nico Moreau is the holder of 15% of the outstanding shares of Willow Point Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Pia Yilmaz",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Pia Yilmaz",
+              "owned": "Willow Point Corp",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Pia Yilmaz is the holder of 25% of the outstanding shares of Willow Point Corp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Alma Okafor",
+      "percent": "15",
+      "display": "15%",
+      "paths": [
+        {
+          "display": "50% x 30% = 15%",
+          "hops": [
+            {
+              "owner": "Alma Okafor",
+              "owned": "Northwind Meadow Partners LP",
+              "percent": "50",
+              "doc_id": "doc2",
+              "quote": "Alma Okafor holds a 50% stake in Northwind Meadow Partners LP."
+            },
+            {
+              "owner": "Northwind Meadow Partners LP",
+              "owned": "Willow Point Corp",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Northwind Meadow Partners LP holds a 30% stake in Willow Point Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Pia Yilmaz",
+      "percent": "25",
+      "display": "25%",
+      "paths": [
+        {
+          "display": "25% = 25%",
+          "hops": [
+            {
+              "owner": "Pia Yilmaz",
+              "owned": "Willow Point Corp",
+              "percent": "25",
+              "doc_id": "doc1",
+              "quote": "Pia Yilmaz is the holder of 25% of the outstanding shares of Willow Point Corp."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}

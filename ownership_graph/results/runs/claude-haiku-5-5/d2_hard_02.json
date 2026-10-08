@@ -1,0 +1,217 @@
+{
+  "scenario": "d2_hard_02",
+  "model": "claude-haiku-5-5",
+  "target": "Northwind Haven LLC",
+  "rounds": [
+    {
+      "round": 0,
+      "facts": [
+        {
+          "owner": "Harbor Stone Holdings LP",
+          "owner_type": "company",
+          "owned": "Northwind Haven LLC",
+          "percent": "100/3",
+          "doc_id": "doc1",
+          "quote": "Northwind Haven LLC is 33 1/3%-owned by Harbor Stone Holdings LP."
+        },
+        {
+          "owner": "Ember Gate Ventures Ltd",
+          "owner_type": "company",
+          "owned": "Northwind Haven LLC",
+          "percent": "30",
+          "doc_id": "doc1",
+          "quote": "Ember Gate Ventures Ltd holds 9,000 of the 30,000 outstanding shares of Northwind Haven LLC."
+        },
+        {
+          "owner": "Kira Castell",
+          "owner_type": "person",
+          "owned": "Northwind Haven LLC",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "Northwind Haven LLC is 35%-owned by Kira Castell."
+        },
+        {
+          "owner": "Alma Brannock",
+          "owner_type": "person",
+          "owned": "Ember Gate Ventures Ltd",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Alma Brannock holds 3,000 of the 30,000 outstanding shares of Ember Gate Ventures Ltd."
+        },
+        {
+          "owner": "Joel Eklund",
+          "owner_type": "person",
+          "owned": "Ember Gate Ventures Ltd",
+          "percent": "35",
+          "doc_id": "doc1",
+          "quote": "A 35% interest in Ember Gate Ventures Ltd is held by Joel Eklund."
+        },
+        {
+          "owner": "Tova Okafor",
+          "owner_type": "person",
+          "owned": "Harbor Stone Holdings LP",
+          "percent": "72",
+          "doc_id": "doc1",
+          "quote": "Harbor Stone Holdings LP is 72%-owned by Tova Okafor."
+        },
+        {
+          "owner": "Cleo Reyes",
+          "owner_type": "person",
+          "owned": "Harbor Stone Holdings LP",
+          "percent": "10",
+          "doc_id": "doc1",
+          "quote": "Cleo Reyes owns one-tenth of Harbor Stone Holdings LP."
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "valid": true,
+  "effective_ownership": [
+    {
+      "person": "Kira Castell",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Kira Castell",
+              "owned": "Northwind Haven LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Northwind Haven LLC is 35%-owned by Kira Castell."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Alma Brannock",
+      "percent": "3",
+      "display": "3%",
+      "paths": [
+        {
+          "display": "10% x 30% = 3%",
+          "hops": [
+            {
+              "owner": "Alma Brannock",
+              "owned": "Ember Gate Ventures Ltd",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Alma Brannock holds 3,000 of the 30,000 outstanding shares of Ember Gate Ventures Ltd."
+            },
+            {
+              "owner": "Ember Gate Ventures Ltd",
+              "owned": "Northwind Haven LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Ember Gate Ventures Ltd holds 9,000 of the 30,000 outstanding shares of Northwind Haven LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Joel Eklund",
+      "percent": "21/2",
+      "display": "10.5%",
+      "paths": [
+        {
+          "display": "35% x 30% = 10.5%",
+          "hops": [
+            {
+              "owner": "Joel Eklund",
+              "owned": "Ember Gate Ventures Ltd",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "A 35% interest in Ember Gate Ventures Ltd is held by Joel Eklund."
+            },
+            {
+              "owner": "Ember Gate Ventures Ltd",
+              "owned": "Northwind Haven LLC",
+              "percent": "30",
+              "doc_id": "doc1",
+              "quote": "Ember Gate Ventures Ltd holds 9,000 of the 30,000 outstanding shares of Northwind Haven LLC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Tova Okafor",
+      "percent": "24",
+      "display": "24%",
+      "paths": [
+        {
+          "display": "72% x 33 1/3% = 24%",
+          "hops": [
+            {
+              "owner": "Tova Okafor",
+              "owned": "Harbor Stone Holdings LP",
+              "percent": "72",
+              "doc_id": "doc1",
+              "quote": "Harbor Stone Holdings LP is 72%-owned by Tova Okafor."
+            },
+            {
+              "owner": "Harbor Stone Holdings LP",
+              "owned": "Northwind Haven LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Northwind Haven LLC is 33 1/3%-owned by Harbor Stone Holdings LP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "person": "Cleo Reyes",
+      "percent": "10/3",
+      "display": "3 1/3%",
+      "paths": [
+        {
+          "display": "10% x 33 1/3% = 3 1/3%",
+          "hops": [
+            {
+              "owner": "Cleo Reyes",
+              "owned": "Harbor Stone Holdings LP",
+              "percent": "10",
+              "doc_id": "doc1",
+              "quote": "Cleo Reyes owns one-tenth of Harbor Stone Holdings LP."
+            },
+            {
+              "owner": "Harbor Stone Holdings LP",
+              "owned": "Northwind Haven LLC",
+              "percent": "100/3",
+              "doc_id": "doc1",
+              "quote": "Northwind Haven LLC is 33 1/3%-owned by Harbor Stone Holdings LP."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beneficial_owners": [
+    {
+      "person": "Kira Castell",
+      "percent": "35",
+      "display": "35%",
+      "paths": [
+        {
+          "display": "35% = 35%",
+          "hops": [
+            {
+              "owner": "Kira Castell",
+              "owned": "Northwind Haven LLC",
+              "percent": "35",
+              "doc_id": "doc1",
+              "quote": "Northwind Haven LLC is 35%-owned by Kira Castell."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "error": null
+}
